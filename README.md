@@ -10,12 +10,12 @@
 ### 目录结构说明
 
 ```bash
-├─common 				// 存放公共文件
-├─Component 		// 存放小程序自定义组件
-├─image				  // 图片
-├─pages					// 页面代码(wxml,js,wxss,json)
-├─utils					// 公共js
-├─wxParse				// 微信小程序富文本解析自定义组件
+├─common        // 存放公共文件
+├─Component     // 存放小程序自定义组件
+├─image         // 图片
+├─pages         // 页面代码(wxml,js,wxss,json)
+├─utils         // 公共js
+├─wxParse       // 微信小程序富文本解析自定义组件
 ├─app.js
 ├─app.wxss
 └─app.json
