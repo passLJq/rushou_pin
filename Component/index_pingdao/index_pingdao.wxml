@@ -1,0 +1,29 @@
+<view class="otherBlock" hidden="{{classIndex==0}}">
+  <view class="title">{{classTitle}}<text>呼朋唤友一起拼</text></view>
+
+	<view class="otherItem" wx:if="{{msg}}" wx:for="{{msg}}" data-gbid="{{item.gbid}}" bindtap="toGroupBuy">
+		<image src="{{item.propic}}"></image>
+		<view class="detail">
+		  <text><text class="p1">{{item.gbuynum}}人拼团</text> {{item.title}}</text>
+			<view class="headimg {{item.userimglist && item.userimglist.length > 0 ? '' : 'flexEnd'}}">
+			  <view>
+				  <!-- <image wx:for="{{item.userimglist}}" wx:for-item="member" wx:for-index="idx" wx:if="{{idx < 5}}" src="{{member}}"></image> -->
+				</view>
+				<text>已售{{item.count}}件</text>
+			</view>
+			<view class="bottom">
+			  <view class="pr">
+				  <text>￥{{item.gbprice}}</text>
+				  <text>原价￥{{item.proprice}}</text>
+				</view>
+				<view class="btn">去拼团</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+<view class="nodata" wx:if="{{classIndex!=0&&!msg}}">
+  <image mode="widthFix" src="../../image/nodata.png"></image>
+	<text>暂无相关商品数据~</text>
+</view>

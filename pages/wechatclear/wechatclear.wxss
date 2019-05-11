@@ -1,0 +1,12 @@
+/* pages/wechatclear/wechatclear.wxss */
+page{background-color: #fff}
+.wechatou{text-align: center}
+.wechatou view:nth-child(1){
+  font-size: 48rpx;
+  margin-top: 120rpx;
+}
+.wechatou view:nth-child(2){
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+.as{margin-top: 220rpx;width: 50%;padding: 20rpx 0}

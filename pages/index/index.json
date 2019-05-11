@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#FE334B",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "入手拼",
+  "backgroundColor": "#ffffff",
+  "enablePullDownRefresh": true,
+	"usingComponents": {
+		"index_pingdao": "/Component/index_pingdao/index_pingdao",
+		"foot-nav": "/Component/foot-nav/foot-nav"
+	}
+}

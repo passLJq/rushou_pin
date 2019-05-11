@@ -1,0 +1,103 @@
+<!--pages/order/order.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<view wx:if="{{isFirstLoaded}}">
+  <view class="stv-container">
+    <view class="tab-bar">
+      <view wx:for="{{tabs}}" wx:key="unique" data-index="{{index}}" bindtap="handlerTabTap" class="tab {{activeTab==index?'tab-active':''}}" style="width: {{stv.windowWidth/tabs.length}}px">
+        <text>{{item}}</text>
+      </view>
+      <view style="width: {{stv.lineWidth}}px; left: {{stv.offset/tabs.length}}px" class="under-line {{!stv.tStart? 'withAnimate': ''}}"></view>
+    </view>
+    <view class="scroll-view">
+      <view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" class="scroll-view-wrapper {{!stv.tStart? 'withAnimate': ''}}" style="left: -{{stv.offset}}px" lower-threshold="0">
+        <view style="width: {{stv.windowWidth}}px;" wx:for="{{tabs}}" wx:key="unique" wx:for-index="idx" class="one-scene">
+          <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{stv.scrollHeight}}px;" class="list" bindscrolltolower="bindDownLoad">
+            <!-- bindscrolltoupper="refresh"-->
+            <view class="list_container" style="{{msg[idx].length > 0? 'background-color:#fff;':''}} {{isIphoneX? 'padding-bottom: 48rpx;': ''}}">
+              <!--没有数据  -->
+              <view wx:if="{{noMsg[idx] && msg[idx].length < 1}}" class="flex flex_v flex_align_center" style="margin-top: 200rpx;">
+                <view class="flex flex_align_center flex_pack_center" style="overflow: hidden;width: 400rpx; height: 400rpx;">
+                  <image mode="center" src="../../image/nostate.png" style="width: 800rpx; height: 800rpx;"></image>
+                </view>
+                <view class="color_999 font_14">
+                  <text>抱歉，目前没有显示记录</text>
+                </view>
+              </view>
+              <!--有数据  -->
+              <view wx:for="{{msg[idx]}}" wx:key="length" wx:for-item="list" wx:for-index="list_idx">
+                <view class="flex flex_pack_justify_between list_top_container flex_align_center">
+                  <view class="flex flex_v">
+                    <view class="color_000 list_top_left">
+                      <text>{{list.shopname}}</text>
+                    </view>
+                    <view class="font_12 color_999">
+                      <text>订单编号：{{list.orderid}}</text>
+                    </view>
+                  </view>
+                  <view class="flex flex_align_center">
+                    <text class="order_type">{{list.orderstate == 10? '待付款':list.orderstate == 11? '待处理': list.orderstate == 20? '待发货': list.orderstate == 30? '已发货': list.orderstate == 40? '已完成': list.orderstate == 50? '已退货': list.orderstate == 60? '已退款': list.orderstate == 62? '申请换货': list.orderstate == 70? '已关闭': '--'}}</text>
+                  </view>
+                </view>
+                <view class="list_center_container" wx:for="{{list.orderitems}}" bindtap="toOrderDetail" data-orderid="{{list.orderid}}" wx: wx:key="length" wx:for-item="items" wx:for-index="items_idx">
+                  <view class="flex product_list overflow_sizing">
+                    <view class="product_img_container">
+                      <image src="{{items.pic || '/image/bkg_cover.jpg'}}"></image>
+                    </view>
+                    <view class="flex_1 flex flex_v flex_pack_justify_between">
+                      <view class="flex flex_pack_justify_between">
+                        <view class="line_over_2">
+                          <text class="quanqiu" wx:if="{{items.iscrossorder}}"><text>全球购</text>包邮包税</text>
+                          <text class="chuanye" wx:if="{{items.ordertype==4||items.ordertype==12}}">创业礼包</text>
+                          <text class="quanqiu" wx:if="{{items.isrushbuy}}" style="border-radius: 10rpx; background-color: orange; color: #fff; border: 0; padding: 6rpx; margin-right: 10rpx;">限时抢购</text>
+                          <text style="{{items.ordertype == 110 ? 'line-height: 42rpx;' : ''}}">
+                            <!-- 添加分享夺宝标识 -->
+                            <text class="fenx" wx:if="{{items.ordertype == 110}}">天天抽奖</text>{{items.proname}}
+                          </text>
+                        </view>
+                        <view>
+                          <text>￥{{items.price}}</text>
+                        </view>
+                      </view>
+                      <view class="flex flex_pack_justify_between font_12 color_999">
+                        <view>
+                          <text>{{items.skutext || ""}}</text>
+                        </view>
+                        <view>
+                          <text>X{{items.buycount}}</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+                <view class="container_other">
+                  <text>共{{list.totalbuycount}}件商品 合计：</text>
+                  <text>￥{{filters.toFix(list.total,2)}}</text>
+                </view>
+                <view class="container_other flex flex_align_center flex_pack_right" wx:if="{{list.orderstate == 10}}">
+                  <form bindsubmit="cancleOrder" report-submit="true" bindreset="formReset" class=" overflow_sizing flex flex_align_center" style="margin-right:0%">
+                    <button formType="submit" class="quxiaobtn" data-orderid="{{list.orderid}}" data-idx="{{list_idx}}">取消订单</button>
+                  </form>
+                  <text class="topay" bindtap="toPay" data-orderid="{{list.orderid}}" data-packageid="{{list.orderitems[0].packageid}}" data-idx="{{list_idx}}">去付款</text>
+                </view>
+                <view class="container_other" wx:if="{{list.orderstate == 30}}">
+                  <text class="topay" bindtap="toReceipt" data-orderid="{{list.orderid}}">确认收货</text>
+                </view>
+                <!-- 拼团提示语 -->
+                <view class="container_other" wx:if="{{(list.orderstate == 20 || list.orderstate == 30)&&list.gbid&&!list.orderitems[0].isrefundorder}}" style="color: #4C6195;">
+                 <text>{{list.gbstate==1?'等待成团，快去邀请小伙伴参与吧..':list.gbstate==2?(list.orderstate==30?'拼团成功，商品已经在路上，请耐心等待...':'拼团成功，商品正在打包中，请耐心等待...'):'拼购失败,已全额退款'}}</text>
+                </view>
+                <!-- //普通商品提示语 -->
+                <view class="container_other" wx:if="{{orderindexs < 1 && (((list.orderstate == 20 || list.orderstate == 30) && list.gbid === null) || orderitems.isrefundorder)}}" style="color: #4C6195;" wx:for="{{list.orderitems}}" wx:for-item="orderitems" wx:key="{{orderitems.orderid}}" wx:for-index="orderindexs">
+                  <text>{{orderitems.isrefundorder ? (orderitems.refundstatus === 1 ? '商品退款审核中，请您耐心等待....' : orderitems.refundstatus === 2 ? '商品退款申请被拒绝...' : orderitems.refundstatus === 3 ? (list.gbdata.headfree&&list.gbstate<3?'恭喜您，获得团长免单机会，已全额退款':'商品退款成功'): orderitems.refundstatus === 4 ? '商品退款申请已失效...' : '商品退款申请处理中...') : (list.orderstate === 20 ? '商品正在打包中，请耐心等待...' : list.orderstate === 30 ? '商品已经在路上，请耐心等待...' : '')}}</text>
+                </view>
+              </view>
+            </view>
+            <view wx:if="{{orderNoMore[idx]}}" style="padding: 20rpx; color: #999; text-align: center; font-size: 24rpx;">
+              <text>- 没有更多数据了 -</text>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

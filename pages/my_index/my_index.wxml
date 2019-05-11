@@ -1,0 +1,219 @@
+<!--pages/my_index/my_index.wxml-->
+<view class="my_tou" bindtap='gologin'>
+  <image src="{{userMsg.pic?userMsg.pic:'../../image/logoshou.png'}}"></image>
+  <view class="usMsg">
+	  <view style="display:flex;flex-wrap:wrap;">
+			<text class="usn">{{usn}}</text>
+			<!-- <text class="usn">群哥@社群电商.战略军事</text> -->
+			<!-- <text class="iconfont icon-cc-star tuanz " wx:if="{{uid}}">团长</text> -->
+		</view>
+		<text wx:if="{{userMsg.code&&fxshopid}}">邀请码: {{userMsg.code}}</text>
+		<!-- <text wx:elif="{{uid&&!userMsg.code}}">请填写邀请码</text> -->
+	</view>
+</view>
+<!-- 我的订单 -->
+<view class="order_box">
+  <view class="items my_ordertitle">
+    <text>我的订单</text>
+    <view class="my_p1 items" bindtap="toOrder">查看全部
+      <i class="right-arrow"></i>
+    </view>
+  </view>
+	<view class="line"></view>
+  <view class="items jihuabox">
+    <view class="my-item" data-type="1" bindtap="toOrder">
+      <view style="position:relative">
+        <image src="../../image/daifuk.png"></image>
+        <text class='translateX_icon' wx:if="{{orderState.unpay > 0}}">{{orderState.unpay}}</text>
+      </view>
+      <text class="texts">待付款</text>
+    </view>
+    <view class="my-item" data-type="2" bindtap="toOrder">
+      <view style="position:relative">
+        <image src="../../image/daifahuo.png"></image>
+        <text class='translateX_icon' wx:if="{{orderState.tobesend > 0}}">{{orderState.tobesend}}</text>
+      </view>
+      <text class="texts">待发货</text>
+    </view>
+    <view class="my-item" data-type="3" bindtap="toOrder">
+      <view style="position:relative">
+        <image src="../../image/daishouhuo.png"></image>
+        <text class='translateX_icon' wx:if="{{orderState.unreceipt > 0}}">{{orderState.unreceipt}}</text>
+      </view>
+      <text class="texts">待收货</text>
+    </view>
+    <view class="my-item" bindtap="toAfterSale">
+      <view style="position:relative">
+        <image src="../../image/shouhou.png"></image>
+      </view>
+      <text class="texts">售后/退换</text>
+    </view>
+  </view>
+</view>
+
+<view class="order_box ">
+  <view class="items my_ordertitle">
+    <text>我的拼团</text>
+    <view class="my_p1 items" data-type="100" bindtap="gogrouporder">查看全部
+      <i class="right-arrow"></i>
+    </view>
+  </view>
+	<view class="line"></view>
+  <view class="items jihuabox myping" wx:if="{{uid}}">
+    <view class="my-item" bindtap="gogrouporder" data-type="1">
+      <view style="position:relative">
+        <text class="numm">{{userPing.jinxing}}</text>
+      </view>
+      <text class="texts">正在进行中</text>
+    </view>
+
+		<view class="my-item" bindtap="gogrouporder" data-type="2">
+      <view style="position:relative">
+        <text class="numm">{{userPing.chengtuan}}</text>
+      </view>
+      <text class="texts">已成团</text>
+    </view>
+
+		<view class="my-item" bindtap="gogrouporder" data-type="100">
+      <view style="position:relative">
+        <text class="numm">{{userPing.quanbu}}</text>
+      </view>
+      <text class="texts">全部拼团</text>
+    </view>
+  </view>
+</view>
+
+<view class="order_box" wx:if="{{fxshopid}}">
+  <view class="items my_ordertitle">
+    <text>我的收益</text>
+    <!-- <view class="my_p1 items" bindtap="gomyshouyi">查看全部
+      <i class="right-arrow"></i>
+    </view> -->
+  </view>
+  	<view class="line"></view>
+  <view class="shouyibox">
+    <view class="shouyi_left">
+      <view>总金额(元)</view>
+        <view>{{userMsg.totalCommision}}</view>
+        <view>即将到账:<text style="color:#FE334B">+{{userMsg.sooncommision}}</text></view>
+    </view>
+    <view class="shouyi_right">
+      <view bindtap="gomyshouyi">查看明细</view>
+      <view bindtap='goapps'>提  现</view>
+    </view>
+  </view>
+</view>
+
+<view class="order_box">
+  <view class="items my_ordertitle">
+    <text>我的服务</text>
+    
+  </view>
+	<view class="line"></view>
+  <view class="items jihuabox" style='padding: 24rpx 0;flex-wrap: wrap;'>
+    <view class="my-item itemimg" bindtap="goMylndiana">
+      <view style="position:relative">
+        <image src="../../image/wdcj.png"></image>
+      </view>
+      <text class="texts">我的抽奖</text>
+    </view>
+
+		<view class="my-item itemimg" bindtap="gomycounp">
+      <view style="position:relative">
+        <image src="../../image/wdyhq.png"></image>
+      </view>
+      <text class="texts">我的优惠券</text>
+    </view>
+
+		<view class="my-item itemimg" bindtap="gocouponcenter">
+      <view style="position:relative">
+        <image src="../../image/lqzx.png"></image>
+      </view>
+      <text class="texts">领券中心</text>
+    </view>
+
+		<view class="my-item itemimg" bindtap="gomessagelist">
+      <view style="position:relative">
+        <image src="../../image/xxtz.png"></image>
+      </view>
+      <text class="texts">消息通知</text>
+    </view>
+
+		<view class="my-item itemimg mt_46" bindtap="goaddress">
+      <view style="position:relative">
+        <image src="../../image/dzgl.png"></image>
+      </view>
+      <text class="texts">地址管理</text>
+    </view>
+
+		<!-- <button class="my-item itemimg mt_46" open-type='contact' style="padding: 0;background: #fff;margin: 0;line-height: normal;">
+      <view style="position:relative">
+        <image src="../../image/lxdh.png"></image>
+      </view>
+      <text class="texts">联系客服</text>
+    </button> -->
+		<view class="my-item itemimg mt_46" bindtap="gokefu">
+      <view style="position:relative">
+        <image src="../../image/lxdh.png"></image>
+      </view>
+      <text class="texts">常见问题</text>
+    </view>
+
+		<view class="my-item itemimg mt_46" bindtap="phoneCall">
+      <view style="position:relative">
+        <image src="../../image/gonghuo.png"></image>
+      </view>
+      <text class="texts">供货申请</text>
+    </view>
+    
+		<view class="my-item itemimg mt_46" bindtap="gowechat">
+      <view style="position:relative">
+        <image src="../../image/wxjb.png"></image>
+      </view>
+      <text class="texts">微信解绑</text>
+    </view>
+
+  </view>
+</view>
+
+<!-- 活动订单 -->
+<!-- <view class="act_oredr items">
+  <view class="act_li" bindtap='gogrouporder'>
+    <image src="../../image/wodepintuan_icon@3x.png"></image>
+    <text>我的拼团</text>
+  </view>
+    <view class="act_li" bindtap="goMylndiana">
+    <image src="../../image/wodeduobao_icon@3x.png"></image>
+    <text>我的抽奖</text>
+  </view>
+    <view class="act_li" bindtap='gokanjia'>
+    <image src="../../image/wodekanjia_icon@3x.png"></image>
+    <text>我的砍价</text>
+  </view>
+   <view class="act_li" bindtap='gomycounp'>
+    <image src="../../image/youhuij.png"></image>
+    <text>我的优惠券</text>
+  </view>
+</view> -->
+<!-- 其他 -->
+<!-- <view class="items other_box">
+  <view class="other_li" bindtap='goaddress'>
+    <image src="../../image/add_icon@3x.png"></image>
+    <text>收货地址</text>
+  </view>
+    <button class="other_li btnms" open-type='contact' >
+    <image src="../../image/service_icon@3x.png"></image>
+    <text>在线客服</text>
+  </button>
+    <view class="other_li" bindtap="gomessagelist">
+    <image src="../../image/message_icon@3x.png"></image>
+    <text>消息中心</text>
+  </view>
+    <view class="other_li" bindtap='gowechat'>
+    <image src="../../image/weixin_icon@3x.png"></image>
+    <text>微信解绑</text>
+  </view>
+</view> -->
+
+<goapps goapp='{{goapp}}' bind:action="goapps"></goapps>
+<foot-nav clickindex='2'></foot-nav>

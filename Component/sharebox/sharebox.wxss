@@ -1,0 +1,23 @@
+/* Component/sharebox/sharebox.wxss */
+.zhezhao{position: fixed;background-color: rgba(0, 0, 0, .8);width: 100%;top:0;bottom:0;left:0;right:0;z-index: 99999;overflow:hidden;}
+.shareli image{width:96rpx;height: 96rpx;margin: 0 auto;}
+.shareli text{font-size: 28rpx;color: #333}
+.sharebox{width: 92%;position: fixed;background: #fff;z-index: 99999;left: 4%;
+padding: 40rpx 0;border-radius: 8px;transition:bottom 0.5s ease-in-out;bottom:-100%;
+
+}
+.shareBox_types{display: flex;justify-content: space-around;}
+.shareboxopen{bottom:20rpx}
+.shareli{background-color: #fff;border: 1px solid #fff;line-height: 1.2}
+button::after{
+border: none;
+}
+.zuan_container{padding: 0 70rpx 10rpx; text-align: center;}
+.price_container{margin-bottom: 28rpx; color: #FF422C;}
+
+.circle_container{position: absolute;left: -90000px;z-index: 99999;margin: 0 auto;top:10px}
+.finde{position: absolute;left: 0;right:0;z-index: 99999;margin: 0 auto;top:10px;}
+.haibao{position: fixed;top:40px;width: 70%;left: 15%;z-index: 999999}
+.sav{position: fixed;width: 70% !important;bottom: 20px;left: 15%;z-index: 999999;box-shadow:0 0 0 #000;padding:16rpx 0;
+height:42rpx;margin-left:0rpx !important;
+}

@@ -1,0 +1,10 @@
+/* pages/messagelist/messagelist.wxss */
+.msitem{display: flex;align-items: center}
+.msitem image{width: 96rpx;height: 96rpx;margin-right: 30rpx;flex-shrink: 0}
+.box{background-color: #fff;}
+.out{justify-content: space-between;background: #fff;padding: 20rpx 0;margin: 0 30rpx;border-bottom: 1px solid #F6F6FA}
+.titles view:nth-child(1){font-size: 34rpx;color: #333}
+.titles view:nth-child(2){font-size: 28rpx;color: #999;margin-top: 10rpx;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical}
+
+.img_box{position: relative;}
+.icon_corner{position: absolute; top: 0; right: 0; transform: translateX(-50%); width:22px;height:14px;background:rgba(255,85,65,1);border-radius:7px; font-size: 12px; text-align: center; line-height: 14px; color: #fff; box-sizing: border-box;}

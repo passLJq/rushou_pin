@@ -1,0 +1,44 @@
+<!--pages/gblist/gblist.wxml-->
+<!-- 拼团成员 -->
+<view class="mark" hidden="{{showPt}}" bindtap="closePt"></view>
+<view class="member">
+  <block wx:for="{{groupBuyList.gblist}}" wx:for-item="member" wx:if="{{member}}">
+    <view class="member-item flex">
+      <image src="{{member.imgphoto}}" binderror="imageError" data-index='{{index}}'></image>
+      <view class="flex flex_v flex_pack_justify_between flex_1">
+        <text class="line_over_1">{{member.realname}}的拼团</text>
+        <text>还差{{member.num}}人，还剩{{countDownTime[index]}}</text>
+      </view>
+      <view class="btn gradient" data-idx="{{index}}" data-isingroup="{{member.isingroup}}" data-orderid="{{member.orderidlist[0].orderid}}"
+      bindtap="{{member.isingroup ? 'goGroupDetail' : 'showPtpop'}}">{{member.isingroup ? '已参团' : '快速参团'}}</view>
+    </view>
+  </block>
+</view>
+
+<!-- 拼团弹窗 -->
+<view class="ptPop flex flex_v flex_align_center flex_pack_justify_between" hidden="{{showPt}}">
+  <text>还差{{ptDetailData.count}}人，快来拼团吧</text>
+  <view class="avatar flex" style="{{ptDetailData.resobj.length + ptDetailData.count > 5 ? 'flex-wrap: wrap;width: 80%' : ''}}">
+    <!-- 头像遍历 -->
+    <block wx:for="{{ptDetailData.resobj}}">
+    <view style="position: relative;" wx:if="{{index==0}}">
+      <image src="{{item.userimg}}" binderror="popImgErr" data-index='{{index}}'></image>
+      <view class="tuanzhang gradient flex flex_align_center flex_pack_center" style="margin-bottom: 20rpx">团长</view>
+    </view>
+      <view class="" style="width: 96rpx;margin-left: 5rpx;margin-bottom: 20rpx" wx:else>
+        <image src="{{item.userimg}}" binderror="popImgErr" data-index='{{index}}'></image>
+      </view>
+    </block>
+    <block wx:for="{{ptDetailData.count}}">
+      <view style="width: 96rpx; height: 96rpx;margin-left: 5rpx;margin-bottom: 20rpx">
+        <image src="" style="background-color: #eee;border: 1rpx solid #d8d8d8;"></image>
+      </view>
+    </block>
+  </view>
+  <view class="btn gradient flex flex_align_center flex_pack_center" 
+  data-orderid="{{ptDetailData.orderid}}" data-isingroup="{{ptData.isingroup}}" bindtap="goGroupDetail">
+    {{ptData.isingroup ? '已参团' : '快速参团'}}
+  </view>
+</view>
+
+<specpop skuBoxBottom="{{skuBoxBottom}}" ptDetailData="{{ptDetailData}}" bind:close="showSku" msg="{{msg}}" specData="{{specData}}" groupBuyList="{{groupBuyList}}"></specpop>

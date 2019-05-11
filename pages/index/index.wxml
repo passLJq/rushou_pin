@@ -1,0 +1,75 @@
+<view class="search" id="search">
+	<view class="zz" bindtap="gogongshang">
+	  <image mode="widthFix" src="../../image/yyzz.png"></image>
+	</view>
+  <view class="searchBar" bindtap="openSearch">
+	  <text class="iconfont icon-magnifier"></text><text class="searchText">搜一搜今日好团</text>
+	</view>
+	<view class="iconfont icon-i-message msg" bindtap="goMessageList">
+		<!--  -->
+		<i wx:if="{{hasMsg}}"></i>
+	</view>
+</view>
+
+<view class="navBox {{fixNav ? 'fix' : ''}}" id="nav">
+  <scroll-view scroll-x="{{true}}" scroll-y="{{false}}" scroll-into-view="nav_{{navIndex}}" style="width: 100%; height: 100%; white-space: nowrap; position: relative;">
+    <view class="navItem {{navIndex == index ? 'active' : ''}}" wx:for="{{navArr}}" style="width:{{(item.cla.name.length*30)+30+'rpx'}}"
+		 id="nav_{{index}}" data-index="{{index}}" catchtap='changeNav'>{{item.cla.name}}</view>
+		<view id="bottomBar" class="bottomBar transition_ease_in_out_fast" style="left: {{bottomBarPosition ? bottomBarPosition + 'px;' : '6rpx;'}}"></view>
+  </scroll-view>
+</view>
+
+<view class="bannerBox {{fixNav ? 'mt_88' : ''}}">
+  <swiper class="banner" indicator-dots="{{false}}" circular="{{true}}" bindchange="changeBanner" autoplay="true" interval="3000">
+		<swiper-item class="bannerItem" wx:for="{{banner}}" data-gbid="{{item.gbid}}" data-pid="{{item.pid}}" bindtap="toGroupBuy">
+			<image src="{{item.soure}}" /> 
+		</swiper-item>
+	</swiper>
+	<view class="dot" hidden="{{banner&&banner.length<=1}}">
+	  <view class="dott {{bannerIndex == index ? 'active' : ''}}" wx:for="{{banner}}"></view>
+	</view>
+</view>
+
+<view class="ensure">
+	<view><image mode="widthFix" src="../../image/ensure1.png"></image><text>全场包邮</text></view>
+	<view><image mode="widthFix" src="../../image/ensure2.png"></image><text>正品保证</text></view>
+	<view><image mode="widthFix" src="../../image/ensure3.png"></image><text>售后无忧</text></view>
+	<view><image mode="widthFix" src="../../image/ensure4.png"></image><text>好货价低</text></view>
+</view>
+
+<view class="navMid" style="{{navIndex == 0 ? '' : 'display: none;'}}">
+  <view class="midItem" wx:for="{{navimg}}" data-link="{{item.content}}" data-idx="{{index}}" bindtap='golink'>
+	  <image src="{{item.imgUrl}}"></image>
+		<text>{{navtitle[index]}}</text>
+	</view>
+</view>
+
+<navigator class="indexBanner" style="{{navIndex == 0 ? '' : 'display: none;'}}" url="../tz_recruit/tz_recruit">
+	<image src="https://images.rushouvip.cn/IMG/20190109_banner.gif"></image>
+</navigator> 
+
+<view class="hotbuy" style="{{navIndex == 0 ? '' : 'display: none;'}}" wx:if="{{groupdata&&groupdata.length>0}}">
+  <view class="hotTitle">今日热卖</view>
+
+	<view class="hotItem" wx:for="{{groupdata}}" bindtap="toGroupBuy" data-gbid="{{item.id}}" data-pid="{{item.pid}}">
+		<view class="line"></view>
+	  <image src="{{item.backgrounds}}" mode="widthFix"></image>
+		<view class="explain">
+		  <view>{{item.title}}</view>
+		  <!-- <view>清洁方便 不藏污垢</view> -->
+			<view class="down">
+			  <view class="left">
+				  <view>
+					  <text>{{item.gbnum}}人拼团</text>
+						<text >{{item.gbprice}}</text>
+					</view>
+					<!-- <text>已售11件</text> -->
+				</view>
+			  <view class="right">去拼团</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<index_pingdao id="pingdao" classIndex="{{navIndex}}" classid="{{navArr[navIndex].cla.classid}}" title="{{navArr[navIndex].cla.name}}" ></index_pingdao>
+<foot-nav clickindex='0'></foot-nav>

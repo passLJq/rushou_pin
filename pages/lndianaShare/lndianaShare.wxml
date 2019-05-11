@@ -1,0 +1,44 @@
+<import src="../../Component/sharebox/sharebox.wxml" />
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<view class="flex flex_v flex_align_center box">
+<!-- 分享说明 -->
+  <view class="explain flex flex_pack_center" style="{{userData.sharedes.length + userData.remaining > 6 ? 'margin-top: 50rpx;' : ''}}">
+    <!-- <text>再分享<text class="num">{{userData.remaining}}人</text>即可参加抽奖</text> -->
+    <text>再分享<text class="num">{{userData.remaining}}人</text>助力，即可参加抽奖</text>
+  </view>
+<!-- 助力头像区域 -->
+  <view class="helper flex flex_pack_center" style="{{userData.sharedes.length + userData.remaining > 6 ? 'flex-wrap: wrap;' : ''}}">
+      <view class="flex flex_v flex_align_center line_over_1" style="max-width: 96rpx;">
+        <image wx:if="{{userData.userimg != ''}}" src="{{userData.userimg}}"></image>
+        <image wx:else style="background-color: #eee;border:2rpx solid #d8d8d8;"></image>
+        <text style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">{{userData.username ? filters.hideName(userData.username) : ' '}}</text>
+      </view>
+    <!-- 已助力的 -->
+    <block wx:for="{{userData.sharedes}}">
+      <view class="flex flex_v flex_align_center line_over_1" style="max-width: 96rpx;">
+        <image wx:if="{{item.userhead != ''}}" src="{{item.userhead}}"></image>
+        <image wx:else style="background-color: #eee;border:2rpx solid #d8d8d8;"></image>
+        <text style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;">{{item.username != '' ? filters.hideName(item.username) : '已助力'}}</text>
+      </view>
+    </block>
+    <!-- 待助力的 -->
+    <block wx:for="{{userData.remaining}}">
+      <view class="flex flex_v flex_align_center">
+        <image style="background-color: #eee;border:2rpx solid #d8d8d8;"></image>
+        <text>待助力</text>
+      </view>
+    </block>
+
+  </view>
+<!-- 分享按钮 -->
+  <view wx:if="{{userData.remaining}}" class="btn gradient flex flex_pack_center flex_align_center" bindtap="show">
+    分享活动给好友
+  </view>
+  <text wx:if="{{userData.remaining}}" class="color_333" style="font-size: 24rpx;margin-top: 30rpx;">分享3个群之后，成功率高达90%哦</text>
+  <view wx:if="{{!userData.remaining}}" class="btn gradient flex flex_pack_center flex_align_center" bindtap="goPay" >
+    立即参加抽奖
+  </view>
+</view>
+
+<!-- 分享弹窗 -->
+<template is="sharebox" data="{{showshare, zuan: zuan,haibao:haibao}}" />

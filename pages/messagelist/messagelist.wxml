@@ -1,0 +1,88 @@
+<!--pages/messagelist/messagelist.wxml-->
+<view class="box">
+  <view class="msitem out" bindtap='gosection' data-itemcode="1">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes1.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].myorderurcount > 0}}">{{data[0].myorderurcount
+          < 100 ? data[0].myorderurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>我的订单</view>
+          <view>{{data[0].myorder}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+  <view class="msitem out" bindtap='gosection' data-itemcode="4">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes4.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].mysaleorderurcount > 0}}">{{data[0].mysaleorderurcount
+          < 100 ? data[0].mysaleorderurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>销售订单</view>
+          <view>{{data[0].mysaleorder}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+  <view class="msitem out" bindtap='gosection' data-itemcode="5">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes5.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].myfxorderurcount > 0}}">{{data[0].myfxorderurcount
+          < 100 ? data[0].myfxorderurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>分销订单</view>
+          <view>{{data[0].myfxorder}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+  <view class="msitem out" bindtap='gosection' data-itemcode="2">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes2.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].myassetsurcount > 0}}">{{data[0].myassetsurcount
+          < 100 ? data[0].myassetsurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>我的资产</view>
+          <view>{{data[0].myassets}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+  <view class="msitem out" bindtap='gosection' data-itemcode="3">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes3.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].myteamurcount > 0}}">{{data[0].myteamurcount
+          < 100 ? data[0].myteamurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>我的团队</view>
+          <view>{{data[0].myteam}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+
+  <view class="msitem out" bindtap='gosection' data-itemcode="6">
+    <view class="msitem">
+      <view class="img_box">
+        <image src='../../image/mes6.png'></image>
+        <view class="icon_corner" wx:if="{{data[0].mynoticeurcount > 0}}">{{data[0].mynoticeurcount
+          < 100 ? data[0].mynoticeurcount : 99 }}</view>
+        </view>
+        <view class="titles">
+          <view>系统消息</view>
+          <view>{{data[0].mynotice}}</view>
+        </view>
+    </view>
+    <i class="right-arrow"></i>
+  </view>
+</view>

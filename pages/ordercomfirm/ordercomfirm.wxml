@@ -1,0 +1,234 @@
+<!--pages/addpro/ordercomfirm/ordercomfirm.wxml-->
+<wxs module="filter" src="../../Component/filters/filters.wxs"></wxs>
+<view>
+  <!--地址  -->
+  <view class="top_container overflow_boxsizing" bindtap='toAddress' data-addressid="{{addressId}}">
+    <view class="flex flex_align_center hasaddress_container overflow_boxsizing padding16" wx:if="{{addressList}}">
+      <view style="height: 100%;" class="flex_1 flex flex_v flex_pack_justify_around overflow_boxsizing">
+        <view class="flex flex_pack_justify_between font_17 color_333">
+          <view>
+            <text class="font_weight" style="margin-right: 20rpx;">收货人</text>
+            <text>{{addressList.name}}</text>
+          </view>
+          <view>
+            <text>{{addressList.mobile}}</text>
+          </view>
+        </view>
+        <view class="overflow_boxsizing font_14 color_666">
+          <text>{{addressList.fullarea + addressList.address}}</text>
+        </view>
+      </view>
+      <view class="more_icon" style="width:88rpx; text-align:right;"></view>
+    </view>
+    <view class="noaddress_container" wx:if="{{!addressList}}">
+      <view class="translateXY">
+        <text class="noaddress_icon iconfont icon-add1"></text>
+        <text class="color_333 font_17 font_weight">增加新地址</text>
+      </view>
+    </view>
+  </view>
+  <!-- 填写身份证 -->
+  <view wx:if="{{cheshenfen}}">
+    <view class='shenfenmase'>身份证信息
+      <text>（海关政策要求，仅用于海关清关，加密保存）</text>
+    </view>
+    <view class="proitem">
+      <text>身份证号</text>
+      <input type='idcard' bindblur="gocheackid" placeholder='请填写收件人的身份证号码' value='{{idcardnum}}' bindinput='setidcard'></input>
+    </view>
+  </view>
+  <!--立即购买商品信息  -->
+  <view class="list_container" wx:if="{{productMsg}}">
+    <view class="flex flex_pack_justify_between list_top_container flex_align_center">
+      <view>
+        <image src="/image/comfirm_shop_icon.png" style="width: 40rpx; height: 40rpx;display:inline-block; vertical-align: middle;position:relative; top: -2rpx; margin-right: 24rpx;"></image>
+        <text>{{productMsg.shopname || productMsg.companyname}}</text>
+      </view>
+    </view>
+    <view class="list_center_container" wx:if="{{productMsg}}">
+      <view class="flex product_list overflow_sizing">
+        <view class="product_img_container">
+          <image src="{{productMsg.pic || productMsg.proimg || '/image/bkg_cover.jpg'}}"></image>
+        </view>
+        <view class="flex flex_v flex_pack_justify_between flex_1">
+          <view class="flex flex_pack_justify_between">
+            <view>
+              <text>{{productMsg.name || productMsg.proname}}</text>
+            </view>
+            <view>
+              <text>￥{{newPrice}}</text>
+            </view>
+          </view>
+          <view class="flex flex_pack_justify_between font_12 color_999">
+            <view>
+              <text wx:if="{{options.skutext}}">{{options.skutext}}</text>
+            </view>
+            <view>
+              <text>X{{options.buyCounts}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--购物车商品信息  -->
+  <view class="list_container" wx:if="{{listMsg}}" wx:for="{{listMsg}}" wx:key="{{title}}" wx:for-item="list" wx:for-index="idx">
+    <view class="flex flex_pack_justify_between list_top_container flex_align_center">
+      <view>
+        <image src="/image/comfirm_shop_icon.png" style="width: 40rpx; height: 40rpx;display:inline-block; vertical-align: middle;position:relative; top: -2rpx; margin-right: 24rpx;"></image>
+        <text>{{list.title}}</text>
+      </view>
+    </view>
+    <view class="list_center_container" wx:if="{{listMsg}}" wx:for="{{list.content}}" wx:key="{{shopid}}" wx:for-item="msgs" wx:for-index="indexs">
+      <view class="flex product_list overflow_sizing">
+        <view class="product_img_container">
+          <image src="{{msgs.pic || '/image/bkg_cover.jpg'}}"></image>
+        </view>
+        <view class="flex flex_v flex_pack_justify_between flex_1">
+          <view class="flex flex_pack_justify_between">
+            <view>
+              <text>{{msgs.productname}}</text>
+            </view>
+            <view>
+              <text>￥{{msgs.price}}</text>
+            </view>
+          </view>
+          <view class="flex flex_pack_justify_between font_12 color_999">
+            <view>
+              <text wx:if="{{options.skutext}}">{{options.skutext}}</text>
+            </view>
+            <view>
+              <text>X{{msgs.qty}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--解冻专区商品信息  -->
+  <view class="list_container" wx:if="{{openshopdata}}" wx:for="{{openshopdata}}">
+    <view class="flex flex_pack_justify_between list_top_container flex_align_center">
+      <view>
+        <image src="/image/comfirm_shop_icon.png" style="width: 40rpx; height: 40rpx;display:inline-block; vertical-align: middle;position:relative; top: -2rpx; margin-right: 24rpx;"></image>
+        <text>{{item[0].packageitems[0].companyname}}</text>
+      </view>
+    </view>
+    <view class="list_center_container">
+      <view class="flex product_list overflow_sizing">
+        <view class="product_img_container">
+          <image src="{{item[0].packageitems[0].image}}"></image>
+        </view>
+        <view class="flex flex_v flex_pack_justify_between flex_1">
+          <view class="flex flex_pack_justify_between">
+            <view>
+              <text>{{item[0].packageitems[0].productname}}</text>
+            </view>
+            <view>
+              <text>￥{{options.skuprice||item[0].packageitems[0].propackageprice}}</text>
+            </view>
+          </view>
+          <view class="flex flex_pack_justify_between font_12 color_999">
+            <view><text wx:if="{{options.skutext}}">{{options.skutext}}</text></view>
+            <view>
+              <text>X{{options.buyCounts}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--配送方式 &买家留言 -->
+  <view style="margin-bottom: 20rpx; background-color: #fff;" class="padding16 ">
+    <view class="comfirms_lsit">
+      <text class="fl">配送方式</text>
+      <text class="fr color_999">全场包邮</text>
+    </view>
+    <view class="comfirms_lsit flex">
+      <text>买家留言</text>
+      <view class="flex_1" style="padding: 20rpx; overflow_boxsizing">
+        <input type="text" style="width: 100%; height: 46rpx; line-height: 46rpx; padding-left: 20rpx; " value="{{remark}}" bindinput="inputRemark" />
+      </view>
+    </view>
+  </view>
+  <!--商品总额&运费  -->
+  <view style="background-color: #fff;" class="padding16">
+    <view class="comfirms_lsit">
+      <text class="fl">商品总额</text>
+      <text class="fr font_17"><text class="font_14">￥</text>{{isFree ? 0 : proAmount}}</text>
+    </view>
+    <view class="comfirms_lsit overflow_boxsizing flex flex_align_center flex_pack_justify_between" wx:if="{{!isRushBuy && userCouponId && !openshopdata}}" bindtap='toSelectCoupon'>
+      <view class="flex flex_align_center">
+        <image class="fl" src="/image/hongbao.png" style="width: 48rpx; height: 48rpx;"></image>
+        <text class="fl">{{useCouponPrice}}元优惠券</text>
+      </view>
+      <view class="flex flex_align_center">
+        <text class="fr font_17" style="color: #FF5541;">-￥{{filter.toFix(useCouponPrice, 2)}}</text>
+        <text class="fr more_icon"></text>
+      </view>
+    </view>
+    <view class="comfirms_lsit overflow_boxsizing flex flex_align_center flex_pack_justify_between font_14 color_333" wx:if="{{!isRushBuy && !userCouponId && !openshopdata&&groupbuynow!='lndiana' && options.gbid && !isFree}}" bindtap='toSelectCoupon'>
+      <view class="flex flex_align_center">
+        <text>优惠券</text>
+      </view>
+      <view class="flex flex_align_center">
+        <text>请选择优惠券</text>
+        <text class="more_icon"></text>
+      </view>
+    </view>
+    <view class="comfirms_lsit">
+      <text class="fl">运费</text>
+      <text class="fr font_14">￥0.00</text>
+    </view>
+  </view>
+  <!-- 支付方式 -->
+  <view class="payways">
+    <text>支付方式</text>
+  </view>
+  <view class="bottomboxse">
+    <view class="comfirms_lsit paysitem" wx:if="{{fxshop!=''&&options.way!='jiedong'}}">
+      <view class='daitubiao'>
+        <image src="/image/qianbao_comfirm.png" style="width: 59rpx; height: 58rpx; position: relative; left: -10rpx; margin: 0;"></image>
+        <text>钱包支付（余额￥{{howmoney}}）</text>
+      </view>
+      <view class="{{paywayclick[0]?'':'borderinsp'}}" bindtap='xuanwho' data-index='0'>
+        <image src="/image/select_icon.png" wx:if="{{paywayclick[0]}}" class="tubiao"></image>
+      </view>
+    </view>
+    <view class="comfirms_lsit paysitem">
+      <view class='daitubiao'>
+        <image src="/image/weixin.png"></image>微信支付</view>
+      <view class="{{paywayclick[1]?'':'borderinsp'}}" bindtap='xuanwho' data-index='1'>
+        <image src="/image/select_icon.png" wx:if="{{paywayclick[1]}}" class="tubiao"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 支付方式end-->
+  <view class="padding16 btn_topay flex flex_pack_justify_between flex_align_center;" style="{{isIphoneX? 'padding-bottom: 48rpx; height: 156rpx;': ''}}">
+    <view style="color: #ff5541;">
+      <text class="font_17">￥</text>
+      <text class="font_24" wx:if="{{!isFree}}">{{filter.toFix(proAmount - useCouponPrice, 2)}}</text>
+      <text class="font_24" wx:else>0.00</text>
+    </view>
+    <view>
+      <form bindsubmit="submitOrders" report-submit="true" bindreset="formReset">
+        <button formType="submit" class="font_14 color_fff btn_pay {{addressList? 'actived': ''}}">去支付</button>
+      </form>
+    </view>
+  </view>
+</view>
+
+<!-- 前面输入密码框-->
+<view class="passwordzhezhao" wx:if="{{showpaybox}}"></view>
+<view class="zhifubox" wx:if="{{showpaybox}}">
+  <view>
+    <i class="left-arrow fl" bindtap='hidepassword'></i>请输入支付密码</view>
+  <view>支付订单</view>
+  <view>
+    <text class='smalls'>￥</text>{{filter.toFix(proAmount - useCouponPrice, 2)}}</view>
+  <view class='content'>
+    <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="item">
+      <input class='iptbox' value="{{password.length>=index+1?password[index]:''}}" password="true" catchtap='Tap' disabled='false'></input>
+    </block>
+  </view>
+  <input name="password" password="true" class='ipt' maxlength="{{6}}" focus="{{isFocus}}" bindinput="Focus" type="number" value="{{password}}"></input>
+</view>

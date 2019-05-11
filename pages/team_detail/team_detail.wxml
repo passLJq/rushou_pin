@@ -1,0 +1,61 @@
+<!--pages/team_detail/team_detail.wxml-->
+<view>
+  <view class="user_msg_container overflow_boxsizing flex" wx:if="{{alliesMsg}}">
+    <view class="user_img_box">
+      <image src="{{alliesMsg.shoplogo || '/image/man.jpg'}}" alt=""></image>
+    </view>
+    <view class="right_list flex_1 flex flex_v flex_pack_justify_between">
+      <view class="flex  font_17 color_333 user_names flex_align_center">
+        <view>{{alliesMsg.username}}</view>
+        <view class="user_shop_type flex flex_align_center flex_pack_center">{{alliesMsg && (alliesMsg.shoptype === 1 ? '正式店主' : alliesMsg.shoptype === 2 ? '实习店主' : alliesMsg.shoptype === 3 ? '冻结店主' : '')}}</view>
+      </view>
+      <view class="flex flex_align_center font_12 color_999 user_right_bottom">
+        <view class="flex flex_align_center" style="padding-right: 5px;">邀请码 </view>
+        <view class="flex flex_align_center">{{alliesMsg.code}}</view>
+      </view>
+      <view class="flex flex_align_center font_12 color_999 user_right_bottom">
+        <view class="flex flex_align_center" style="padding-right: 5px;">手机号 </view>
+        <view class="flex flex_align_center">{{alliesMsg.phone}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="flex flex_v overflow_boxsizing bottom_content_container font_14 color_999" wx:if="{{alliesMsg}}">
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between">
+      <view>店铺名称</view>
+      <view class="color_333 flex flex_align_center">{{alliesMsg.shopname}}</view>
+    </view>
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between">
+      <view>店铺等级</view>
+      <view class="color_333 flex flex_align_center">{{alliesMsg.shoplevel}}</view>
+    </view>
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between">
+      <view>会员职称</view>
+      <view class="color_333 flex flex_align_center">{{alliesMsg.shoptitlename}}</view>
+    </view>
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between" wx:if="{{alliesMsg.shoptype === 1}}">
+      <view>开店方式</view>
+      <view wx:if="{{alliesMsg.openshoptype === 0}}" class="color_333 flex flex_align_center">
+        <image src="/image/kaidianlibao_icon.png"></image>
+        <span>礼包开店</span>
+      </view>
+      <view wx:if="{{alliesMsg.openshoptype === 2}}" class="color_333 flex flex_align_center">
+        <image src="/image/xiaoshoukaidian_icon.png"></image>
+        <span>销售开店</span>
+      </view>
+			<view wx:if="{{alliesMsg.openshoptype === 4}}" class="color_333 flex flex_align_center">
+        <image src="/image/xiaoshoukaidian_icon.png"></image>
+        <span>邀请开店</span>
+      </view>
+    </view>
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between">
+      <view>销售额</view>
+      <view class="color_333 flex flex_align_center">￥{{alliesMsg.saletotal}}</view>
+    </view>
+    <view class="flex overflow_boxsizing flex_align_center flex_pack_justify_between">
+      <view>他的分享</view>
+      <view class="color_333 flex flex_align_center">{{alliesMsg.fannum}}人</view>
+    </view>
+  </view>
+
+</view>

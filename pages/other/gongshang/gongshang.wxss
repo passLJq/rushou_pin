@@ -1,0 +1,13 @@
+/* pages/other/gongshang/gongshang.wxss */
+page {
+	background-color: #fff;
+}
+.apps{
+  text-align: center;
+  margin: 0 auto
+}
+.apps image{
+  margin: 40rpx auto;
+  background: #fff;
+  width: 60%
+}

@@ -1,0 +1,9 @@
+<view  wx:if="{{goapp}}">
+<cover-view class="zezhao" bindtap='closegoapp'></cover-view>
+<cover-view class="dakai">
+<cover-view class="as">{{msgtitlle}}</cover-view>
+<cover-image src="https://images.rushouvip.cn/IMG/gongzhonghao.jpg" mode="widthFix" bindtap='saverushou'></cover-image>
+<cover-view class="go1">点击图片保存或直接搜索"入手"公众号 </cover-view>
+<cover-view class="go2">关注公众号下载APP</cover-view>
+</cover-view>
+</view>

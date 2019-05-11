@@ -1,0 +1,115 @@
+<!--pages/other/aftersale/aftersale.wxml-->
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view>
+  <view class="nav_container overflow_boxsizing flex font_14 color_333">
+    <view class="overflow_boxsizing slider_list" bindtap='changeSlide' data-idx="0">
+      <text>退款订单</text>
+    </view>
+    <view class="overflow_boxsizing slider_list" bindtap='changeSlide' data-idx="1">
+      <text>换货订单</text>
+    </view>
+    <view class="line_red translateXY transition_ease_in_out_fast" style="left: {{slide === 0? '25%': '75%'}};"></view>
+  </view>
+  <!--退款订单  -->
+  <view class="padding16 overflow_boxsizing list_center_container" wx:if="{{slide === 0}}">
+    <view wx:for="{{refund}}" wx:key="length">
+      <view class="flex flex_pack_justify_between list_shop_container">
+        <view class="color_000">
+          <text>{{item.shopname}}</text>
+        </view>
+        <view style="color: #FF422C;">
+          <text>{{item.status == 1? '待处理': item.status == 2? '未通过': item.status == 3? '已通过': item.status == 5? '处理中': '--'}}</text>
+        </view>
+      </view>
+      <view bindtap='toOrderDetail' data-orderid="{{item.orderid}}">
+        <view class="flex product_list overflow_sizing">
+          <view class="product_img_container">
+            <image src="{{item.pic || '/image/bkg_cover.jpg'}}"></image>
+          </view>
+          <view class="flex_1 flex flex_v flex_pack_justify_between">
+            <view class="flex flex_pack_justify_between">
+              <view class="line_over_2">
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text>￥{{filters.toFix(item.price, 2)}}</text>
+              </view>
+            </view>
+            <view class="flex flex_pack_justify_between font_12 color_999">
+              <view>
+                <text>{{item.skutext || ""}}</text>
+              </view>
+              <view>
+                <text>X{{item.count || 1}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--没有数据  -->
+  <view wx:if="{{slide === 0 && refund.length < 1}}" class="flex flex_v flex_align_center" style="margin-top: 200rpx;">
+    <view>
+      <image src="/image/nodata.png" style="width: 432rpx; height: 300rpx; margin-bottom: 20rpx;"></image>
+    </view>
+    <view class="color_999 font_14">
+      <text>抱歉，目前没有显示记录</text>
+    </view>
+  </view>
+  <!--没有更多了  -->
+  <view class="text_center" wx:if="{{slide === 0 && page[slide] != 1 && refund.length < (page[slide] * pagesize[slide])}}">
+    <text class="color_999 font_12" style="padding: 20rpx 0;">没有更多数据了</text>
+  </view>
+  <!--换货订单  -->
+  <view class="padding16 overflow_boxsizing list_center_container" wx:if="{{slide === 1}}">
+    <view wx:for="{{exchangeGoods}}" wx:key="length">
+      <view class="flex flex_pack_justify_between list_shop_container">
+        <view class="color_000">
+          <text>{{item.shopname}}</text>
+        </view>
+        <view style="color: #FF422C;">
+          <text>{{item.status == 1? '待处理': item.status == 2? '未通过': item.status == 3? '已通过': '--'}}</text>
+        </view>
+      </view>
+      <view bindtap='toOrderDetail' data-orderid="{{item.orderid}}">
+        <view class="flex product_list overflow_sizing">
+          <view class="product_img_container">
+            <image src="{{item.pic || '/image/bkg_cover.jpg'}}"></image>
+          </view>
+          <view class="flex_1 flex flex_v flex_pack_justify_between">
+            <view class="flex flex_pack_justify_between">
+              <view class="line_over_2">
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text>￥{{filters.toFix(item.price, 2)}}</text>
+              </view>
+            </view>
+            <view class="flex flex_pack_justify_between font_12 color_999">
+              <view>
+                <text>{{item.skutext || ""}}</text>
+              </view>
+              <view>
+                <text>X{{item.count || 1}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--没有数据  -->
+  <view wx:if="{{slide === 1 && exchangeGoods.length < 1}}" class="flex flex_v flex_align_center" style="margin-top: 200rpx;">
+    <view>
+      <image src="/image/nodata.png" style="width: 432rpx; height: 300rpx; margin-bottom: 20rpx;"></image>
+    </view>
+    <view class="color_999 font_14">
+      <text>抱歉，目前没有显示记录</text>
+    </view>
+  </view>
+    <!--没有更多了  -->
+  <view class="text_center" wx:if="{{slide === 1 && page[slide] != 1 && exchangeGoods.length < (page[slide] * pagesize[slide])}}">
+    <text class="color_999 font_12" style="padding: 20rpx 0;">没有更多数据了</text>
+  </view>
+</view>

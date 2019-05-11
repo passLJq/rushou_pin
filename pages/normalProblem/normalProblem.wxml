@@ -1,0 +1,20 @@
+<!-- 导航nav -->
+<view class="nav" style="{{isFixTop ? 'position:fixed;top: 0;margin: 0;background: #fff;z-index: 999;' : ''}}">
+  <scroll-view scroll-x="true" scroll-y="false" scroll-into-view="nav_{{currentIndex}}"
+  style="width: 100%; height: 100%; white-space: nowrap; position: relative;">
+    <block wx:for="{{nav}}">
+      <view catchtap="changeNav" data-index="{{index}}" id="nav_{{index}}" class="scroll-view-item {{index === currentIndex ? 'active' : ''}}">{{item}}</view>
+    </block>
+    <view class="bottomBar transition_ease_in_out_fast" style="left: {{bottomBarPosition + 'px'}}"></view>
+  </scroll-view>
+</view>
+
+<view class="content" style="margin-top: 88rpx;">
+	<text wx:for="{{msg[currentIndex + 1]}}" bindtap="goDetail" data-index="{{index}}">{{item[0]}}</text>
+</view>
+
+<view class="footer" id="footer">
+  <view class="btn" bindtap="phoneCall" data-reply-phone="4006906206">
+    <text>联系在线客服</text>
+  </view>
+</view>

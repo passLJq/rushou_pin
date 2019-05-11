@@ -1,0 +1,75 @@
+<!--pages/group_order/group_order.wxml-->
+<view class='items ordetou'>
+  <view class="tablie" bindtap='change' data-index='0' style="{{checktype[0]?'color:#FF5541':''}}">
+    <view>全部</view>
+    <view class='renlie' wx:if="{{checktype[0]}}">
+      <view class="redline"></view>
+    </view>
+  </view>
+  <view class="tablie" bindtap='change' data-index='1' style="{{checktype[1]?'color:#FF5541':''}}">
+    <view>拼团中</view>
+    <view class='renlie' wx:if="{{checktype[1]}}">
+      <view class="redline"></view>
+    </view>
+  </view>
+  <view class="tablie" bindtap='change' data-index='2' style="{{checktype[2]?'color:#FF5541':''}}">
+    <view>已成团</view>
+    <view class='renlie' wx:if="{{checktype[2]}}">
+      <view class="redline"></view>
+    </view>
+  </view>
+  <view class="tablie" bindtap='change' data-index='3' style="{{checktype[3]?'color:#FF5541':''}}">
+    <view>未成团</view>
+    <view class='renlie' wx:if="{{checktype[3]}}">
+      <view class="redline"></view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{listdata.length>0}}" class='bigbox'>
+<view class="box" wx:for="{{listdata}}">
+  <view class="box_tou">
+    <view class="items oreder_tou">
+      <view class="o_tou_left items">
+        <view>{{item.mytype}}</view>
+        <text>{{item.groupcount}}人团</text>
+      </view>
+      <view class="oreder_tishi">{{item.grouptype}}</view>
+    </view>
+    <view class="order_time">{{item.paytime}}</view>
+  </view>
+  <view class="box_main items">
+    <image src="{{item.groupimg}}"></image>
+    <view class="pro_right">
+      <view class="pro_xian">
+        <view class="p1">
+          <text class="allhave" wx:if="{{item.isbuyonegetone&&item.headfree}}"><text class="allhaveping">团长免单</text>拼一送一</text>
+          <text class="pingone" wx:elif="{{item.isbuyonegetone}}">拼一送一</text>
+          <text class="tuanfree" wx:elif="{{item.headfree}}">团长免单</text> {{item.groupname}}
+        </view>
+      </view>
+      <view>
+        <view class="p3" style="font-weight: 600;">
+          <text class="p4">¥ </text>{{item.groupprice}}
+          <text class="p5" style="font-weight: 400;">原价{{item.proprice}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="box_foot items">
+    <view class="oreder_imge items">
+      <image src="{{imgitem?imgitem:'../../image/man.jpg'}}" wx:for="{{item.userimg}}" wx:for-index="idx" wx:for-item="imgitem"></image>
+    </view>
+    <view class="order_btn">
+      <text bindtap='go_group_detail' data-orderid="{{item.orderid}}">拼单详情</text>
+      <navigator class="abse" hover-class="none" open-type="navigate" url="/pages/orderdetail/orderdetail?orderid={{item.orderid}}">订单详情</navigator>
+    </view>
+  </view>
+</view>
+</view>
+<view wx:else>
+  <view class="nodata">
+    <image src="https://images.rushouvip.cn/_NoImg/nopingorder.png" mode="widthFix"></image>
+    <view>您还没有拼团订单，快去拼一个吧</view>
+  </view>
+  <view class="bordes" bindtap='goindex'>去拼团看看</view>
+</view>

@@ -1,0 +1,60 @@
+<!--pages/other/mycoupon/mycoupon.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<view>
+  <!-- NAV -->
+  <view class="nav_container overflow_boxsizing flex font_14 color_333">
+    <view class="overflow_boxsizing slider_list" bindtap='changeSlide' data-idx="{{index}}" wx:for="{{navList}}" wx:key="">
+      <text class="{{slide === index? 'color_selected': ''}} transition_ease_in_out_fast">{{item}}</text>
+    </view>
+    <view class="line_red translateXY transition_ease_in_out_fast" style="left: {{(slide * 100/navList.length) + (100/navList.length/2)+'%'}};"></view>
+  </view>
+  <!-- 列表 -->
+  <view class="font_14 color_333 list_box overflow_boxsizing change_color_{{slide}}">
+    <view class="coupon_list_container flex flex_v " wx:for="{{listMsg[slide]}}" wx:key="">
+      <view class="flex flex_pack_right" style="padding-top: 12rpx;height:58rpx;">
+        <text class="overflow_boxsizing coupon_state flex flex_pack_center font_12" wx:if="{{slide === 0? useTimeOver[index]: true}}">{{slide === 0? '即将过期': slide === 1? '已使用': slide === 2? '已过期': ''}}</text>
+      </view>
+      <view class="flex coupon_list_center overflow_boxsizing" style="padding-bottom: 38rpx;">
+        <view class="coupon_price text_center canuse_color flex flex_pack_center font_weight">
+          <text class="font_17 flex flex_align_center">￥</text>
+          <text class="font_48" style="font-size: 80rpx;">{{item.facevalue}}</text>
+        </view>
+        <view class="flex_1 flex flex_v flex_pack_justify_between overflow_boxsizing font_14">
+          <view class="canuse_color line_over_1 font_weight">
+            <text>{{item.name}}</text>
+          </view>
+          <view class="gray_coupon_color">
+            <text>满{{item.uselimit}}元可用</text>
+          </view>
+        </view>
+      </view>
+      <view class="coupon_list_bottom padding16 overflow_boxsizing flex_1 flex flex_v flex_pack_justify_around font_12">
+        <view class="flex_1 flex flex_pack_justify_between flex_align_center flex_align_center gray_coupon_color coupon_overtime_container">
+          <text>{{!item.isover? (item.companyid? (item.israandom? item.companyname + ' 专用劵，金额随机': item.companyname + ' 专用劵'): item.israandom? '全场通用，金额随机(活动不可用)': '全场通用(活动不可用)') : ''}}</text>
+        </view>
+        <view class="flex_1 flex flex_pack_justify_between flex_align_center flex_align_center" style="padding-bottom: 10rpx;">
+          <view class="gray_coupon_color font_12">
+            <text>有效期至：{{filters.replaceCouponDate(item.endtime)}}</text>
+          </view>
+          <!-- <view class="coupon_use_btn canuse_color font_12 flex flex_align_center flex_pack_center" style="display: {{slide === 1? 'none;': slide === 2? 'none;': ''}}" bindtap='toIndex'>
+            <text>去使用</text>
+          </view> -->
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <!-- 没有数据  -->
+  <view wx:if="{{page[slide] === 1 && listMsg[slide].length < 1}}" class="flex flex_v flex_align_center" style="margin-top: 200rpx; background-color: transparent;">
+    <view>
+      <image src="/image/nodata2.png" style="width: 432rpx; height: 300rpx; margin-bottom: 20rpx;"></image>
+    </view>
+    <view class="color_999 font_14">
+      <text>抱歉，目前没有优惠券</text>
+    </view>
+    <!-- <view class=" font_14" style="color: #CDA86E; margin-top: 30rpx; border: 2rpx solid #CDA86E; padding: 10rpx 40rpx; border-radius: 40rpx;" bindtap="toIndex" bindtap='toCouponCenter'>
+      <text>去领取</text>
+    </view> -->
+  </view>
+</view>

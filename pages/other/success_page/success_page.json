@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "支付成功",
+  "backgroundColor": "#f5f5f5",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false,
+    "disableScroll": true
+}

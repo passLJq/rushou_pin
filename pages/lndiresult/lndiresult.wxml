@@ -1,0 +1,107 @@
+<!-- 商品及获奖者 -->
+<import src="../../Component/sharebox/sharebox.wxml" />
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<!-- userData.sharedes.length +  -->
+<view class="upper flex flex_pack_center flex_align_center {{userData.sharedes.length + userData.remaining > 3 ? '' : 'more'}}" style="{{byshare ? '' : 'height:750rpx'}}">
+  <view class="back flex flex_v flex_align_center" style="{{byshare ? '' : 'height:690rpx'}}">
+    <view class="proDetail flex">
+      <image src="{{msg.proimg}}"></image>
+      <view class="content flex flex_v flex_pack_justify_between">
+        <view class="title line_over_2">{{msg.proname}}</view>
+        <view class="price flex">
+          <text>￥</text>
+          <text>{{msg.cloudPrice}}</text>
+          <text style="text-decoration: line-through;">原价{{msg.proprice}}</text>
+        </view>
+      </view>
+    </view>
+    <view style="width: 610rpx;height: 2rpx;background: #f6f6fa;"></view>
+    <!-- 获奖编号 -->
+    <text wx:if="{{!byshare}}" class="bingo" style="margin-top: 30rpx;">{{invalid == 0 ? '本期获奖编号' : '该抽奖已失效'}}</text>
+    <text wx:if="{{!byshare}}" class="bingo" style="margin-top: 10rpx;">{{invalid == 0 ? options.wincode : '　'}}</text>
+      <!-- 分享抽奖详情 -->
+    <text wx:if="{{byshare&&msg.state==4}}" class="bingo" style="margin-top: 30rpx;">活动已开奖，请到活动揭晓页查看中奖人信息</text>
+    <text wx:elif="{{byshare&&msg.state==3}}" class="bingo" style="margin-top: 30rpx;">很遗憾，活动没有达到开奖条件，已过期</text>
+    <text wx:elif="{{byshare&&userData.remaining==0}}" class="bingo" style="margin-top: 30rpx;">恭喜您，正在等待开奖</text>
+    <text wx:elif="{{byshare}}" class="bingo" style="margin-top: 30rpx;">我正在参与抽奖</text>
+    <text wx:if="{{byshare}}" class="bingo" style="margin-top: 10rpx;">　</text>
+    <!-- 获奖者 -->
+    <block wx:if="{{!byshare}}">
+      <view class="bingoer flex flex_v flex_align_center">
+        <image wx:if="{{invalid == 0}}" src="{{options.img || '../../image/man.jpg'}}"></image>
+        <image wx:else src="../../image/man.jpg"></image>
+        <view class="gradient">获奖者</view>
+      </view>
+      <!-- 名字 -->
+      <text class="color_999" style="font-size: 24rpx;margin-top: 10rpx;">{{invalid ==0 ? options.user ? filters.hideName(options.user): '' : ''}}</text>
+    </block>
+    <!-- 如果是分享详情则显示头像 -->
+    <block wx:if="{{byshare}}">
+      <view class="avatar flex flex_pack_justify_around" style="flex-wrap: wrap;width: 70%">
+        <!-- 分享者头像 -->
+        <view class="item flex flex_v flex_align_center">
+          <image src="{{userData.userimg}}"></image>
+          <text class="color_999">{{userData.username ? filters.hideName(userData.username) : ' '}}</text>
+        </view>
+        <!-- 助力者头像 -->
+        <view class="item flex flex_v flex_align_center" wx:for="{{userData.sharedes}}">
+          <image wx:if="{{item.userhead != ''}}" src="{{item.userhead}}"></image>
+          <image wx:else src="../../image/man.jpg"></image>
+          <text class="color_999">{{item.username != '' ? filters.hideName(item.username) : '已助力'}}</text>
+        </view>
+        <!-- 待助力 -->
+        <view class="item flex flex_v flex_align_center" wx:for="{{userData.remaining}}">
+          <image style="background-color: #eee;border:2rpx solid #d8d8d8;"></image>
+          <text class="color_999">待助力</text>
+        </view>
+      </view>
+      <view wx:if="{{msg.state==3||msg.state==4}}" class="btn" style="background: #ccc;">已结束</view>
+      <view wx:elif="{{done&&userData.remaining==0}}" bindtap="gofinish" class="btn" style="background: #ccc;">已成功</view>
+      <view wx:elif="{{mydone&&userData.ispay&&userData.remaining!=0}}" bindtap="show" class="btn gradient">助力，即可参加抽奖</view>
+      <view wx:elif="{{mydone&&userData.ispay&&userData.remaining==0}}" bindtap="show" class="btn gradient">立即炫耀</view>
+      <!-- <view wx:elif="{{mydone}}" bindtap="gofinish"  class="btn gradient">助力成功，立即付款</view> -->
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getHelper" class="btn gradient" bindtap="">为好友助力</button>
+    </block>
+  </view>
+</view>
+<!-- 参与人数与揭晓时间 -->
+<view wx:if="{{!byshare}}" class="detail flex flex_v flex_align_center">
+  <view class="flex flex_pack_justify_between flex_align_center">
+    <text class="color_999">参与人数</text>
+    <text class="color_333">{{msg.amout}}人次</text>
+  </view>
+  <view style="width: 610rpx;height: 2rpx;background: #f6f6fa;"></view>
+  <view class="flex flex_pack_justify_between flex_align_center">
+    <text class="color_999">{{invalid == 0 ? '揭晓' : '结束'}}时间</text>
+    <text class="color_333">{{options.endtime}}</text>
+  </view>
+</view>
+<!-- 玩法说明 -->
+<view wx:else class="explain">
+  <view class="title text_center color_333">玩法说明</view>
+  <view class="content flex flex_v flex_align_center">
+    <image src="../../image/wanfashuoming@3x.png"></image>
+    <view class="flex flex_pack_justify_around">
+      <view >
+        <text class="color_999">选择商品 参加活动</text>
+      </view>
+      <view >
+        <text class="color_999">邀请好友 为你助力</text>
+      </view>
+      <view >
+        <text class="color_999">人满获得 夺宝资格</text>
+      </view>
+      <view >
+        <text class="color_999">中奖发奖 失败退款</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 底部栏 -->
+<view style="width: 100%;height: 70rpx;"></view>
+<view wx:if="{{byshare}}" class="footer flex flex_pack_center flex_align_center" style="{{isIphoneX ? 'padding-bottom: 40rpx;' : ''}}">
+  <view class="other flex flex_pack_center flex_align_center" bindtap="golndiana">其他活动</view>
+</view>
+
+<!-- 分享弹窗 -->
+<template is="sharebox" data="{{showshare, zuan: zuan,haibao:haibao}}" />

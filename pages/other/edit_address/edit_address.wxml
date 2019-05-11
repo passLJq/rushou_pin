@@ -1,0 +1,44 @@
+<!--pages/other/edit_address/edit_address.wxml-->
+<view>
+  <view style="height:22rpx;"></view>
+  <view class='list_container'>
+    <view class="flex flex_align_center overflow_boxsizing">
+      <text class="list_title">联系人</text>
+      <input placeholder='姓名' bindinput='bindconsignee' maxlength='20' value='{{consignee}}'></input>
+    </view>
+  </view>
+  <view class='list_container'>
+    <view class="flex flex_align_center overflow_boxsizing">
+      <text class="list_title">手机号</text>
+      <input placeholder='请输入您的手机号码' maxlength="11" bindinput='bindphone' value='{{phonecode}}' type='number'></input>
+    </view>
+  </view>
+  <view class='list_container'>
+    <view class="flex flex_align_center overflow_boxsizing">
+      <text class="list_title">收货地址</text>
+      <view class="section">
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+          <view wx:if="{{checkcity}}">
+           {{showcity}} {{showshi}} {{showqu}}
+          </view>
+          <view wx:else>
+          请选择收货地址
+          </view>
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="detail_address_box">
+    <view>
+      <textarea placeholder='详细地址' style='width:100%' maxlength='50' bindinput='bindfulladress' value='{{fulladress}}'></textarea>
+    </view>
+  </view>
+
+  <view class="footer_container padding16 overflow_boxsizing">
+    <button type="default" size="default" bindtap="saveAdress" class='save font_14 color_333' style='background:linear-gradient(270deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);color:#fff'> 保存 </button>
+    <text wx:if='{{addressid}}' bindtap="delAdress" class="font_14 color_999 cancel_btn overflow_boxsizing" style="color: #888; border-color: #888;"> 删除地址 </text>
+    <!-- <text class="font_14 color_999 cancel_btn overflow_boxsizing" bindtap="back"> 取消 </text> -->
+  </view>
+</view>

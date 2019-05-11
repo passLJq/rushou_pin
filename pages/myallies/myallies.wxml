@@ -1,0 +1,67 @@
+<!-- 正式团长界面 -->
+	<view class="search">
+		<text class="iconfont icon-magnifier"></text>
+		<input type="number" placeholder="请输入邀请码/手机号码" placeholder-class="seahold" adjust-position="false" bindinput="getSearch"></input>
+		<view bindtap="goSearch">搜索</view>
+	</view>
+
+	<view class="myTeam" bindtap="toMyFans" style="margin-bottom: 10rpx;">
+		<text>我的分享</text>
+		<text>{{msg.totalpoint}}人<text class="iconfont icon-right" style="font-size:;"></text></text>
+	</view>
+
+	<view class="myTeam" bindtap="">
+		<text>我的团队</text>
+		<text>{{msg.total || 0}}人</text>
+	</view>
+
+	<view class="tab">
+		<view class="tabs {{currentTab == 0 ? 'select' : ''}}" data-tab="0" bindtap="changeTab">一级团队({{msg.first || 0}})</view>
+		<view class="tabs {{currentTab == 1 ? 'select' : ''}}" data-tab="1" bindtap="changeTab">二级团队({{msg.second || 0}})</view>
+		<view class="bottomBar" style="left: {{currentTab == 0 ? '25%;' : '75%;'}}"></view>
+	</view>
+
+	<swiper indicator-dots="{{false}}" bindchange="changeTab" current="{{currentTab}}" autoplay="{{false}}" duration="{{500}}" id="swiper" style="height: {{swiperHeight + 'px'}}">
+		<swiper-item>
+			<view class="teamitem" wx:for="{{first}}" bindtap='toTeamDetail' data-type="1" data-idx="{{index}}">
+				<view class="itemmsg">
+					<image src="{{item.shoplogo || '../../image/man.jpg'}}"></image>
+					<view>
+						<text>{{item.username}}</text>
+						<text>邀请码: {{item.code}}</text>
+					</view>
+				</view>
+
+				<view class="itemzz">
+					<text>会员职称: {{item.shoptype === 1? '正式店主': item.shoptype === 2? '实习店主': item.shoptype === 3? '冻结店主': ''}}</text>
+					<text>手机号码: {{item.phone}}</text>
+				</view>
+			</view>
+			<view class="nodata" wx:if="{{!first}}">
+				<image mode="widthFix" src="../../image/nodata2.png"></image>
+				<text>亲，目前没有相关团队喔~</text>
+			</view>	
+		</swiper-item>
+		<swiper-item>
+			<view class="teamitem" wx:for="{{second}}" bindtap='toTeamDetail' data-type="2" data-idx="{{index}}">
+				<view class="itemmsg">
+					<image src="{{item.shoplogo || '../../image/man.jpg'}}"></image>
+					<view>
+						<text>{{item.username}}</text>
+						<text>邀请码: {{item.code}}</text>
+					</view>
+				</view>
+
+				<view class="itemzz">
+					<text>会员职称: {{item.shoptype === 1? '正式店主': item.shoptype === 2? '实习店主': item.shoptype === 3? '冻结店主': ''}}</text>
+					<text>手机号码: {{item.phone}}</text>
+				</view>
+			</view>
+			
+			<view class="nodata" wx:if="{{!second}}">
+				<image mode="widthFix" src="../../image/nodata2.png"></image>
+				<text>亲，目前没有相关团队喔~</text>
+			</view>	
+
+		</swiper-item>
+	</swiper>

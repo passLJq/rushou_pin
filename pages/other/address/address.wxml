@@ -1,0 +1,30 @@
+<!--pages/address/address.wxml-->
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view>
+  <view style="height: 54rpx; width: 100%;"></view>
+  <view class="padding16 overflow_boxsizing">
+    <view wx:for="{{adresslist}}" wx:key="{{item}}" bindtap="todetai" class="list_container flex flex_align_center">
+      <view class="default_address_container" wx:if="{{!isreturn}}" bindtap='todoSelect' data-type="btn" data-idx="{{index}}" data-id="{{item.addressid}}">
+        <view style="{{item.isdefault? '': ' border: 1px solid #D8D8D8;'}}">
+          <image src="/image/select_icon.png" wx:if="{{item.isdefault}}"></image>
+        </view>
+      </view>
+      <view class="flex_1 flex flex_v flex_pack_justify_around overflow_boxsizing" style="height: 100%;" bindtap='todoSelect' data-idx="{{index}}" data-id="{{item.addressid}}">
+        <view class="font_17 color_333 flex flex_align_center flex_pack_justify_between" style="padding: 0 40rpx 0 10rpx;">
+          <text class="shouname " style="margin-right: 32rpx;">{{item.name}}</text>
+          <text>{{item.phone}}</text>
+        </view>
+        <view class="font_14 color_666 line_over_1">{{item.listdis}} {{item.address}}</view>
+      </view>
+      <view class="edit_container" data-id="{{item.addressid}}" bindtap='toEdit'>
+        <text class="iconfont icon-edit" style="color: #FF5541;"></text>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer_container padding16 overflow_boxsizing">
+    <button type="default" size="default" bindtap="toEdit" class='save font_14 color_333' style='background:linear-gradient(270deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);color:#fff'>
+      <text class="iconfont icon-add"></text> 增加新地址 </button>
+    <!-- <button type="default" class="font_14 color_999" size="default" bindtap="back" style='background: #fff; color: #029400; border: 2rpx solid #029400;'> <text class="iconfont icon-weixin"></text> 从微信添加 </button> -->
+  </view>
+</view>

@@ -1,0 +1,18 @@
+/* pages/messagelist_section/messagelist_section.wxss */
+.obox{width: 90%;margin: 0 auto;padding: 0 16rpx;background: #fff;border-radius: 8px}
+.p1{font-size:28rpx;
+font-family:PingFangSC-Semibold;
+font-weight:600;line-height:20px;border-bottom: 1px solid #F6F6FA;padding: 20rpx 0;
+display: flex;align-items: center;justify-content: space-between}
+.ap{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;font-size: 22rpx;font-weight: 300;width: 24%;flex-shrink: 0;text-align: right}
+.itemse{display: flex;align-items: center}
+.p2{padding: 20rpx 0;}
+.p2 image{width: 144rpx;height: 144rpx;margin-right: 16rpx;flex-shrink: 0}
+.mestime view:nth-child(1){font-size: 28rpx;}
+.mestime view:nth-child(2){font-size: 24rpx;color: #999;margin-top: 46rpx}
+.time{text-align: center;color: #fff;margin: 30rpx 0}
+.time text{background:rgba(216,216,216,1);
+border-radius:4px;font-size: 24rpx;padding: 16rpx 20rpx;}
+.nomores{margin: 20rpx 0;font-size: 26rpx;text-align: center;color: #999}
+.aps view{font-size: 24rpx;color: #999}
+.readstate:before{content: ""; display: inline-block; width:8px; height:8px; background:rgba(255,66,44,1); border-radius: 50%; margin-right: 5px;}

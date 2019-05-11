@@ -1,0 +1,13 @@
+<!--pages/other/gongshang/gongshang.wxml-->
+<block wx:if="{{!isRushou}}">
+	<image src='{{img}}' style='width:100%' mode="widthFix" wx:if="{{img!='null'&&img!=''}}"></image>
+	<view class="apps" wx:else>
+		<image src="https://images.rushouvip.cn/WebApp/WebApps/Image/noname.png" mode="widthFix"></image>
+		<view>很抱歉</view>
+		<view>商家暂未上传工商资质</view>
+	</view>
+</block>
+
+
+<image bindtap="PreImg" data-src="https://images.rushouvip.com/IMG/zz/zz1.jpg" src='https://images.rushouvip.com/IMG/zz/zz1.jpg' style='width:100%' mode="widthFix" wx:if="{{isRushou}}"></image>
+<image bindtap="PreImg" data-src="https://images.rushouvip.com/IMG/zz/youyanzz.jpg" src='https://images.rushouvip.com/IMG/zz/youyanzz.jpg' style='width:100%' mode="widthFix" wx:if="{{isRushou}}"></image>

@@ -1,0 +1,12 @@
+/* pages/other/refund/refund.wxss */
+page{background-color: #F6F6FA;}
+.marginBt10{margin-bottom: 20rpx; background-color: #fff;}
+/*商品详情  */
+.bottom_border{ border-bottom: 1px solid #F6F6FA;}
+.product_list{padding: 24rpx 0;}
+.product_img_container{width: 148rpx; height: 148rpx; margin-right: 24rpx;}
+.product_img_container>image{width: 148rpx; height: 148rpx;}
+.container_other{height: 74rpx; line-height: 74rpx; text-align: right; border-bottom: 2rpx solid #F6F6FA;}
+
+.problem_container{width: 100%; height:240rpx;background:rgba(246,246,250,1);border-radius:8rpx;padding: 20rpx;line-height: 40rpx;}
+.btn_submit{width: 80%; height: 88rpx; line-height: 88rpx; background-color: #CDA86E; border-radius:44rpx;}

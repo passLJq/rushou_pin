@@ -1,0 +1,25 @@
+<!--pages/huanpro/huanpro.wxml-->
+<view style='background:#fff'>
+  <view class="initem">
+    <view class="tatles">申请服务</view>
+    <input type='text' disabled='true' value='部分商品换货'></input>
+  </view>
+  <view class="initem">
+    <view class="tatles">换货商品</view>
+    <input type='text' class="line_over_1" value='{{options.proname}}' disabled='true'></input>
+  </view>
+  <view class="initem">
+    <view class="tatles">换货数量</view>
+    <input type='number' value='{{options.buycount}}' disabled='true' placeholder='请填写换货数量'></input>
+  </view>
+  <view class="initem">
+    <view class="tatles">换货原因</view>
+    <input type='text' value='' placeholder='请填写换货原因' bindinput='bin1' value='{{liuyan}}'></input>
+  </view>
+  <view class="upimg">
+    <view class="tatles">上传图片</view>
+    <image src="{{src}}" mode="widthFix" bindtap='huanimg'></image>
+  </view>
+</view>
+
+<view class="wxbtn as" bindtap='okup'>提交</view>

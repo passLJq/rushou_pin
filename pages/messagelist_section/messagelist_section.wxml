@@ -1,0 +1,45 @@
+<!--pages/messagelist_section/messagelist_section.wxml-->
+<view wx:for="{{listdata}}" bindtap='goother' data-index='{{index}}'>
+  <view class="time">
+    <text>{{item.createtime}}</text>
+  </view>
+  <view class="obox">
+    <view class="p1">{{item.contentjson.title||item.title}}
+      <text wx:if="{{options.type==1}}" class="ap">{{item.contentjson.order_type}}</text>
+      <text wx:if="{{options.type==4||options.type==5}}" class="ap">{{item.contentjson.user_name}}</text>
+      <view class="readstate" style="margin: 0;" wx:if="{{!item.isread && (options.type === '2' || options.type === '3' || options.type === '6')}}"><text>未读</text></view>
+    </view>
+    <view class="p2 itemse" wx:if="{{options.type==4||options.type==1||options.type==5}}">
+      <image src="{{item.contentjson.pro_pic}}"></image>
+      <view class="mestime">
+        <view class="line_over_2">{{item.contentjson.pro_name}}</view>
+        <view class="clear" style="width: 100%; height: 17px; line-height: 17px;">
+          <view class="fl" style="margin: 0;">共{{item.contentjson.pro_count}}件</view>
+          <view class="fr readstate" style="margin: 0;" wx:if="{{!item.isread && (options.type === '1' || options.type === '4' || options.type === '5')}}"><text>未读</text></view>
+        </view>
+      </view>
+    </view>
+    <view class="p2 itemse" wx:else>
+      <view style='font-size:28rpx'>
+        {{item.contentjson.content||item.content}}
+        <view wx:if="{{options.type==3}}" class='aps'>
+          <view>昵称: {{item.contentjson.name}}</view>
+          <view>微信: {{item.contentjson.wxnum}}</view>
+          <view>手机号: {{item.contentjson.phone}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="nomores" wx:if="{{stops}}">
+  <view wx:if="{{listdata.length>0}}">
+    没有记录了
+  </view>
+  <view wx:else>
+    <view class="nodata">
+      <image src="../../image/nodata.png" mode='widthFix'></image>
+      <view>抱歉，目前没有显示记录~</view>
+    </view>
+  </view>
+</view>

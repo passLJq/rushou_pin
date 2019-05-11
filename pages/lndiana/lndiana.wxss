@@ -1,0 +1,278 @@
+@import "../../common/iconfont.wxss";
+@import "../../common/font-awesome.wxss";
+@import "../../Component/sharebox/sharebox.wxss";
+
+view {
+  box-sizing: border-box;
+}
+
+/* 活动规则 */
+.rule {
+  width:140rpx;
+  height:48rpx;
+  background-color: #B70000;
+  border-radius:24rpx 0 0 24rpx;
+  text-align: center;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  color: #fff;
+  position: absolute;
+  top: 52rpx;
+  right: 0;
+  z-index: 99;
+  
+}
+
+
+/* 拼团说明 */
+
+.explain {
+  height: 96rpx;
+  padding: 0 30rpx;
+}
+
+.explain .step {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.explain .step + .step {
+  margin-left: 14rpx;
+}
+
+.explain .step view {
+  font-size: 22rpx;
+  display: block;
+  background-color: rgba(232, 55, 74, 1);
+  width: 32rpx;
+  height: 32rpx;
+  color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.explain text {
+  color: #ff5541;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.explain .right {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 20rpx;
+}
+
+.explain .right image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 导航nav */
+
+.nav {
+  width: 750rpx;
+  height: 70rpx;
+  overflow: hidden;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.nav .scroll-view-item {
+  width: 250rpx;
+  height: 70rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  line-height: 70rpx;
+}
+
+.nav .scroll-view-item.active {
+  color: #ff5541;
+}
+
+.nav .bottomBar {
+  width: 90rpx;
+  height: 6rpx;
+  background: #ff5541;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+/* 商品列表 */
+
+.productList {
+  width: 750rpx;
+}
+
+.productList .list-item {
+  width: 750rpx;
+  height: 330rpx;
+  background-color: #fff;
+  padding: 44rpx 38rpx 0 38rpx;
+}
+
+.productList .list-item + .list-item {
+  margin-top: 20rpx;
+}
+
+.productList .list-item .pic {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.productList .list-item .pic image {
+  width: 100%;
+  height: 100%;
+}
+
+.productList .list-item .proDetails {
+  width: 454rpx;
+  height: 242rpx;
+  margin-left: 20rpx;
+  position: relative;
+}
+
+.productList .list-item .proDetails .slogan {
+  width: 100%;
+  max-height: 90rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+.productList .list-item .proDetails .slogan view {
+  display: inline-block;
+  /* width: 80rpx; */
+  padding: 0 14rpx;
+  height: 32rpx;
+  font-size: 20rpx;
+  color: #fff;
+  -webkit-border-radius: 16rpx;
+  border-radius: 16rpx;
+  line-height: 32rpx;
+  margin: 0 8rpx;
+  transform: translateY(-2rpx);
+  -webkit-transform: translateY(-2rpx);
+}
+.productList .progress {
+  width: 100%;
+  height: 20rpx;
+  border-radius:23rpx;
+  background-color: #f6f6fa;
+  overflow: hidden;
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+}
+.productList .progress > view {
+  height: 100%;
+}
+
+.productList .list-item .member {
+  width: 100%;
+  height: 64rpx;
+  position: absolute;
+  top: 120rpx;
+  left: 0;
+}
+
+.productList .member text {
+  font-size: 20rpx;
+  margin-right: 20rpx;
+}
+
+.productList .priceView {
+  width: 100%;
+}
+.productList .priceView .priceText {
+  width: 294rpx;
+  height: 50rpx;
+}
+.productList .priceView .priceText text:nth-child(1) {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #FF5541;
+}
+.productList .priceView .priceText text:nth-child(2) {
+  font-size: 24rpx;
+  color: #999;
+}
+.productList .priceView .btn {
+  width: 160rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  color: #FF5541;
+  border: 2rpx solid #FF5541;
+  border-radius:60px;
+  -webkit-border-radius:60px;
+}
+.productList .priceView .btn.close {
+  border: 2rpx solid #d8d8d8;
+  color: #999;
+}
+
+/* 活动规则弹窗 */
+.ruleDetails {
+  width: 600rpx;
+  height: 800rpx;
+  background-color: #fff;
+  -webkit-border-radius: 32rpx;
+  border-radius: 32rpx;
+  position: fixed;
+  top: 160rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.ruleDetails .title {
+  width: 258rpx;
+  height: 80rpx;
+  border-radius:16rpx;
+  -webkit-border-radius:16rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  position: absolute;
+  top: -40rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.ruleDetails .content {
+  width: 520rpx;
+  height: 610rpx;
+  overflow: scroll;
+  line-height: 40rpx;
+}
+
+.ruleDetails .content text {
+  font-size: 28rpx;
+  
+}
+
+.ruleDetails .bottom {
+  width: 100%;
+  height: 128rpx;
+  background-color: #fff;
+  border-radius: 0 0 96rpx 96rpx;
+}
+
+.ruleDetails .bottom .btn {
+  width: 480rpx;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #fff;
+  -webkit-border-radius: 96rpx;
+  border-radius: 96rpx;
+}

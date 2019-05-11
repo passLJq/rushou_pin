@@ -1,0 +1,6 @@
+<!--pages/wechatclear/wechatclear.wxml-->
+<view class="wechatou">
+<view>Hi,{{name}}</view>
+<view>恭喜您, 已绑定成功</view>
+<view class="wxbtn as" bindtap='clearup'>解绑微信</view>
+</view>

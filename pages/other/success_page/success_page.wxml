@@ -1,0 +1,130 @@
+<!--pages/other/success_page/success_page.wxml-->
+<import src="../../../Component/sharebox/sharebox.wxml" />
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view wx:if="{{options.way=='groupbuynow'}}">
+  <view>
+    <view class="gpbox">
+      <view wx:if="{{msgdata.count> 0}}">
+        <view class="gp1">还差
+          <text class="numone">{{msgdata.count}}人</text>成团</view>
+        <view class="gp2">
+          <text>距离结束还剩下 {{days<=0?'':day+'天'}}{{hours}}:{{minutes}}:{{seconds}}</text>
+        </view>
+      </view>
+      <view wx:else>
+        <view class="gp1">拼团成功</view>
+      </view>
+      <view class="items xiabox" style="{{allping.length>6?'width:90%;flex-wrap:wrap':''}}">
+        <view class="canyu">
+          <image src="{{msgdata.resobj[0].userimg||'../../../image/man.jpg'}}"></image>
+          <view class="or_name">{{filters.hideName(msgdata.resobj[0].username)}}</view>
+          <view class="tuanzhang">
+            <view>团长</view>
+          </view>
+        </view>
+        <view class="canyu" wx:for="{{allping}}">
+          <image src="{{msgdata.resobj[index+1].userimg?msgdata.resobj[index+1].userimg:(msgdata.resobj[index+1].userimg==''?'../../../image/man.jpg':'../../../image/hui.png')}}"></image>
+          <view class="or_name">{{msgdata.resobj[index+1].username?filters.hideName(msgdata.resobj[index+1].username):(msgdata.gbstate==3?'':'待邀请')}}</view>
+        </view>
+      </view>
+      <!-- 录音 -->
+      <view class='addtou' wx:if="{{msgdata.resobj.length==1}}">
+        <view class="asietm">
+          <text class='tui'>语音推荐</text>
+          <image src="../../../image/new.png"></image>
+        </view>
+        <button class='luyin' open-type="openSetting" wx:if="{{status==2}}" bindopensetting="checkluying">请开启录音授权</button>
+        <button class='luyin' bindtap='openvied' wx:if='{{(video==1||video==2)&&status==1}}'>我要开始录音</button>
+        <view class='itemse' wx:if='{{video==3}}'>
+          <view class='vidioimg'>
+            <image src='{{bosrc}}' mode='aspectFit' bindtap='playRecord'></image>
+            <text class='vitime'>{{videotime}}''</text>
+          </view>
+          <text class='lu' bindtap='ales' data-del='1'>重新录制</text>
+        </view>
+            <view class='xiatext'>分享3个群后，成功率高达90%哦</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- //拼团弹窗 -->
+  <view class="zhezhao" wx:if="{{showtan}}" bindtap='closesharebox'></view>
+  <view class="sharpmore" wx:if="{{showtan}}">
+    <view class="sharptext">多分享几次，成团更轻松哦</view>
+    <view class="sharpbtn" bindtap='goshare'>再分享给好友</view>
+  </view>
+
+  <view class='zhezao' wx:if='{{openvideo}}' catchtouchmove="nomove" bindtap='openvied'></view>
+
+  <view class='bbox' style="{{openvideo?'display:block':'display:none'}}">
+    <view class="circle-box">
+		<!-- <image src="../../../image/Rectangle.png" mode="widthFix"></image> -->
+      <canvas class="circle" style="width:70px; height:70px;" canvas-id="canvasCircle">
+      </canvas>
+      <canvas class="circle" style="z-index:99999;width:70px; height:70px;" canvas-id="canvasArcCir">
+      </canvas>
+      <view class='bo' wx:if='{{video==1}}'>
+        <i bindtap='drawCircle' class='iconfont icon-bofang'></i>
+      </view>
+      <view class='bo' style='bottom:45px' wx:elif='{{video==2}}'>
+        <i bindtap='stopcircle' class='iconfont icon-zanting' style='font-size:42px'></i>
+      </view>
+      <view class='bo' style='bottom:45px' wx:elif='{{video==3}}'>
+        <i class='iconfont icon-yuan' style='font-size:42px'></i>
+      </view>
+      <text class='statlu' wx:if='{{video==1}}'>开始录制</text>
+      <text class='statlu' wx:elif='{{video==2}}'>录制中</text>
+
+      <block wx:if='{{video==3}}'>
+        <view class='queren' bindtap='openvied' data-que='1'>
+          <i class='iconfont icon-queren' style="color:#FF5541;"></i>
+          <view>确认</view>
+        </view>
+        <view class='del' bindtap='delevied'>
+          <i class='iconfont icon-Close' style="color:#999;"></i>
+          <view style="color:#999;">删除</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{msgdata.count>0}}">
+    <view class="wxbtn" bindtap='goshare'>邀请好友参团</view>
+  </view>
+  <view wx:else>
+    <view class="wxbtn" bindtap='toOrders'>查看订单</view>
+  </view>
+</view>
+<!-- 拼团成功 -->
+<view wx:else>
+  <view class="top_container flex flex_align_center overflow_boxsizing">
+    <view>
+      <text class="iconfont icon-success1" style="font-size: 88rpx; margin-right: 30rpx;color: #CDA86E;"></text>
+    </view>
+    <view class="flex flex_v flex_pack_justify_between">
+      <view class="font_17 color_333 font_weight" style="padding-bottom: 20rpx;">
+        <text>支付成功</text>
+      </view>
+      <view class="font_12 color_333">
+        <text>卖家将尽快为您发货哦~</text>
+      </view>
+    </view>
+  </view>
+  <view class="bottom_container">
+    <view class="list_container"></view>
+    <view class="list_container overflow_boxsizing" bindtap='toOrders' hover-class='hover_btn'>
+      <view class=" flex flex_pack_justify_between">
+        <text>查看订单</text>
+        <text class="more_icon"></text>
+      </view>
+    </view>
+    <view class="list_container overflow_boxsizing" bindtap='toIndex' hover-class='hover_btn'>
+      <view class=" flex flex_pack_justify_between">
+        <text>继续购物</text>
+        <text class="more_icon"></text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 分享弹窗 -->
+<template is="sharebox" data="{{showshare, zuan: zuan,haibao:haibao}}" />

@@ -1,0 +1,5 @@
+/* pages/other/fxordersdetail/fxordersdetail.wxss */
+.top_container{background-color: #fff; width: 100%; height: 260rpx; margin-bottom: 20rpx;}
+.box_container{padding: 26rpx 32rpx; background-color: #fff;}
+.box_container>view{margin-bottom: 20rpx;}
+.box_container>view:nth-last-child(1){margin-bottom: 0;}

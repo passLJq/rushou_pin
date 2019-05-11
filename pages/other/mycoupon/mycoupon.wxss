@@ -1,0 +1,146 @@
+/* pages/other/mycoupon/mycoupon.wxss */
+page{background-color: #F3F2F2;}
+/* NAV */
+.nav_container{position: fixed; top: 0; width: 100%; height: 88rpx; background-color: #fff;}
+.nav_container .slider_list:nth-child(1){border-right: 2rpx solid #FCFCFD;}
+.slider_list{width: 50%; height: 88rpx; line-height: 88rpx; text-align: center;}
+.line_red{position: absolute; top:96%; width:80rpx;height:8rpx;background:#ff5541;border-radius:4rpx;}
+.color_selected{color: #ff5541; font-size: 34rpx;}
+/* 列表 */
+.list_box{padding: 40rpx 32rpx;width: 100%; margin-top: 88rpx;}
+.coupon_list_container{background-color: #fff; margin-bottom: 20rpx;height:310rpx;border-radius:16rpx;}
+.coupon_state{width:160rpx;height:58rpx;line-height:58rpx; border-radius:32rpx 0px 0px 32rpx; color: #fff;}
+.coupon_price{width: 222rpx; }
+.gray_coupon_color{color:#B2B2B2;}
+.change_color_0 .coupon_state{background:linear-gradient(129.8deg,rgba(255,221,164,1),rgba(192,150,90,1));}
+.change_color_1 .coupon_state, .change_color_2 .coupon_state{background-color: #D8D8D8;}
+.change_color_0 .canuse_color{color: #CDA86E;} 
+.change_color_1 .canuse_color, .change_color_2 .canuse_color, .change_color_1 .gray_coupon_color, .change_color_2 .gray_coupon_color{color: #D8D8D8;}
+.coupon_list_center{width: 100%; height: 138rpx;}
+.coupon_list_bottom{width: 100%;}
+.coupon_overtime_container{border-top:2rpx solid rgba(246,246,250,1);}
+.coupon_use_btn{width:160rpx;height:56rpx;background:rgba(205,168,110,0.2);border-radius:30rpx;border:2rpx solid rgba(205,168,110,1);}
+
+.main {
+  width: 100%;
+  /* height: 726rpx; */
+  /* overflow-y: scroll; */
+  padding-bottom: 30rpx;
+}
+/* 可领优惠券 */
+ .canget {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+ .canget .cangetHead {
+  padding: 20rpx 32rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+ .canget .cangetHead text {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 22rpx;
+}
+ .item {
+  width: 100%;
+  min-height: 160rpx;
+  box-sizing: border-box;
+  box-shadow: 0rpx 2rpx 20rpx 0rpx rgba(216,216,216,0.3);
+  border-radius: 16rpx;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  background-color: #fff;
+}
+ .item .closePass {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20rpx;
+  color: #ff5541;
+  padding: 2rpx 14rpx;
+  background-color: rgba(255,85,65,0.2);
+  border-radius: 0 16rpx 0 8rpx;
+}
+ .item + .item {
+  margin-top: 20rpx;
+}
+ .item .left {
+  width: 28%;
+  /* height: 100%; */
+  background:linear-gradient(270deg,rgba(255,76,95,1) 0%,rgba(255,112,87,1) 100%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+ .item .left .price{
+  /* margin-top: 28rpx; */
+}
+ .item .left .price text{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+ .item .left .price text:nth-child(2){
+  font-size: 48rpx;
+}
+ .item .left > text{
+  margin-top: 14rpx;
+  font-size: 24rpx;
+}
+
+ .item .right {
+  width: 72%;
+  height: 100%;
+  padding: 0 20rpx; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ .item .right .explain {
+   max-width: 350rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ .item .right .explain .title {
+   width: 100%;
+  margin-top: 10rpx;
+}
+ .item .right .explain .title text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333;
+}
+ .item .right .explain .title text:nth-child(1) {
+  font-size: 20rpx;
+  color: #ff5541;
+  padding: 2rpx 14rpx;
+  background-color: rgba(255,85,65,0.2);
+  margin-right: 20rpx;
+  border-radius: 16rpx;
+}
+ .item .right .explain .content {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 22rpx;
+}
+ .item .right .explain .date {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+ .item .right .btn {
+  min-width: 120rpx;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 2rpx 20rpx;
+  border-radius: 16rpx;
+  text-align: center;
+}
+ .item .right .btn.b {
+  background-color: #d8d8d8;
+}

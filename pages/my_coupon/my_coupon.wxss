@@ -1,0 +1,22 @@
+/* pages/other/mycoupon/mycoupon.wxss */
+page{background-color: #F3F2F2;}
+/* NAV */
+.nav_container{position: fixed; top: 0; width: 100%; height: 88rpx; background-color: #fff;}
+.nav_container .slider_list:nth-child(1){border-right: 2rpx solid #FCFCFD;}
+.slider_list{width: 50%; height: 88rpx; line-height: 88rpx; text-align: center;}
+.line_red{position: absolute; top:96%; width:80rpx;height:8rpx;background:#ff5541;border-radius:4rpx;}
+.color_selected{color: #ff5541; font-size: 34rpx;}
+/* 列表 */
+.list_box{padding: 40rpx 32rpx;width: 100%; margin-top: 88rpx;}
+.coupon_list_container{background-color: #fff; margin-bottom: 20rpx;height:310rpx;border-radius:16rpx;}
+.coupon_state{width:160rpx;height:58rpx;line-height:58rpx; border-radius:32rpx 0px 0px 32rpx; color: #fff;}
+.coupon_price{width: 222rpx; }
+.gray_coupon_color{color:#B2B2B2;}
+.change_color_0 .coupon_state{background:linear-gradient(270deg,rgba(255,76,95,1) 0%,rgba(255,112,87,1) 100%);}
+.change_color_1 .coupon_state, .change_color_2 .coupon_state{background-color: #D8D8D8;}
+.change_color_0 .canuse_color{color: #ff5541;} 
+.change_color_1 .canuse_color, .change_color_2 .canuse_color, .change_color_1 .gray_coupon_color, .change_color_2 .gray_coupon_color{color: #D8D8D8;}
+.coupon_list_center{width: 100%; height: 138rpx;}
+.coupon_list_bottom{width: 100%;}
+.coupon_overtime_container{border-top:2rpx solid rgba(246,246,250,1);}
+.coupon_use_btn{width:160rpx;height:56rpx;background:rgba(205,168,110,0.2);border-radius:30rpx;border:2rpx solid rgba(205,168,110,1);}

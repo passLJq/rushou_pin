@@ -1,0 +1,50 @@
+/* pages/myincome/myincome.wxss */
+/* @import "../../Component/goapp/goapp.wxss"; */
+page{background-color: #F6F6FA;margin-top: 5rpx}
+.fxbox{text-align: center;padding-top: 50rpx;background-color: #fff}
+.fx1{font-size: 28rpx;}
+.fx2{font-size: 46rpx;color: #FF5541;padding: 20rpx 0;font-weight: 700}
+.fx2 text{font-size: 26rpx}
+.fx3{font-size: 28rpx;}
+.item{display: flex;align-items: center;padding: 30rpx 0}
+.itemli{width: 33.3%;text-align: center}
+.fx4{font-size: 28rpx;color: #FF5541;font-weight: 700}
+.fx5{font-size: 22rpx;}
+.fx6{font-size: 28rpx;color: #999}
+.fx7{font-size: 24rpx;color: #999;padding: 20rpx 30rpx;text-align: left}
+ec-canvas {
+  width: 100%;
+  height: 360rpx;
+  background-color: #fff
+}
+.container{padding: 0;margin-bottom: 30rpx}
+.fx8{font-size: 28rpx;padding: 20rpx 30rpx;background-color: #fff}
+.right-arrow {
+    display :inline-block;
+    position: relative;
+    width: 28rpx;
+    height: 36rpx;
+    color: #999999
+}
+
+.right-arrow::after {
+    display: inline-block;
+    content: " ";
+    height: 18rpx;
+    width: 18rpx;
+    border-width: 3rpx 3rpx 0 0;
+    border-color: #999999;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: absolute;
+    top: 50%;
+    right: 6rpx;
+    margin-top: -9rpx;
+}
+.items{display: flex;align-items: center;justify-content: space-between;padding: 30rpx 0}
+.mingxi{background-color: #fff;padding: 0 30rpx;}
+.fx9{font-size: 24rpx;padding: 20rpx 30rpx;background-color: #F6F6FA;color: #999}
+.fx11{display: flex;align-items: center;font-size: 24rpx;color: #999;}
+.fx11 i{margin-left: 10rpx}
+.fx12{font-size: 28rpx;color: #333}
+.ase{width: 100%;height: 200px;background: #fff;margin: 0 auto;z-index: -999;position: relative}

@@ -1,0 +1,16 @@
+/* pages/myincomesection/myincomesection.wxss */
+@import "../../common/iconfont.wxss";
+.mitem{display: flex;align-items: center;color: #333}
+.one{justify-content: space-between;padding: 20rpx 32rpx;background-color: rgb(246,245,250);font-size: 26rpx;position: relative;z-index: 99999}
+.mitem i{font-size: 20rpx;}
+.two{color: #333}
+.shaixuan{flex-wrap: wrap;background-color: #fff;padding-bottom: 20rpx;position: fixed;z-index: 999;width: 100%;transition: top 0.5s;}
+.xuanul{width: 33.3%;padding-top: 20rpx}
+.xuanli{width: 90%;margin: 0 auto;color: #333;border-radius: 8px;border: 1px solid #999;font-size: 24rpx;text-align: center;padding: 20rpx 0; }
+.xuactive{background:rgba(246,245,250,1);border: 1px solid rgba(246,245,250,1)}
+.xuanzuan{transform:rotate(180deg);color: #F72133}
+.zhezhao{background-color: rgba(0,0,0,.6);position: fixed;top: 0;width: 100%;bottom:0}
+.xiangqing{font-size: 26rpx;background: #fff;padding-top:20rpx;padding-left: 30rpx;}
+.xiangqing text:nth-child(1){color: #999;}
+.xiangqing text:nth-child(2){color: #333;margin-left: 20rpx}
+.waibox{padding-bottom: 20rpx;margin-bottom: 10rpx;background: #fff}

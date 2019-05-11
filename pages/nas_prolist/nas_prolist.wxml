@@ -1,0 +1,28 @@
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<view class="otherBlock">
+	<view class="otherItem" wx:for="{{msg}}" data-gbid="{{item.gbid}}" bindtap="toGroupBuy">
+		<image src="{{item.propic || '../../image/bkg_cover.jpg'}}"></image>
+		<view class="detail">
+		  <text><text class="p1">{{item.gbuynum}}人拼团</text> {{item.title}}</text>
+			<!-- {{item.userimglist && item.userimglist.length > 0 ? '' : 'flexEnd'}}" -->
+			<view class="headimg {{item.userimglist && item.userimglist.length > 0 ? '' : 'flexEnd'}}">
+			  <view>
+				  <!-- <image wx:for="{{item.userimglist}}" wx:for-item="member" wx:for-index="idx" src="{{member}}" wx:if="{{idx < 5}}"></image> -->
+				</view>
+				<text>已售{{item.count || 0}}件</text>
+			</view>
+			<view class="bottom">
+			  <view class="pr">
+				  <text style="font-size:{{item.gbprice.length > 5 ? '30rpx':'36rpx'}}">￥{{filters.toFix(item.gbprice,2)}}</text>
+				  <text style="font-size:{{item.proprice.length > 2 ? '20rpx':'24rpx'}}">原价￥{{item.proprice}}</text>
+				</view>
+				<view class="btn">去拼团</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="nodata" wx:if="{{showNoData}}">
+  <image mode="widthFix" src="../../image/nodata.png"></image>
+	<text>暂无相关商品数据~</text>
+</view>

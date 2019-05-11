@@ -1,0 +1,49 @@
+/* Component/foot-nav/foot-nav.wxss */
+image{
+  display: block;
+}
+.footbox{
+  width: 100%;
+  height: 110rpx;
+}
+.activeindex{
+  color: #e69888
+}
+.footnav{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 110rpx;
+	justify-content: space-between;
+}
+.footli{
+  width: 25%;
+  text-align: center;
+  font-size: 22rpx
+}
+.footli image{
+  width: 46rpx;
+  height: 46rpx;
+  margin: 0 auto;
+  margin-bottom: 10rpx;
+}
+.carbox{
+  position: relative;
+}
+.jiaobao{
+  position: absolute;
+  right: 36%;
+  top:0;
+  background: red;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 50%;
+  height: 30rpx;
+  width: 30rpx;
+  line-height: 30rpx;
+}
+.translateX_icon{position: absolute; top: 0; left: 50%;transform: translateX(10rpx);-ms-transform: translateX(10rpx);-moz-transform: translateX(10rpx);-webkit-transform: translateX(10rpx);-o-transform: translateX(10rpx); background-color: #FF422C; color: #fff;     border-radius: 20px;padding: 0 5px; height: 16px;line-height: 16px;font-size: 13px;overflow: hidden}

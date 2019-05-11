@@ -1,0 +1,13 @@
+/* pages/other/aftersale/aftersale.wxss */
+page{background-color: #F6F6FA;}
+.nav_container{position: fixed; top: 0; width: 100%; height: 88rpx; background-color: #fff;}
+.nav_container .slider_list:nth-child(1){border-right: 2rpx solid #FCFCFD;}
+.slider_list{width: 50%; height: 88rpx; line-height: 88rpx; text-align: center;}
+.line_red{position: absolute; top:96%; width:80rpx;height:8rpx;background:rgba(255,66,44,1);border-radius:4rpx;}
+.list_center_container{background-color: #fff; margin-top: 88rpx; border-top:10rpx solid #F6F6FA;font-size: 28rpx; color: #333;}
+.list_shop_container{width: 100%; height: 96rpx; line-height: 96rpx;}
+
+.product_list{padding: 24rpx 0;}
+.product_img_container{width: 148rpx; height: 148rpx; margin-right: 24rpx;}
+.product_img_container>image{width: 148rpx; height: 148rpx;}
+

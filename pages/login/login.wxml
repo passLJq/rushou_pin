@@ -1,0 +1,48 @@
+<!--pages/login/login.wxml-->
+<view>
+<view class='title'><text>绑定手机号码</text></view>
+<view class="lo_item as">
+ <i class="iconfont icon-shouji"></i>
+  <input  bindinput="bind1" placeholder="请填写您的手机号码" type='number' value='{{telphone}}' placeholder-style='font-size:24rpx' maxlength='11'/>
+</view>
+<view class="lo_item code">
+  <input  bindinput="bind2" placeholder="请输入收到的验证码" type='number' value='{{smscode}}' placeholder-style='font-size:24rpx' maxlength='4'/>
+    <view bindtap='code' wx:if="{{clickon}}" class='codenum'>获取验证码</view>
+    <view wx:else class='codenum timeout'>{{time}} S</view>
+</view>
+ <button class='ban wxbtn' open-type="getUserInfo"  bindgetuserinfo="bindgetuserinfo">确认绑定</button>
+ <!-- <view bindtap='que' class='ban wxbtn' wx:else>确认绑定</view> -->
+</view>
+
+<view class="inv" hidden="{{!showInv}}">
+<!-- <view class="inv"> -->
+  <view class="inv_box">
+	  <text>{{invMsg ? '确认邀请人' : '填写邀请码'}}</text>
+		<view class="inv_man" hidden="{{!invMsg}}">
+		  <image mode="widthFix" src="{{invMsg.refereeimg}}"></image>
+			<text>{{invMsg.referee}}</text>
+		</view>
+		<input hidden="{{invMsg}}" class="inv_inp" maxlength="6" bindinput="getinv" type="number"></input>
+		<view class="btn" bindtap="nextStep" hidden="{{invMsg}}">下一步</view>
+    <view class="boxirem">
+    <view hidden="{{!invMsg}}" class="btns" bindtap="comfirmqu">上一步</view>    
+		<view hidden="{{!invMsg}}" class="btns" bindtap="openShop">确定</view>
+    </view>
+	</view>
+</view>
+
+<view class="inv" hidden="{{!showInv2}}">
+<!-- <view class="inv"> -->
+  <view class="inv_box">
+	  <text>确认邀请人</text>
+		<view class="inv_man">
+		  <image mode="widthFix" src="{{invMsg.phone}}"></image>
+			<text>{{invMsg.name}}</text>
+		</view>
+		<!-- <text style="font-size: 32rpx;color: #333;">{{invMsg.code}}</text> -->
+    <view class="boxirem">
+    <view hidden="{{!invMsg}}" class="btns" bindtap="quxiao">取消</view>    
+		<view hidden="{{!invMsg}}" class="btns" bindtap="openShop">确定</view>
+    </view>
+	</view>
+</view>

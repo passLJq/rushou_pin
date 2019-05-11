@@ -1,0 +1,31 @@
+<!--pages/other/logisticsdetail/logisticsdetail.wxml-->
+<view>
+  <view class="logistics_top_container padding24">
+    <text class="logistics_left_container color_999">物流公司</text>
+    <text>{{deliverydata.companyname}}</text>
+  </view>
+
+  <view class="logistics_top_container padding24">
+    <view style="border-bottom: 2rpx solid #F8F8FB;" class="overflow_boxsizing">
+      <text class="logistics_left_container color_999">物流跟踪</text>
+      <text>{{deliverydata.trackno}}</text>
+    </view>
+  </view>
+
+  <view class=" overflow_boxsizing" style="padding: 40rpx 48rpx;" wx:if="{{expressjson && expressjson.result && expressjson.result.list.length > 0}}" wx:for="{{expressjson.result.list}}" wx:key="length">
+    <view class="flex flex_pack_justify_between list_container">
+      <view class="flex flex_v">
+        <view class="arc_container flex flex_align_center flex_pack_center {{index != 0? 'isNOFirst': ''}}">
+          <text class="arc_icon"></text>
+        </view>
+        <view class="flex flex_pack_center flex_1" style="height: 100%;width:44rpx;margin-right: 42rpx;">
+          <text style="height: 100%; width: 2rpx; background-color: #F7F7FA;"></text>
+        </view>
+      </view>
+      <view class="flex_1 flex flex_v flex_pack_justify_between">
+        <text>{{item.status}}</text>
+        <text class="color_999 font_12">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

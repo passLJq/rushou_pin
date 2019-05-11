@@ -1,0 +1,84 @@
+<!--pages/prolist/prolist.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<import src="../../Component/sharebox/sharebox.wxml"/>
+<!-- 头部 -->
+<view class="toubu">
+  <view class="wxSearch-section">
+    <view class="wxSearch-pancel">
+    <view class='itemsec'>
+     <i class="iconfont icon-sousuo"></i>
+      <input  value="{{skey}}" class="wxSearch-input" placeholder="搜索商品" confirm-type="search" bindblur="serch" bindconfirm="serch"/>
+    </view>
+      <!-- <button class="wxSearch-button search-anniu" bindtap="wxSearchFn" size="mini" plain="true">搜索</button> -->
+      <view class="qie" bindtap='qiehuan'>
+        <image src="{{qiehuanimg}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="item" wx:if="{{false}}">
+    <view bindtap='paixu' data-index="0" class=" itemli {{checkstatu[0]?'actives':''}}">
+      <text>价格</text>
+      <image src="{{checkimg[0]}}"></image>
+    </view>
+    <view bindtap='paixu' data-index="1" class=" itemli {{checkstatu[1]?'actives':''}}">
+      <text>人气</text>
+      <image src="{{checkimg[1]}}"></image>
+    </view>
+    <view bindtap='paixu' data-index="2" class="itemli {{checkstatu[2]?'actives':''}}">
+      <text>销量</text>
+      <image src="{{checkimg[2]}}"></image>
+    </view>
+  </view>
+</view>
+<!-- 商品列表部分 -->
+<view class="xiamian" style="margin-top: 70rpx;">
+  <block wx:if="{{qiehuan}}">
+    <view class='shude'>
+      <navigator class='seitem box' hover-class="none" url="../groupbuy/groupbuy?gbid={{item.gbid}}" wx:for="{{lisdata}}" wx:key="{{item.gbid}}">
+        <image src="{{item.propic}}" class='seitemleft'></image>
+        <!-- 库存没有图片 -->
+        <image src="../../image/shouwan.png" class="pronopro" wx:if="{{item.gbstock==0}}"></image>
+        <view class='seitemright'>
+          <view class="seitou">
+            <text class="seitoutext"><text class="gb">{{item.gbuynum}}人团</text>{{item.title}}</text>
+          </view>
+          <view class="seijiage">
+            <text class="pp1"><text class="yuan">¥</text>{{filters.toFix(item.gbprice,2)}}</text>
+            <!-- <text class="pp2" wx:if="{{status==1}}">赚<text class="yuan">¥</text>{{filters.toFix(item.commPrice,2)}}</text> -->
+          </view>
+          <view class='btns'  wx:if="{{status==1}}">
+            <!-- <view class='shangjia' catchtap='goadd' data-pid="{{item.pid}}" data-name="{{item.name}}" data-pic="{{item.pic}}"
+                data-saleprice='{{item.salePrice}}' data-marketprice="{{item.marketPrice}}" data-index="{{index}}" wx:if="{{item.isup==0}}">上架</view> -->
+            <!-- <view class='shangjia' wx:else>已上架</view> -->
+            <!-- <view class='mais' catchtap='goshare' data-index="{{index}}">分享</view> -->
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="libox" wx:for="{{lisdata}}" wx:key="{{item.gbid}}">
+      <navigator hover-class="none" url="../groupbuy/groupbuy?gbid={{item.gbid}}" class="henglis">
+        <image src="{{item.propic}}" class='lisimg' style='height:{{banimgheight}}'></image>
+        <!-- 库存没有图片 -->
+        <image src="../../image/shouwan.png" class="shupronopro" wx:if="{{item.gbstock==0}}"></image>
+        <view class="proxia">
+          <view class='listitle'>
+            <text class="t"><text class="gb">{{item.gbuynum}}人团</text>{{item.title}}</text>
+          </view>
+          <view class="seijiagese">
+            <text class="pp1"><text class="yuan">¥</text>{{filters.toFix(item.gbprice,2)}}</text>
+            <!-- <text class="pp2"  wx:if="{{status==1}}">赚 <text class="yuan">¥ </text>{{filters.toFix(item.commPrice,2)}}</text> -->
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<view class="nodata" wx:if="{{shownodata}}">
+<image src="../../image/nodata.png" mode='widthFix'></image>
+<view style="color:#999;">抱歉，目前没有显示记录~</view>
+</view>
+
+<template is="sharebox" data="{{showshare,haibao:haibao,zuan:zuan}}"/>

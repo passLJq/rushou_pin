@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#F04647",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "入手拼",
+  "backgroundColor": "#fd4c61",
+  "backgroundTextStyle": "light",
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"foot-nav": "/Component/foot-nav/foot-nav",
+    "goapps":"/Component/goapp/goapp"
+	}
+}

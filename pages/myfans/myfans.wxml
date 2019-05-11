@@ -1,0 +1,20 @@
+<view class="myTeam" style="margin-bottom: 20rpx;" wx:if="{{!fxshopid}}">
+		<text>邀请小伙伴，还差 <text style="color: #FE334B;">{{(settingcount - count) <= 0 ? 1 : settingcount - count}}</text> 人就可成为会员团长</text>
+	</view>
+<view class="teamitem" wx:for="{{teamMsg}}">
+	<view class="itemmsg">
+		<image src="{{item.shoplogo || item.img || '../../image/man.jpg'}}"></image>
+		<view>
+			<text>{{item.username || item.name}}</text>
+			<text>手机号码: {{item.phone}}</text>
+		</view>
+	</view>
+	<view class="itemzz itemzzz">
+		<text class="yqsj">邀请时间: {{item.createtime}}</text>
+	</view>
+</view>
+
+<view class="nodata" wx:if="{{!teamMsg||teamMsg.length<=0}}">
+	<image mode="widthFix" src="../../image/nodata2.png"></image>
+	<text>亲，目前没有相关团队喔~</text>
+</view>

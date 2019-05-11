@@ -1,0 +1,62 @@
+@import "../../Component/sharebox/sharebox.wxss";
+
+page{
+	background-color: #f5f5f5;
+}
+.foot {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 110rpx;
+	display: flex;
+	justify-content: center;
+	background: #fff;
+	align-items: center;
+}
+.foot view {
+	width: 690rpx;
+	height: 70rpx;
+	color: #fff;
+	font-size: 28rpx;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+	border-radius: 35rpx;
+}
+
+.erwe {
+	width: 160rpx;
+	height: 160rpx;
+	position: absolute;
+	border-radius: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 815rpx;
+}
+
+.dot {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15rpx;
+}
+
+.dot view {
+	width:12rpx;
+	height:12rpx;
+	background:rgba(153,153,153,0.5);
+	transition: all .2s ease-in-out;
+	border-radius: 50%;
+	margin: 0 6rpx;
+}
+
+.dot view.active {
+	width:28rpx;
+	height:12rpx;
+	background:rgba(255,85,65,0.5);
+	border-radius:8rpx;
+}

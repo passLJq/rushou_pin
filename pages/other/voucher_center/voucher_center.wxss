@@ -1,0 +1,196 @@
+/* pages/company_coupon/company_coupon.wxss */
+/* pages/coupon/coupon.wxss */
+@import "../../../common/iconfont.wxss";
+page {
+  background-color: #fff;
+}
+
+view, text {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 遮罩 */
+.mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(51, 51, 51, .7);
+  z-index: 999;
+}
+/* 优惠券 */
+.coupon {
+  width: 100%;
+  height: 822rpx;
+  position: fixed;
+  left: 0;
+  background-color: #fff;
+  z-index: 1001;
+  border-radius: 16rpx 16rpx 0 0;
+  bottom: 0;
+}
+.main {
+  width: 100%;
+  padding-bottom: 30rpx;
+}
+.coupon > .title {
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26rpx;
+}
+.coupon > .title text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color:#333;
+}
+.coupon > .title .guanbi {
+  font-size: 22rpx;
+  color: #000;
+}
+.line {
+  width: 93.6%;
+  height: 2rpx;
+  background-color: #f6f6fa;
+  margin: 0 auto;
+}
+/* 可领优惠券 */
+.canget {
+  width: 100%;
+  padding: 0 20rpx;
+}
+.canget .cangetHead {
+  padding: 20rpx 32rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+.canget .cangetHead text {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 22rpx;
+}
+.item {
+  width: 100%;
+  min-height: 160rpx;
+  box-shadow: 0rpx 2rpx 20rpx 0rpx rgba(216,216,216,0.3);
+  border-radius: 16rpx;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+.item .closePass {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 20rpx;
+  color: #ff5541;
+  padding: 2rpx 14rpx;
+  background-color: rgba(255,85,65,0.2);
+  border-radius: 0 16rpx 0 8rpx;
+}
+.item + .item {
+  margin-top: 20rpx;
+}
+.item .left {
+  width: 28%;
+  /* height: 100%; */
+  background:linear-gradient(270deg,rgba(255,76,95,1) 0%,rgba(255,112,87,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.item .left .price text{
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.item .left .price text:nth-child(2){
+  font-size: 48rpx;
+}
+.item .left > text{
+  margin-top: 14rpx;
+  font-size: 24rpx;
+}
+
+.item .right {
+  width: 72%;
+  height: 100%;
+  padding: 0 20rpx; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item .right .explain {
+  max-width: 350rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item .right .explain .title {
+  width: 100%;
+  margin-top: 10rpx;
+}
+.item .right .explain .title text {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #333;
+}
+.item .right .explain .title text:nth-child(1) {
+  font-size: 20rpx;
+  color: #FF5541;
+  padding: 2rpx 14rpx;
+  background-color: rgba(255,85,65,0.2);
+  margin-right: 20rpx;
+  border-radius: 16rpx;
+}
+.item .right .explain .content {
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 22rpx;
+}
+.item .right .explain .date {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.item .right .btn {
+  min-width: 120rpx;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 2rpx 20rpx;
+  border-radius: 16rpx;
+  text-align: center;
+	background:linear-gradient(270deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%) !important;
+}
+.item .right .btn.b {
+  background-color: #d8d8d8;
+}
+
+/* 没有数据时 */
+.nodata {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60rpx;
+}
+.nodata image {
+  width: 280rpx;
+  height: 280rpx;
+  margin-top: 20rpx;
+}
+.nodata text {
+  font-size: 24rpx;
+  color: #999;
+}
+.nodata > .p {
+  font-size: 28rpx;
+  color: #333;
+  margin: 23rpx 0 10rpx;
+}

@@ -1,0 +1,24 @@
+<import src="../../Component/sharebox/sharebox.wxml" />
+<!-- <image mode="widthFix" style="width: 580rpx;margin:0 auto;" src="https://images.rushouvip.cn/IMG/rsphb.jpg"></image>
+<image class="erwe" src="{{erweima}}"></image> -->
+<swiper class="banner" indicator-dots="{{false}}" bindchange="changeBanner" autoplay="{{false}}" style="height: 1032rpx;">
+	<swiper-item class="bannerItem">
+		<image mode="widthFix" style="width: 580rpx;margin:0 auto;" src="https://images.rushouvip.cn/IMG/rsphb.jpg"></image>
+		<image class="erwe" src="{{erweima}}"></image>
+	</swiper-item>
+	<!-- <swiper-item class="bannerItem">
+		<image mode="widthFix" style="width: 580rpx;margin:0 auto;" src="https://images.rushouvip.cn/IMG/rsphb2.png"></image>
+		<image class="erwe" src="{{erweima}}"></image>
+	</swiper-item> -->
+	<swiper-item class="bannerItem">
+		<image mode="widthFix" style="width: 580rpx;margin:0 auto;" src="https://images.rushouvip.cn/IMG/rsphb3.jpg"></image>
+		<image class="erwe" src="{{erweima}}"></image>
+	</swiper-item>
+</swiper>
+<view class="dot">
+  <view wx:for="{{2}}" class="{{currentPic == index ? 'active' : ''}}"></view>
+</view>
+<view class="foot">
+  <view bindtap="show">分享好友</view>
+</view>
+<template is="sharebox" data="{{showshare, zuan: zuan,haibao:haibao}}" />

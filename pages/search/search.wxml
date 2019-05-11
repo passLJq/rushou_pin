@@ -1,0 +1,36 @@
+<!--pages/search/search.wxml-->
+<import src="../wxSearch/wxSearch.wxml" />
+<view class="wxSearch-section">
+  <view class="wxSearch-pancel">
+  <view class="itemsec">
+    <i class="iconfont icon-sousuo"></i>
+    <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索商品" confirm-type="search" bindconfirm="wxSearchFn" />
+  </view>
+    <button class="wxSearch-button search-anniu" bindtap="wxSearchFn" size="mini" plain="true">搜索</button>
+  </view>
+</view>
+<view style='width:100%'>
+  <template is="wxSearch" data="{{wxSearchData}}" />
+</view>
+<!-- 外部历史记录 -->
+<view class='hstrybox'>
+  <text class="clears" style="color:#FE334B;" bindtap="wxSearchDeleteAll" wx:if="{{wxSearchData.his[0]}}">清除记录</text>
+  <text class='search-title'>历史记录</text>
+  <view class='item' wx:if="{{wxSearchData.his[0]}}">
+    <block wx:for="{{wxSearchData.his}}">
+      <view class='histryzi' bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+    </block>
+  </view>
+	<view class="item" wx:else style="color: #999;margin-left:20rpx;">
+	  <view>暂无搜索记录</view>
+	</view>
+</view>
+<!-- 热门搜索 -->
+<!-- <view class='hstrybox' wx:if="{{hots[0]}}">
+  <text class='search-title'>热门搜索</text>
+  <view class='item'>
+    <block wx:for="{{hots}}">
+      <view class='histryzi' bindtap="wxSearchKeyTap" data-key="{{item}}">{{item}}</view>
+    </block>
+  </view>
+</view> -->

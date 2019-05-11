@@ -1,0 +1,54 @@
+<!--pages/other/mycoupon/mycoupon.wxml-->
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view>
+  <!-- NAV -->
+  <view class="nav_container overflow_boxsizing flex font_14 color_333">
+    <view class="overflow_boxsizing slider_list" bindtap='changeSlide' data-idx="{{index}}" wx:for="{{navList}}" wx:key="">
+      <text class="{{slide === index? 'color_selected': ''}} transition_ease_in_out_fast">{{item}}{{listMsg[index].length ? '('+listMsg[index].length+')':''}}</text>
+    </view>
+    <view class="line_red translateXY transition_ease_in_out_fast" style="left: {{(slide * 100/navList.length) + (100/navList.length/2)+'%'}};"></view>
+  </view>
+  
+  <!-- 新列表 -->
+  <view class="main" style="margin-top: 108rpx;">
+   <view class="canget">
+      <!-- 每条优惠券的模板item start -->
+      <view class="item" wx:for="{{listMsg[slide]}}" hidden="{{item.state == 2&&slide==0}}">
+        <view class="left" style="{{item.state == 2 ? 'background: #d8d8d8' : ''}}">
+          <view class="price">
+            <text>￥</text>
+            <text>{{item.facevalue}}</text>
+          </view>
+          <text>满{{item.uselimit}}元可用</text>
+        </view>
+        <view class="right">
+          <view class="explain">
+            <view class="title">
+              <text>{{item.companyname}}</text>
+              <text>{{item.name}}</text>
+            </view>
+            <!-- <view class="content">{{!item.isover? (item.companyid? (item.israandom? item.companyname + ' 专用劵，金额随机': item.companyname + ' 专用劵'): item.israandom? '全场通用，金额随机(活动不可用)': '全场通用(活动不可用)') : ''}}</view> -->
+            <view class="content line_over_1">{{item.israandom?'随机券':item.couponalias}}</view>
+            <view class="date">{{item.time}}</view>
+          </view>
+          <view class="closePass" style="{{item.state == 2 ? 'background: #d8d8d8' : ''}}" wx:if="{{(item.state == 1 || item.state == 2)&&slide!=1}}">{{item.state == 1 ? '即将过期' : item.state == 2 ? '已过期' : ''}}</view>
+        </view>
+        <!-- 每条优惠券的模板item end -->
+      </view>
+    </view>
+  </view>
+  <!-- 新列表 end -->
+  <!--没有数据  -->
+  <view wx:if="{{page[slide] === 1 && listMsg[slide].length < 1}}" class="flex flex_v flex_align_center" style="margin-top: 200rpx; background-color: transparent;">
+    <view>
+      <image src="/image/nodata2.png" style="width: 432rpx; height: 300rpx; margin-bottom: 20rpx;"></image>
+    </view>
+    <view class="color_999 font_14">
+      <text>抱歉，目前没有优惠券</text>
+    </view>
+    <!-- <view class=" font_14" style="color: #CDA86E; margin-top: 30rpx; border: 2rpx solid #CDA86E; padding: 10rpx 40rpx; border-radius: 40rpx;" bindtap="toIndex">
+      <text>去领取</text>
+    </view> -->
+  </view>
+
+</view>

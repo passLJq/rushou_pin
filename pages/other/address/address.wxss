@@ -1,0 +1,19 @@
+@import '/common/font-awesome.wxss';
+page{background-color: #fff; margin-bottom: 232rpx;}
+.list_container{border-bottom: 1px solid #F6F6FA; height: 150rpx;}
+.default_address_container{width: 62rpx; color: transparent;}
+.default_address_container>view{border-radius: 100px;width:44rpx;height:44rpx; line-height: 44rpx; box-sizing: border-box;}
+.default_address_container image{border-radius: 100px; width:44rpx;height:44rpx;}
+.edit_container{width: 80rpx;}
+.edit_container>text{font-size: 44rpx;}
+.footer_container{position: fixed; bottom:88rpx; width: 100%; background-color: #fff;}
+.footer_container>button{border-radius: 44rpx; margin-top: 24rpx; height: 88rpx; line-height: 88rpx;}
+
+
+.shouname {
+	text-overflow:ellipsis;white-space: nowrap;
+	overflow: hidden;
+	width: 150rpx;
+	font-size: 32rpx;
+	box-sizing: border-box;
+}

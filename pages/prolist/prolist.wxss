@@ -1,0 +1,297 @@
+/* pages/prolist/prolist.wxss */
+@import "../../common/iconfont.wxss";
+@import "../../Component/sharebox/sharebox.wxss";
+
+.wxSearch {
+  position: absolute;
+  top: 43px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px #eee solid;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wxSearchInner {
+  background-color: #fff;
+}
+
+.wxSearch-section {
+  background-color: #fff;
+  padding: 5px 0px;
+  padding-left: 10px;
+  border-bottom: 1px solid #f6f6fa;
+}
+
+.wxSearch-pancel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.wxSearch-input {
+  flex: 8;
+  background-color: #f6f6fa;
+  padding: 5px 10px;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+
+.wxSearch-button {
+  flex: 1;
+  border: none !important;
+}
+
+.itemsec {
+  display: flex;
+  align-items: center;
+  flex: 8;
+  background-color: #f6f6fa;
+  border-radius: 8px;
+  padding-left: 30rpx;
+}
+
+.icon-sousuo {
+  color: #999;
+}
+
+.qie {
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.qie image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  background: #fff;
+}
+
+.itemli {
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemli image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 5rpx;
+}
+
+.actives {
+  color: #fe334b;
+}
+
+/* 竖的样式 */
+
+.shude {
+  background: #fff;
+}
+
+.seitem {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  padding: 30rpx 30rpx;
+  border-bottom: 1px solid #f6f6fa;
+  position: relative;
+}
+
+.pronopro {
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 30%;
+  left: 9%;
+}
+
+.seitemleft {
+  width: 192rpx;
+  height: 192rpx;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.seitemright {
+  width: 90%;
+}
+
+.seitoutext {
+  color: #333;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.gb {
+	/* border:1px solid #9F01F1; */
+	font-size:20rpx;
+	border-radius:30px;
+	padding: 0 10rpx;
+	overflow:hidden;
+	color:#fff;
+	background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+	margin-right: 10rpx;
+}
+
+.seijiage {
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.yuan {
+  font-size: 24rpx;
+	color: #FE334B;
+}
+
+.pp1 {
+  font-size: 40rpx;
+  color: #FE334B;
+}
+
+.pp2 {
+  font-size: 28rpx;
+  color: #ff422c;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+.mais {
+  font-size: 28rpx;
+  color: #fff;
+  background-color: rgb(205, 168, 110);
+  border-radius: 30px;
+  text-align: center;
+  padding: 15rpx 0;
+  box-shadow: 0px 2px 8px #cfcfcf;
+  width: 200rpx;
+}
+
+.shangjia {
+  font-size: 28rpx;
+  color: #cda86e;
+  background-color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  padding: 15rpx 0;
+  width: 200rpx;
+  border: 1px solid #cda86e;
+}
+
+.toubu {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99999;
+}
+
+.xiamian {
+  margin-top: 180rpx;
+}
+
+/* 竖end */
+
+.libox {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.lisimg {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+}
+
+.henglis {
+  background-color: #fff;
+  border-radius: 8px;
+  position: relative;
+}
+
+.shupronopro {
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 19%;
+  left: 27%;
+}
+
+.listitle  .t {
+  color: #333;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 80rpx;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.libox:nth-child(odd) {
+  padding: 0 15rpx 0 30rpx;
+}
+
+.libox:nth-child(even) {
+  padding: 0 30rpx 0 15rpx;
+}
+
+.proxia {
+  padding: 0 20rpx;
+}
+
+.seijiagese {
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.seijiagese .pp1 {
+  font-size: 32rpx;
+}
+
+.nodata {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 30%;
+}
+
+.nodata image {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.nodata view {
+  margin-top: -50px;
+}

@@ -1,0 +1,68 @@
+<!--pages/myincomesection/myincomesection.wxml-->
+<view class='mitem one' id="tou">
+  <text>{{years}}年{{month}}月</text>
+  <view class='mitem two' style="{{showsai?'color:#F72133':''}}" bindtap='showsai'>
+    <text>筛选</text>
+    <i class="iconfont icon-sanjiaodown {{showsai?'xuanzuan':''}}"></i>
+  </view>
+</view>
+
+<!-- 筛选框 -->
+<view>
+  <view class="zhezhao" wx:if="{{showsai}}" style='top:{{touheight}}px'></view>
+  <view class='mitem shaixuan' style='top:{{xiahuag}}px'>
+    <view class="xuanul" bindtap='xuanze' data-type='0'>
+      <view class="xuanli {{commisiontype==0?'xuactive':''}}">全部</view>
+    </view>
+    <view class="xuanul" wx:for="{{typeData}}" bindtap='xuanze' data-type="{{item.commisiontype}}">
+      <view class="xuanli {{commisiontype==item.commisiontype?'xuactive':''}}">{{item.commisiontypename}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="waibox" wx:for="{{msgdata}}" wx:if="{{msgdata.length>0}}">
+  <view class="mitem xiangqing">
+    <text>奖励金额</text>
+    <text>¥{{item.commision}}</text>
+  </view>
+  <view class="mitem xiangqing">
+    <text>奖励类型</text>
+    <text>{{item.commisiontypename}}</text>
+  </view>
+  <view class="mitem xiangqing">
+    <text>奖励状态</text>
+    <text wx:if="{{item.status==1}}">即将到账</text>
+    <text wx:if="{{item.status==2}}">已到账</text>
+    <text wx:if="{{item.status==3}}">已失效</text>
+  </view>
+  <!-- //活动奖励区分 -->
+  <block wx:if="{{item.commisiontype!=5&&item.commisiontype!=7&&item.commisiontype!=8&&item.commisiontype!=10&&item.commisiontype!=14&&item.commisiontype!=13}}">
+    <view class="mitem xiangqing" wx:if="{{item.orderid!=null}}">
+    <text>订单编号</text>
+    <text>{{item.orderid}}</text>
+  </view>
+  <view class="mitem xiangqing">
+    <text>订单金额</text>
+    <text>¥{{item.orderamount}}</text>
+  </view>
+  <view class="mitem xiangqing">
+    <text>订单时间</text>
+    <text>{{item.ordertime}}</text>
+  </view>
+  </block>
+  <view wx:else>
+    <view class="mitem xiangqing" wx:if="{{item.commisionactivitytype!=''}}">
+    <text>奖励来源</text>
+    <text>{{item.commisionactivitytype}}</text>
+  </view>
+  </view>
+  <view class="mitem xiangqing" wx:if="{{item.status==2}}">
+    <text>到账时间</text>
+    <text>{{item.successtime}}</text>
+  </view>
+</view>
+
+<view class="nodata" wx:if="{{msgdata.length==0}}">
+<image src='http://source.weigouyi.cn/WShopping/Image/noactivitys.png' mode="widthFix"></image>
+<view>亲,目前没有数据</view>
+</view>

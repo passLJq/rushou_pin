@@ -1,0 +1,45 @@
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<view class="zhezhao" hidden="{{!skuBoxBottom}}" bindtap="close"></view>
+<!-- <view class="main">
+  <view class="top">
+		<image mode="widthFix" src=""></image>
+	</view>
+</view> -->
+
+<view class="sku_prompt_content transition_ease_in_out" style="{{skuBoxBottom ? 'bottom: 0;' : 'bottom:-100%;'}} {{isIphoneX ? 'padding-bottom: 40rpx;' : ''}}" data-id="box_container">
+  <view style="display: flex;flex-wrap:wrap;">
+		<view class="flex sku_prompt_top overflow_boxsizing">
+      <view class="box_proimg_container">
+        <image src="{{msg.pic?msg.pic: groupBuyList.proimage ? groupBuyList.proimage : '/image/bkg_cover.jpg'}}"></image>
+      </view>
+      <view class="flex_1 flex flex_v flex_pack_justify_between sku_top_right">
+        <view class="color_333 font_14 line_over_2" style="line-height: 40rpx;">
+          <text>{{msg.name || groupBuyList.proname}}</text>
+          <!-- <text>msg.name</text> -->
+        </view>
+        <view class="flex flex_align_center">
+          <text class="new_price" hidden="{{!isBuyGroup}}">￥{{filters.toFix(buyPrice*buyCounts,2)}}</text>
+          <text class="new_price" hidden="{{isBuyGroup}}">￥{{filters.toFix(price*buyCounts,2)}}</text>
+					<text class="old_price" wx:if="{{gbearn&&gbearn>0}}" hidden="{{!isBuyGroup}}">赚￥{{filters.toFix(gbearn,2)}}</text>
+					<text class="old_price" wx:if="{{proearn&&proearn>0}}" hidden="{{isBuyGroup}}">赚￥{{filters.toFix(proearn,2)}}</text>
+        </view>
+      </view>
+		</view>
+		<view wx:for="{{spec}}">
+				<view class="product_imgs_title padding16 font_14">{{item.specname}}</view>
+				<view class="padding16">
+					<block wx:for="{{filters.toJson(item.spectext)}}" wx:for-index="idx" wx:for-item="texts" >
+						<text class="btn_sku {{filters.isHasMsg(specval, index, texts.valueid)?'actived_btn_sku': ''}}" data-valueid="{{texts.valueid}}" data-len="{{index}}" bindtap="changSku">{{texts.ctmtext}}</text>
+					</block>
+				</view>
+		</view>
+	</view>
+  <view class="bottom flex flex_pack_center flex_align_center font_14 overflow_boxsizing" style="height: 110rpx; padding: 20rpx 32rpx;">
+    <view class="btn_buy gradient" bindtap="realgbuy" wx:if="{{isBuyGroup}}">
+      <text>拼团购</text>
+    </view>
+		<view class="btn_addCart" bindtap='realBuy' wx:if="{{!isBuyGroup}}">
+        <text>直接买</text>
+      </view>
+  </view>
+</view>

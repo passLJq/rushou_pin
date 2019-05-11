@@ -1,0 +1,11 @@
+/* pages/other/expressdetail/expressdetail.wxss */
+page{background-color: #F6F6FA; font-size: 28rpx; color: #333;}
+page>view>view{background-color: #fff;}
+.padding24{padding: 0 48rpx;}
+.logistics_top_container{height: 96rpx; line-height: 94rpx; margin-top: 22rpx;}
+.logistics_left_container{padding-right: 28rpx;}
+.arc_container{box-sizing: border-box;border-radius: 50%;width:44rpx;height:44rpx;border: 4rpx solid rgba(205,168,110,0.4);margin-right: 42rpx;}
+.arc_icon{display: block;width: 28rpx; height: 28rpx;border-radius: 50%; background-color: #CDA86E;box-sizing: border-box;}
+.isNOFirst{border-color: transparent;}
+.isNOFirst>text{background-color: #D8D8D8;}
+.list_container{height: 160rpx; width: 100%; box-sizing: border-box;}

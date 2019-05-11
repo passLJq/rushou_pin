@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "商品详情",
+  "backgroundColor": "#ffffff",
+  "usingComponents": {
+    "coupon": "/Component/coupon/coupon",
+		"specpop": "/Component/specpop/specpop"
+  }
+}

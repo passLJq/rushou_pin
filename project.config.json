@@ -1,0 +1,197 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx7b0c5b9dbcb97804",
+	"projectname": "rushou_ping",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 22,
+			"list": [
+				{
+					"id": 0,
+					"name": "夺宝页",
+					"pathName": "pages/lndiana/lndiana",
+					"query": "cid=181017192214269118&buycount=2"
+				},
+				{
+					"id": 1,
+					"name": "分享海报",
+					"pathName": "pages/lndianaShare/lndianaShare",
+					"query": "buycount=1&cid=181017192214269118"
+				},
+				{
+					"id": 2,
+					"name": "客户管理",
+					"pathName": "pages/myallies/myallies",
+					"query": "",
+					"scene": "1034"
+				},
+				{
+					"id": -1,
+					"name": "揭晓结果",
+					"pathName": "pages/lndiresult/lndiresult",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "夺宝支付",
+					"pathName": "pages/ordercomfirm/ordercomfirm",
+					"query": "cid=181012181802734026&buyCounts=2&way=lndiana"
+				},
+				{
+					"id": 5,
+					"name": "商品详情",
+					"pathName": "pages/groupbuy/groupbuy",
+					"query": "gbid=190416134735115972",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "抽奖详情",
+					"pathName": "pages/lndiresult/lndiresult",
+					"query": "byshare=1&cloudid=181017192214269118&ruid=180925113024606379"
+				},
+				{
+					"id": 7,
+					"name": "模拟扫二维码抽奖详情",
+					"pathName": "pages/lndiresult/lndiresult",
+					"query": "scene=1MoFPY,5s7v4lU:HWE**R"
+				},
+				{
+					"id": 8,
+					"name": "拼单列表页",
+					"pathName": "pages/group_order/group_order",
+					"query": "",
+					"scene": "1034"
+				},
+				{
+					"id": 9,
+					"name": "团长招募令",
+					"pathName": "pages/tz_recruit/tz_recruit",
+					"query": "",
+					"scene": "1034"
+				},
+				{
+					"id": 10,
+					"name": "我的",
+					"pathName": "pages/my_index/my_index",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "团长",
+					"pathName": "pages/tz/tz",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录页",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": "1034"
+				},
+				{
+					"id": 13,
+					"name": "拼团成功页",
+					"pathName": "pages/other/success_page/success_page",
+					"query": "way=groupbuynow&ogid=190322175354497050&orderid=190322175942077595",
+					"scene": 1034
+				},
+				{
+					"id": -1,
+					"name": "海报页",
+					"pathName": "pages/tz_haibao/tz_haibao",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的粉丝页",
+					"pathName": "pages/myfans/myfans",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "分类商品列表",
+					"pathName": "pages/nas_prolist/nas_prolist",
+					"query": "index=1",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "12312312312",
+					"pathName": "pages/lndiana/lndiana",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "拼单详情",
+					"pathName": "pages/group_detail/group_detail",
+					"query": "orderid=190322145711917973",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderdetail/orderdetail",
+					"query": "orderid=190418093638851708",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "常见问题",
+					"pathName": "pages/normalProblem/normalProblem",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "问题详情",
+					"pathName": "pages/problemSolution/problemSolution",
+					"query": "num1=0&num2=1",
+					"scene": null
+				}
+			]
+		}
+	}
+}

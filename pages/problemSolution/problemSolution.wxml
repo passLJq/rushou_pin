@@ -1,0 +1,5 @@
+<view class="h1">{{msg[0]}}</view>
+<view class="hr"></view>
+<view class="cont">
+  <text>{{msg[1]}}</text>
+</view>

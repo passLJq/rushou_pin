@@ -1,0 +1,78 @@
+
+<view class="my">
+  <block wx:for="{{msg}}" wx:if="{{msg.length}}">
+    <view class="itm flex flex_v flex_align_center" 
+    bindtap="toDetail" data-cid="{{item.cloudid}}" data-pid="{{item.productid}}" data-jieshu="{{item.state == 5 ? 0 : 1}}">
+      <!-- 头部 -->
+      <view class="head flex flex_align_center flex_pack_justify_between">
+        <text>{{item.endtime || item.lotterytime}}</text>
+        <text>{{item.state == 4 ? '已开奖' : item.state == 3 ? '已失效' : '未开奖'}}</text>
+      </view>
+      <!-- 横线 -->
+      <view class="line"></view>
+      <!-- 商品数据 -->
+      <view class="content flex">
+        <view class="pic">
+          <image src="{{item.img}}"></image>
+        </view>
+        <view class="data">
+          <view class="title line_over_2">
+            <text>{{item.proname}}</text>
+          </view>
+          <!-- 进度条 -->
+          <view class="progress">
+            <view style="width: {{(item.amout / item.totalamout) * 100 + '%'}};background:linear-gradient(90deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);"></view>
+          </view>
+          <!-- 参与人数 -->
+          <view class="join flex flex_pack_justify_between">
+            <text>{{item.amout}}人已参与</text>
+            <text>剩余{{item.remainingamout}}</text>
+          </view>
+          <!-- 价格 -->
+          <view class="price">
+            <text>￥</text>
+            <text>{{item.price}}</text>
+            <text>原价 {{item.proprice}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="line"></view>
+      <!-- 按钮 -->
+        <view class="btnGroup flex flex_align_center flex_pack_right">         
+          <view class="btn flex flex_align_center flex_pack_center"
+           wx:if="{{item.state == 3 || item.state == 4}}"
+           data-invalid="{{item.state == 3 ? 1 : 0}}"  data-idx="{{index}}" catchtap="toResult">揭晓结果</view> 
+          <view class="btn flex flex_align_center flex_pack_center"
+           data-done="{{item.state != 1 ? true : false}}" data-idx="{{index}}" data-cid="{{item.cloudid}}" catchtap="checkNumber">查看号码</view>
+        </view>
+    </view>
+  </block>
+  <block wx:if="{{!msg.length}}">
+    <view class="flex flex_v flex_align_center" style="width: 100%;">
+      <view class="flex flex_align_center flex_pack_center" style="width: 400rpx;height: 400rpx;overflow: hidden;margin-top: 158rpx;">
+        <image mode="center" src="../../image/nostate.png" style="width: 800rpx;height: 800rpx;"></image>
+      </view>
+      <text class="color_999" style="font-size: 30rpx;">您还没有抽奖活动，快去参加吧</text>
+      <view style="font-size: 28rpx;color: #ff5541;padding: 16rpx 45rpx;margin-top: 48rpx;border: 2rpx solid #ff5541;border-radius: 35rpx;" bindtap="tolndiana">去抽奖看看</view>
+    </view>
+  </block>
+</view>
+<!-- <view>没有更多数据了</view> -->
+<!-- 查看号码弹窗 -->
+<view class="mark" hidden="{{showMark}}" ></view>
+<view class="showNum flex flex_v flex_align_center" hidden="{{showNum}}">
+  <view class="title gradient">
+    我的号码
+  </view>
+  <view class="content">
+    <view class="item flex flex_align_center flex_pack_justify_between" wx:for="{{code}}">
+      <text>{{item}}</text>
+      <text style="color: #999" wx:if="{{!done}}">未开奖</text>
+      <text style="color: {{item == winningcode ? '#ff5541' : '#999'}}" wx:else>{{item == winningcode ? '已获奖' : '未获奖'}}</text>
+
+    </view>
+  </view>
+  <view class="btn flex flex_align_center flex_pack_center">
+    <view class="gradient" bindtap="closeNumber">我知道了</view>
+  </view>
+</view>

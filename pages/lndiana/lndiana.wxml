@@ -1,0 +1,91 @@
+<!-- 活动规则 -->
+<view class="rule" bindtap="showRule">活动规则</view>
+
+<!-- 头部轮播 -->
+  <swiper id="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="width: 750rpx;height: 300rpx;">
+    <block wx:for="{{banner}}">
+      <swiper-item style="width: 100%;height: 100%;" data-cid="{{item.cid}}" data-pid="{{item.pid}}"
+        bindtap="toGroupBuy">
+        <image src="{{item.soure}}" style="width: 100%;height: 100%;"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+<!-- 拼团说明 -->
+<view id="shuoming" class="flex flex_pack_center" style="background-color: #fff;">
+  <view class="explain flex flex_align_center">
+    <view class="step flex flex_align_center flex_pack_center"><view class="flex flex_align_center text_center">1</view></view>
+    <text>参与活动</text>
+    <view class="right"><image src="../../image/right@3x.png"></image></view>
+    <view class="step flex flex_align_center flex_pack_center"><view class="flex flex_align_center text_center">2</view></view>
+    <text>好友助力</text>
+    <view class="right"><image src="../../image/right@3x.png"></image></view>
+    <view class="step flex flex_align_center flex_pack_center"><view class="flex flex_align_center text_center">3</view></view>
+    <text>中奖发货</text>
+  </view>
+</view>
+<!-- 导航nav -->
+<view class="nav" style="{{isFixTop ? 'position:fixed;top: 0;margin: 0;background: #fff;z-index: 999;' : ''}}">
+  <scroll-view scroll-x="true" scroll-y="false" scroll-into-view="nav_{{currentIndex}}"
+  style="width: 100%; height: 100%; white-space: nowrap; position: relative;">
+    <block wx:for="{{nav}}">
+      <view catchtap="changeNav" data-index="{{index}}" id="nav_0" data-sqltype="{{item.sqltype}}"
+       class="scroll-view-item text_center {{index === currentIndex ? 'active' : ''}}">{{item.name}}</view>
+    </block>
+    <view class="bottomBar transition_ease_in_out_fast" style="left: {{bottomBarPosition + 'px'}}"></view>
+  </scroll-view>
+</view>
+<!-- 商品列表 -->
+<view class="productList" style="{{isFixTop ? 'margin-top: 90rpx;' : ''}}">
+  <block wx:for="{{proData}}" wx:if="{{proData.length}}"> 
+    <view class="list-item flex"  bindtap="toLndianaDetail" data-cid="{{item.cloudid}}">
+      <view class="pic">
+        <image src="{{item.img}}"></image>
+      </view>
+      <view class="proDetails flex flex_v flex_pack_justify_between">
+        <view class="slogan line_over_2">
+          <text class="">{{item.proname}}</text>
+        </view>
+        <view class="progress">
+          <view style="width: {{(item.amout / item.totalamout) * 100 + '%'}};background:linear-gradient(90deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);"></view>
+        </view>
+        <view class="member flex flex_align_center flex_pack_justify_between">
+          <text class="color_999">{{item.amout}}人已参加</text>
+          <text class="color_999">剩余{{item.remainingamout}}</text>
+        </view>
+        <view class="priceView flex flex_align_center flex_pack_justify_between">
+          <view class="priceText flex flex_align_center">
+            <!-- <text style="margin-right: 24rpx;">￥{{item.cloudPrice}}</text> -->
+            <text style="{{item.cloudPrice.length >= 5 ? '' : 'margin-right: 24rpx;'}}">￥{{item.cloudPrice}}</text>
+            <text style="text-decoration: line-through;" 
+            style="{{item.proprice.length >= 7 || item.cloudPrice.length > 5 ? 'font-size: 21rpx;' : ''}}" >原价￥{{item.proprice}}</text>
+          </view>
+          <view class="btn close flex flex_align_center flex_pack_center" wx:if="{{sqltype==3?true:false}}">活动结束</view>
+          <view class="btn flex flex_align_center flex_pack_center" wx:elif="{{item.isparticipate==2}}">查看结果</view>
+          <view class="btn flex flex_align_center flex_pack_center {{sqltype == 1 ? 'gradient' : ''}}"
+           style="{{sqltype == 1 ? 'color: #fff;' : ''}}" wx:else>立即抽奖</view> 
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{!proData.length}}">
+    <view class="flex flex_v flex_align_center flex_pack_center" style="width: 100%;">
+      <view class="flex flex_align_center flex_pack_center" style="width: 400rpx;height: 400rpx;overflow: hidden;">
+        <image mode="center" src="../../image/naozhong.png" style="width: 800rpx;height: 800rpx;"></image>
+      </view>
+      <text class="color_333" style="font-size: 26rpx;">活动商品正在火热上架中，敬请期待</text>
+    </view>
+  </block>
+</view>
+
+<!-- 活动规则详情弹窗 -->
+<view class="mark" hidden="{{markShow}}" catchtouchmove='true'></view>
+<view class="ruleDetails flex flex_v flex_align_center flex_pack_justify_between"
+ style="padding-top: 62rpx;" hidden="{{isShowRule}}">
+  <view class="title gradient">活动细则</view>
+  <view class="content">
+    <text class="color_333">1：根据市场价将每个产品分成若干等份，每份X元。 \n\n2：每个用户可对1件商品支持1份或者多份，每支持一份获得1个幸运码. \n\n3：当1件商品的所有份额都获得支持后，计算出1个“幸运码”，持有幸运码的支持者集拥有该商品。 \n\n4：活动没有达到开奖要求或者已开奖的活动未中奖者，会原路自动退款（注意：中奖者是不退款的） \n\n 5：天天抽奖的订单不产生个人销售提成奖和分享销售提成奖，利润也不参与分红。 计算方式 1：以该商品最后支持时间为截至点，取最后一元的购买者前100条全站记录（这个全站记录是指所有购买一元购的人的记录，并不是单独一个活动的记录）的时间转化成数字（例如21:45:32.123转化后就是214532123）的总和，用这个总和与设置的价钱取余数，这余数加上100000组成最终的幸运号码，（当全站记录没有100条时，则有几条取几条）。</text>
+  </view>
+  <view class="bottom flex flex_align_center flex_pack_center">
+    <view class="btn gradient  flex flex_align_center flex_pack_center" bindtap="showRule">我知道了</view>
+  </view>
+</view>

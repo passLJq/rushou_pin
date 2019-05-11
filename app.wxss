@@ -1,0 +1,148 @@
+/**app.wxss**/
+.container { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-between; 
+padding: 200rpx 0; box-sizing: border-box; }
+page{font-family:Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", STXihei, "Microsoft YaHei", SimHei, "WenQuanYi Micro Hei";background-color: #F6F6FA}
+page view{font-family:"PingFang SC", "Source Han Sans";}
+page text{font-family:"PingFang SC", "Source Han Sans";}
+image{display: block}
+.flex { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex;}
+.flex_v { -webkit-box-orient: vertical; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; }
+.flex_1 { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
+.flex_align_center { -webkit-box-align: center; -webkit-align-items:center; -ms-flex-align: center; align-items: center; }
+.flex_pack_center { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
+.flex_pack_right { -webkit-box-pack: flex-end; -webkit-justify-content: flex-end; -ms-flex-pack: flex-end; justify-content: flex-end; }
+.flex_pack_justify_between { -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; } 
+.flex_pack_justify_around { -webkit-box-pack: justify; -webkit-justify-content: space-around; -ms-flex-pack: justify; 
+justify-content: space-around; }
+.fl{float: left;}
+.fr{float: right;}
+.clear:after{content: ""; display: block; clear: both;}
+.overflow_boxsizing{overflow: hidden; box-sizing: border-box;}
+.font_10{font-size: 20rpx;} .font_11{font-size: 22rpx;} .font_12{font-size: 24rpx;} .font_13{font-size: 26rpx;} .font_14{font-size: 28rpx;} .font_17{font-size: 34rpx;} .font_18{font-size: 36rpx;} .font_16{font-size: 32rpx;} .font_20{font-size: 40rpx;} .font_24{font-size: 48rpx;}
+.font_48{font-size: 96rpx;}
+.color_333{color: #333;} .color_666{color: #666;} .color_999{color: #999 !important;} .color_light_yellow{color: #CDA86E;} .color_fff{color: #fff;} .color_000{color: #000;} .color_ccc{color: #ccc;}
+.text_center{text-align: center;}
+.text_right{text-align: right;}
+.font_weight{font-weight: 600;}
+.hover_btn{background-color: #eee!important;}
+.more_icon:after{content:" ";display:inline-block;-webkit-transform:rotate(45deg);transform:rotate(45deg);height:12rpx;width:12rpx;border-width:4rpx 4rpx 0 0;border-color:#999;border-style:solid;position:relative;top:-1px;margin-left:20rpx}
+.translateXY{transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);-moz-transform: translate(-50%, -50%);-webkit-transform: translate(-50%, -50%);-o-transform: translate(-50%, -50%);}
+.padding16{padding: 0 32rpx;} .margin16{margin: 0 32rpx;}
+
+/* 阴影按钮 */
+.wxbtn{font-size: 28rpx;color: #fff;background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);border-radius: 30px;text-align: center;padding: 24rpx 0;margin: 0 auto;box-shadow:0px 2px 8px #CFCFCF; }
+/* 动画 */
+.transition_ease_in_out{-moz-transition:all 0.3s ease-in-out;-webkit-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}
+.transition_ease_in_out_fast{-moz-transition:all 0.1s ease-in-out;-webkit-transition:all 0.1s ease-in-out;-o-transition:all 0.1s ease-in-out;transition:all 0.1s ease-in-out;}
+/*一行溢出省略号  */
+.line_over_1{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+/* 两行溢出省略号  */
+.line_over_2{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+/*角标X轴移动 父元素加position:relative*/
+.translateX_icon{position: absolute; top: 0; left: 50%;transform: translateX(10rpx);-ms-transform: translateX(10rpx);-moz-transform: translateX(10rpx);-webkit-transform: translateX(10rpx);-o-transform: translateX(10rpx); background-color: #FF422C; color: #fff;     border-radius: 20px;padding: 0 5.5px; height: 16px;line-height: 16px;font-size: 12px;}
+.iphonex_box::after {content: ' ';position: fixed;bottom: 0!important;height: 48rpx!important;width: 100%;background: #fff;}
+/* 无数据样式 */
+.nodata{text-align: center;color: #999;font-size: 28rpx;margin-top: 10%}
+.nodata image{width: 60%;margin: 0 auto;}
+.nodata view{color: #333333;font-size: 28rpx;}
+/* 全球购 */
+.quanqiu{border: 1px solid #9F01F1;font-size: 20rpx;border-radius: 30px;padding-right:10rpx;overflow: hidden;color: #9F01F1 }
+.quanqiu text{background-color: #9F01F1;color: #fff;padding: 0 10rpx;border-radius: 30px; margin-right: 6rpx}
+.quanqius view{font-size: 28rpx}
+
+/* 右箭头 */
+.right-arrow {
+	display :inline-block;
+	position: relative;
+	width: 28rpx;
+	height: 36rpx;
+	color: #999999
+}
+
+.right-arrow::after {
+  display: inline-block;
+  content: " ";
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 3rpx 3rpx 0 0;
+  border-color: #999999;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  right: 6rpx;
+  margin-top: -9rpx;
+}
+/* 左箭头 */
+.left-arrow {
+  display :inline-block;
+  position: relative;
+  width: 28rpx;
+  height: 36rpx;
+  color: #999999
+}
+
+.left-arrow::after {
+  display: inline-block;
+  content: " ";
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 0rpx 0rpx 3rpx 3rpx;
+  border-color: #999999;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  right: 6rpx;
+  margin-top: -9rpx;
+}
+
+/* 拼团渐变颜色 */
+.gradient {
+  background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%) !important;
+}
+
+/* mark 遮罩 */
+.mark {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(51, 51, 51, .7);
+  z-index: 999;
+}
+/* 拼团标识 */
+.pingone{
+  border: 1px solid #FF5541;
+  border-radius: 30px;
+  color: #FF5541;
+  padding: 0 12rpx;
+  font-size: 20rpx;
+  margin-right: 6rpx;
+}
+.tuanfree{
+  border: 1px solid rgba(232,55,74,1);
+  border-radius: 30px;
+  color: #fff;
+  padding: 0 12rpx;
+  font-size: 20rpx;
+  margin-right: 6rpx;
+  background:linear-gradient(270deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);
+}
+.allhave{
+	border-radius:16px;
+	border:1px solid rgba(255,85,65,1);
+	color: #FF5541;
+	background: #fff;
+	font-size: 20rpx;
+	padding-right:10rpx;
+}
+.allhaveping{
+  background:linear-gradient(270deg,rgba(232,55,74,1) 0%,rgba(253,94,67,1) 100%);
+  color: #fff;
+  border-radius:16px;
+  font-size: 20rpx;
+  padding:0 10rpx;  
+  margin-right: 10rpx;
+}

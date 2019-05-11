@@ -1,0 +1,62 @@
+<!--pages/tz/tz.wxml-->
+<view class="my_tou" bindtap='gologin'>
+  <image src="{{userMsg.pic?userMsg.pic:'../../image/logoshou.png'}}"></image>
+  <view class="usMsg">
+	  <view style="display:flex;flex-wrap:wrap;">
+			<text class="usn">{{usn}}</text>
+			<view class="tuanz " wx:if="{{fxshopid&&usn}}">
+      <i class="iconfont icon-cc-star"></i>团长</view>
+		</view>
+		<text wx:if="{{userMsg.code&&fxshopid}}">邀请码: {{userMsg.code}}</text>
+		<text wx:elif="{{uid&&!fxshopid&&teamMsg&&teamMsg.RecommendUserName}}">{{'推荐人: ' + teamMsg.RecommendUserName}}</text>
+	</view>
+</view>
+
+<view class="myTeam">
+  <view class="team">
+	  <view class="teamTit">{{fxshopid ? '我的团队' : '我的邀请'}}
+		<text wx:if="{{fxshopid}}">邀请小伙伴，躺着就能赚！</text>
+		<text wx:if="{{!fxshopid}}">邀请小伙伴，还差<text style="color: #FE334B;margin:0;"> {{(settingcount - teamMsg.count) <= 0 ? 1 : (settingcount - teamMsg.count) || 0}} </text>人就可成为会员团长</text></view>
+		<view class="content">
+		  <view class="contit"><view></view>{{fxshopid ? '团队数量' : '邀请数量'}}</view>
+			<view class="teamNum">{{fxshopid ? teamNum : teamMsg.count}}</view>
+			<view class="bottom {{!fxshopid ? '' : 'flexEnd'}}" >
+			  <text wx:if="{{!fxshopid}}">昨日新增 <text>+{{teamMsg.ztcount}}</text></text>
+				<view class="btn" bindtap="gomyteam">查看全部</view>
+			</view>
+		</view>
+
+	</view>
+</view>
+
+<navigator class="pic" url="../tz_haibao/tz_haibao">
+	<view>
+	  <image src="https://images.rushouvip.cn/IMG/rukou.gif"></image>
+	</view>
+</navigator> 
+
+<view class="priv">
+  <view class="tit">
+	  <view class="d1"></view>
+	  <view class="d2"></view>
+	  <view class="d3"></view>
+		<text>团长特权</text>
+	  <view class="d3"></view>
+	  <view class="d2"></view>
+	  <view class="d1"></view>
+	</view>
+</view>
+<image class="img" mode="widthFix" src="https://images.rushouvip.cn/IMG/tztq.png"></image>
+<view class="priv">
+  <view class="tit">
+	  <view class="d1"></view>
+	  <view class="d2"></view>
+	  <view class="d3"></view>
+		<text>关于入手拼</text>
+	  <view class="d3"></view>
+	  <view class="d2"></view>
+	  <view class="d1"></view>
+	</view>
+</view>
+<image class="img" mode="widthFix" src="https://images.rushouvip.cn/IMG/gyrsp.png"></image>
+<foot-nav clickindex='1'></foot-nav>

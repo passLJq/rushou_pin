@@ -1,0 +1,57 @@
+<!--pages/other/refund/refund.wxml-->
+<wxs module="filters" src="../../../Component/filters/filters.wxs"></wxs>
+<view>
+  <!--商品信息  -->
+  <view class="marginBt10 padding16">
+    <view class="list_center_container bottom_border font_14 color_333">
+      <view class="flex product_list overflow_sizing">
+        <view class="product_img_container">
+          <image src="{{options.pic || '/image/bkg_cover.jpg'}}"></image>
+        </view>
+        <view class="flex_1 flex flex_v flex_pack_justify_between">
+          <view class="flex flex_pack_justify_between">
+            <view class="line_over_2">
+              <text>{{options.proname}}</text>
+            </view>
+            <view>
+              <text>￥{{options.refundprice}}</text>
+            </view>
+          </view>
+          <view class="flex flex_pack_justify_between font_12 color_999">
+            <view>
+              <text>{{options.skutext!='null' ? options.skutext : ""}}</text>
+            </view>
+            <view>
+              <text>X{{options.buycount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="container_other flex flex_pack_justify_between font_14 color_333">
+      <text>退款金额</text>
+      <text class="font_weight">￥<text class="font_weight font_17">{{filters.toFix(options.refundprice * options.buycount, 2)}}</text></text>
+    </view>
+  </view>
+
+  <view class="container_other flex flex_pack_justify_between font_14 color_333 marginBt10 padding16">
+    <text>退款方式</text>
+    <text data-wayid="{{payCode.wayid}}">{{payCode.wayname}}</text>
+  </view>
+
+  <view class="font_14 color_333 marginBt10 padding16">
+    <view class="container_other flex flex_pack_justify_between">
+      <text>问题描述</text>
+    </view>
+    <view style="padding: 24rpx 0 36rpx;position: relative;">
+      <textarea class="problem_container overflow_boxsizing" bindblur="bindTextAreaBlur" maxlength="100" bindinput="problemInput" value="{{problemText}}" placeholder="" />    
+      <view style="position: absolute; bottom: 56rpx; right:40rpx;" class="font_14 color_999">
+        <text>{{problemText.length}}</text>
+        <text>/100</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex flex_pack_center color_fff font_14" style="margin-top: 40rpx;" bindtap='subRefund'>
+    <view class="btn_submit text_center gradient"><text>提交</text></view>
+  </view>
+</view>

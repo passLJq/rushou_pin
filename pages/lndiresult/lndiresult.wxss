@@ -1,0 +1,203 @@
+@import "../../Component/sharebox/sharebox.wxss";
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #f6f6fa;
+}
+view {
+  box-sizing: border-box;
+}
+.upper {
+  width: 100%;
+  background:linear-gradient(180deg,#ff6f90 0%,#ff2054 100%);
+}
+.upper > .back {
+  width: 690rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 28rpx;
+}
+.upper .proDetail {
+  width: 100%;
+  height: 270rpx;
+}
+.upper .proDetail image {
+  width: 236rpx;
+  height: 236rpx;
+  margin: 24rpx 0 0 22rpx;
+}
+.upper .proDetail .content {
+  height: 218rpx;
+  width: 384rpx;
+  margin: 30rpx 0 0 20rpx;
+}
+.upper .proDetail .content .title {
+  width: 100%;
+  height: 96rpx;
+  font-size: 24rpx;
+  color: #333;
+  line-height: 48rpx;
+}
+.upper .proDetail .content .price {
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.upper .proDetail .content .price text:nth-child(1) {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #ff5541;
+}
+.upper .proDetail .content .price text:nth-child(2) {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #ff5541;
+  transform: translateY(-2rpx)
+}
+.upper .proDetail .content .price text:nth-child(3) {
+  font-size: 20rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+.upper .bingo {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+}
+.upper .bingoer {
+  width: 100rpx;
+  margin-top: 40rpx;
+}
+.upper .bingoer image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+.upper .bingoer view {
+  font-size: 20rpx;
+  color: #fff;
+  width: 100rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  border-radius: 32rpx;
+  margin-top: -16rpx;
+}
+
+/* 参与人数之类的信息 */
+.detail {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+.detail view {
+  width: 100%;
+  height: 96rpx;
+}
+.detail view text{
+  font-size: 28rpx;
+}
+
+/* 成员 */
+.avatar {
+  width: 96%;
+  /* margin-top: 40rpx; */
+}
+.avatar .item {
+  width: 96rpx;
+  margin: 0 5rpx;
+}
+.avatar .item text {
+  font-size: 24rpx;
+  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;
+}
+.avatar .item image {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+}
+
+.btn {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #fff;
+  padding: 16rpx 150rpx;
+  margin: 40rpx 0;
+  border-radius: 36rpx;
+  line-height: 40rpx;
+}
+
+/* 如果头像只有一行 则给upper加上more类名 */
+.more {
+  height: 780rpx;
+
+}
+.more .back {
+  height: 720rpx;
+  margin: 0;
+}
+.more .back .avatar{
+  margin-top: 40rpx;
+}
+.more .back .btn{
+  margin-top: 40rpx;
+}
+
+/* 玩法说明 */
+.explain {
+  width: 100%;
+  margin-bottom: 80rpx;
+  background-color: #fff;
+}
+.explain .title {
+  font-size: 28rpx;
+  padding: 16rpx 0;
+}
+.explain .content {
+  width: 100%;
+  padding-top: 34rpx;
+}
+.explain .content image {
+  width: 600rpx;
+  height: 44rpx;
+}
+.explain .content > view {
+  width: 96%;
+  margin-top: 18rpx;
+  margin-bottom: 36rpx;
+}
+.explain .content > view >view {
+  font-size: 24rpx;
+  width: 96rpx;
+}
+
+/* 底部栏 */
+.footer {
+  width: 100%;
+  height: 110rpx;
+  position: fixed;
+  background-color: #fff;
+  left: 0;
+  bottom: 0;
+  box-sizing: content-box;
+}
+.footer .other {
+  width: 690rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #FF5541;
+  border:2rpx solid #FF5541;
+  border-radius: 35rpx;
+}
+/* 助力弹窗 */
+.helper {
+  width: 500rpx;
+  height: 500rpx;
+  position: fixed;
+  top: 200rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  border: 1rpx dashed #fff;
+}

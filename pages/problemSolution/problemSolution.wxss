@@ -1,0 +1,33 @@
+view, text {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 24rpx;
+}
+
+page {
+	background-color: #fff;
+}
+
+.h1{
+  font-size: 32rpx;
+  margin-left: 32rpx;
+  margin-top: 24rpx;
+  margin-bottom: 28rpx;
+  color: #333333;
+}
+
+.hr{
+  background-color: #F6F6FA;
+  height: 2rpx;
+  margin: 0 24rpx;
+}
+.cont {
+  padding: 28rpx 32rpx;
+  
+}
+.cont text {
+	font-size: 28rpx;
+  color: #333333;
+  line-height: 50rpx;
+}

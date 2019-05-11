@@ -1,0 +1,101 @@
+var filters = {
+  toFix: function(value, count) {
+    var num = parseFloat(value)
+    return num.toFixed(count)
+  },
+  toJson: function(msg) {
+    var newMsg = JSON.parse(msg)
+    return newMsg
+  },
+  isHasMsg: function(msg, idx, content) { //字符串变数组判断当前是否有
+    var newMsg = msg.split(",")
+    return newMsg[idx] === content
+
+  },
+  hidePhone: function(phone) {
+    var reg = getRegExp("^(\d{4})\d{4}(\d+)")
+    var newPhone = phone.replace(reg, '$1****$2')
+    return newPhone
+  },
+  hideName: function (name) {
+    var val = name + ''
+    var a = val.split('')
+    // 如果是电话号码
+    var phone = parseInt(name) + ''
+    if (phone.length == 11) {
+      var tel = phone.replace(phone.slice(-7, -3), '****');
+      return tel
+    }
+    if (a.length >= 3){
+      var str = a[0] + '***' + a[a.length-1]
+      return str
+    } else {
+      return name
+    }
+    
+  },
+  replaceDate: function(date) { //日期取年月日
+    var newDate = date.split(" ")[0]
+    return newDate
+  },
+  replaceCouponDate: function (date, other) {//优惠券日期取年月日
+    var newDate = date.split(" ")[0]
+    var NextDate = newDate.split(".")
+    return NextDate[0] + (other || "年") + NextDate[1] + (other || "月") + NextDate[2] + ( other ? '' : "日" )
+  },
+  replaceRushBuyDate: function (date, other) {//限时抢购自定义取年月日时分
+    var newDate = date.split(" ")
+    var NextDate = newDate[0].split("-") 
+    var newTime = newDate[1].split(":") 
+    return NextDate[1] + (other || "月") + NextDate[2] + (other || "日") + newTime[0] + ":" + newTime[1]
+  },
+  findArr: function(arr) { //查询数组是否含有0
+    for (var i = 0; i < arr.length; i++) {
+      if (!arr[i]) {
+        return false
+      }
+    }
+    return true
+  },
+  findArrAll: function(arr) { //查询二维数组是否含有0
+    for (var i = 0; i < arr.length; i++) {
+      for (var r = 0; r < arr[i].length; r++) {
+        if (!arr[i][r]) {
+          return false
+        }
+      }
+    }
+    return true
+  },
+  quanqiu: function (value){
+    var num = parseFloat(value) * 100
+    return num.toFixed(2)+"%"
+  },
+  JsonParse: function (value) {
+    return JSON.parse(value)
+  },
+  isnumber: function (value) {
+    console.log(value)
+    var value = value
+    if (!isNaN(value)&&value.length==11){
+      var tel = value.replace(value.slice(-7, -3), '****');
+      return tel
+    }else{
+      return value
+    }
+  }
+}
+module.exports = {
+  toFix: filters.toFix,
+  toJson: filters.toJson,
+  isHasMsg: filters.isHasMsg,
+  hidePhone: filters.hidePhone,
+  findArr: filters.findArr,
+  replaceDate: filters.replaceDate,
+  quanqiu: filters.quanqiu,
+  replaceCouponDate: filters.replaceCouponDate,
+  replaceRushBuyDate: filters.replaceRushBuyDate,
+  JsonParse: filters.JsonParse,
+  isnumber: filters.isnumber,
+  hideName: filters.hideName
+}

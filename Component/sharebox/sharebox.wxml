@@ -1,0 +1,35 @@
+<!--Component/sharebox/sharebox.wxml-->
+<template name="sharebox">
+  <view style="{{showshare[0]?'':'display:none;'}}" bindtap='closeshare'>
+    <view class="zhezhao" catchtouchmove="myCatchTouch" bindtap='closeshare'>
+    </view>
+  </view>
+
+  <view class='sharebox' style="{{showshare[0]?'bottom:25rpx':''}}" wx:if="{{showshare[1]}}">
+    <view class="zuan_container" wx:if="{{zuan}}">
+      <view class="price_container font_17">
+        <text>赚￥{{zuan}}</text>
+      </view>
+      <view class="font_12 color_999">
+        <text>任何人通过此链接购买此商品，您都能赚钱！\n（收益仅自己可见）</text>
+      </view>
+    </view>
+    <view class="shareBox_types">
+      <button class='shareli' open-type='share'>
+        <image src='/image/haoyou.png'></image>
+        <text>分享给好友</text>
+      </button>
+      <button class='shareli' bindtap='sharequan'>
+        <image src='/image/quan.png'></image>
+        <text>分享到朋友圈</text>
+      </button>
+    </view>
+  </view>
+  <!-- //海报 -->
+  <view>
+    <canvas class="circle_container" style="width:{{c_width?c_width:'375'}}px; height:{{c_height?c_height:'667'}}px;" canvas-id="canvasCircle1"></canvas>
+  </view>
+
+  <image src='{{haibao}}' mode='widthFix' class="haibao" wx:if="{{!showshare[1]}}"></image>
+  <view class="wxbtn sav" style="box-sizing: content-box;" bindtap='savehaibao' wx:if="{{!showshare[1]}}">保存图片</view>
+</template>

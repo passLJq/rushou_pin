@@ -1,0 +1,26 @@
+/* pages/huanpro/huanpro.wxss */
+
+.initem {
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f6f6fa;
+}
+
+.initem input {
+  margin-left: 30rpx;
+  color: #999;
+  width: 74%;
+}
+
+.tatles {
+  color: #333;
+  font-size: 28rpx;
+}
+.upimg{
+  padding: 20rpx 30rpx
+}
+.upimg image{width: 50%;margin: 0 auto}
+.as{width: 80%;margin: 0 auto;margin-top: 60rpx;}

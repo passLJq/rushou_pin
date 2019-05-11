@@ -1,0 +1,86 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="mark" bindtap="close" bindtouchmove='false'></view>
+<!-- 优惠券 -->
+<view class="coupon">
+  <!-- 头部 -->
+  <view class="title">
+    <view style="opacity: 0">1</view>
+    <text>领取优惠券</text>
+    <view class="guanbi iconfont icon-guanbi" catchtap="close"></view>
+  </view>
+  <!-- 横线 -->
+  <view class="line"></view>
+  <!-- 内容主体 -->
+  <view class="main">
+    <!-- 可领优惠券 -->
+    <view class="canget" wx:if="{{unGet.length}}">
+      <view class="cangetHead">可领取优惠券<!-- <text>领取后可用于购物车商品</text> --></view>
+      <!-- 每条优惠券的模板item start -->
+      <view class="item" wx:for="{{unGet}}">
+        <view class="left">
+          <view class="price">
+            <text>￥</text>
+            <text>{{item.israandom ? '??' : item.facevalue}}</text>
+          </view>
+          <text>满{{item.uselimit}}元可用</text>
+        </view>
+        <view class="right">
+          <view class="explain">
+            <view class="title">
+              <text>{{item.companyname}}</text>
+              <text>{{item.name}}</text>
+            </view>
+            <view class="content line_over_1">{{item.israandom ? '随机券' : item.couponalias}}</view>
+            <view class="date">{{item.time}}</view>
+          </view>
+          <view class="btn" data-couponid="{{item.couponid}}" bindtap="getCoupon" data-index="{{index}}">立即领取</view>
+          <!-- <view class="btn" style="background-color: #d8d8d8;">已领取</view> -->
+          <view class="closePass" wx:if="{{item.state == 1 || item.state == 2}}">{{item.state == 1 ? '即将过期' : item.state == 2 ? '已过期' : ''}}</view>
+        </view>
+        <!-- 每条优惠券的模板item end -->
+      </view>
+    </view>
+    <!-- 没有数据时 -->
+    <view class="nodata" wx:if="{{!unGet.length}}">
+      <image src="../../image/couponNoData1.png"></image>
+      <text class="p">很遗憾</text>        
+      <text>您暂无可以领取的优惠券</text>
+    </view>
+    <!-- 已领取优惠券 -->
+    <view class="canget" style="margin-top: 3%;" wx:if="{{hasGet.length}}">
+      <view class="cangetHead">已领取优惠券<!-- <text>满足条件后即可用于当前商品</text> --> </view>
+      <!-- 每条优惠券的模板item start -->
+      <view class="item" wx:for="{{hasGet}}">
+        <view class="left">
+          <view class="price">
+            <text>￥</text>
+            <text>{{item.facevalue}}</text>
+          </view>
+          <text>满{{item.uselimit}}元可用</text>
+        </view>
+        <view class="right">
+          <view class="explain">
+            <view class="title">
+              <text>{{item.companyname}}</text>
+              <text>{{item.name}}</text>
+            </view>
+            <view class="content line_over_1">{{item.israandom ? '随机券' : item.couponalias}}</view>
+            <view class="date">{{item.time}}</view>
+          </view>
+          <!-- <view class="btn">立即领取</view> -->
+          <view class="btn" style="background:#d8d8d8 !important;">已领取</view>
+          <view class="closePass" wx:if="{{item.state == 1 || item.state == 2}}">{{item.state == 1 ? '即将过期' : item.state == 2 ? '已过期' : ''}}</view>
+        </view>
+        <!-- 每条优惠券的模板item end -->
+      </view>
+    </view>
+    <!-- 没有数据时 -->
+    <view class="nodata" style="display: none">
+      <image src="../../image/couponNoData1.png"></image>
+      <text class="p">很遗憾</text>
+      <text>您暂无可以领取的优惠券</text>
+    </view>
+  <!-- main end -->
+  </view>
+
+</view>

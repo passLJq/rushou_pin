@@ -1,0 +1,7 @@
+.zezhao{position: fixed;top: 0;margin: 0;left: 0;right: 0;background-color: rgba(0, 0, 0, .7);width: 100%;height: 100%}
+.dakai{position: fixed;top:17%;width: 80%;text-align: center;background: #fff;left: 10%;border-radius: 8px;font-size: 28rpx;padding: 60rpx 0;height: 460rpx;}
+.dakai cover-image{margin: 0 auto;padding-top: 30rpx;height: 300rpx;width: 300rpx;}
+.t1{font-weight: 700}
+.go1{width: 100%;background: #fff;padding: 0 auto;padding-top: 30rpx;}
+.go2{width: 100%;background: #fff;padding: 20rpx auto;text-align: center}
+.as{background: #fff}

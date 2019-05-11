@@ -1,0 +1,5 @@
+<!--pages/other/shopgroup/shopgroup.wxml-->
+<view class="box_container">
+  <image src="https://images.rushouvip.cn/IMG/gonghuo1.jpg"  mode="widthFix"></image>
+  <image src="https://images.rushouvip.cn/IMG/gonghuo2.jpg"  mode="widthFix"></image>
+</view>

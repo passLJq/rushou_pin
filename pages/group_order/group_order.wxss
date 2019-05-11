@@ -1,0 +1,138 @@
+/* pages/group_order/group_order.wxss */
+.box{
+  background-color: #fff;
+  padding: 0 30rpx;
+  /* margin-bottom: 20rpx; */
+  margin-top: 80rpx;
+}
+.box + .box {
+	margin-top: 20rpx;
+}
+.nodata,.bigbox{
+    margin-top: 72rpx;
+}
+.items{display: flex;align-items: center;}
+.oreder_tou{
+  justify-content: space-between;
+
+}
+.o_tou_left{
+  font-size: 28rpx;
+  color: #333;
+}
+.o_tou_left text{
+  font-size: 20rpx;
+  color: #fff;
+  padding: 4rpx 22rpx;
+  background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+  margin-left: 20rpx;
+  border-radius: 30px;
+}
+.oreder_tishi{
+  font-size: 28rpx;
+  color: #FF5541;
+  font-weight: 700;
+}
+.order_time{
+  font-size: 24rpx;
+  color: #999
+}
+.box_tou{
+  padding: 26rpx 0;
+  border-bottom: 1px solid #F6F6FA;
+}
+.box_main{
+  padding: 24rpx 0;
+   border-bottom: 1px solid #F6F6FA;
+}
+.box_main image{
+  width: 192rpx;
+  height: 192rpx;
+  margin-right: 16rpx;
+  flex-shrink: 0;
+}
+.p1{
+  font-size: 24rpx;
+  overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;
+  margin-bottom: 44rpx;
+  line-height: 2;
+}
+.p3{
+  font-size: 36rpx;
+  color: #FF5541;
+}
+.p4{
+  color: #FF5541;
+  font-size: 24rpx;
+}
+.p5{
+  color: #999;
+  font-size: 20rpx;
+  text-decoration: line-through;
+}
+.box_foot{
+  justify-content: space-between;
+  padding: 16rpx 0
+}
+.oreder_imge image{
+width:64rpx;
+height: 64rpx;
+margin-right: 10rpx;
+border-radius: 50%;
+}
+.order_btn{
+  display: flex;
+  align-items: center;
+}
+.order_btn text:nth-child(1){
+  color: #999;
+  border: 1px solid #999;
+  padding: 12rpx 30rpx;
+  font-size: 24rpx;
+  border-radius: 30px;
+}
+.abse{
+  color: #FF5541;
+  border: 1px solid #FF5541;
+  padding: 12rpx 30rpx;
+  font-size: 24rpx;
+  border-radius: 30px;
+  margin-left: 20rpx;
+}
+.tablie{
+  font-size: 28rpx;
+  color: 28rpx;
+  padding: 16rpx 0;
+  width: 25%;
+  background: #fff;
+  text-align: center;
+  position: relative;
+}
+.renlie{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+}
+.redline{
+  width: 25%;
+  background-color: rgb(255,85,65);
+  height: 6rpx;
+  border-radius: 30px;
+  margin: 0 auto;
+}
+.bordes{
+  color: #FF5541;
+  border-radius: 30px;
+  padding: 16rpx 40rpx;
+  border:1px solid #FF5541;
+  margin: 60rpx auto;
+  text-align: center;
+  width: 30%;
+  font-weight: 700;
+  font-size: 28rpx;
+}
+.ordetou{
+  position: fixed;
+  top:0;
+  width: 100%;
+}

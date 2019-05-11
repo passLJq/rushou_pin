@@ -1,0 +1,23 @@
+/* pages/other/use_coupon/use_coupon.wxss */
+@import "/common/font-awesome.wxss";
+.default_address_container{width: 62rpx; color: transparent;}
+.default_address_container>view{border-radius: 100px;width:44rpx;height:44rpx; line-height: 44rpx; box-sizing: border-box;}
+.default_address_container image{border-radius: 100px; width:44rpx;height:44rpx;}
+
+.dont_use_container{background-color: #fff; width: 100%; height: 96rpx; margin-top: 18rpx;}
+/* 列表 */
+.list_container{padding: 0 32rpx 140rpx;}
+.list_prompt{width: 100%; height: 74rpx;}
+.list_box{padding: 40rpx 32rpx;width: 100%; margin-top: 88rpx;}
+.coupon_list_container{background-color: #fff; margin-bottom: 20rpx;height:296rpx;border-radius:16rpx;}
+.coupon_state{width:160rpx;height:58rpx;line-height:58rpx; border-radius:32rpx 0px 0px 32rpx; color: #fff;}
+.coupon_price{width: 222rpx; }
+.gray_coupon_color{color:#B2B2B2;}
+.change_color_0 .coupon_state{background:linear-gradient(129.8deg,rgba(255,221,164,1),rgba(192,150,90,1));}
+.change_color_1 .coupon_state{background-color: #D8D8D8;}
+.change_color_0 .canuse_color{color: #ff5541;} 
+.change_color_1 .canuse_color, .change_color_1 .gray_coupon_color{color: #D8D8D8;}
+.coupon_list_center{width: 100%; height: 138rpx;}
+.coupon_list_bottom{width: 100%;}
+.coupon_list_bottom>view{border-top:2rpx solid rgba(246,246,250,1);}
+.select_list_container{width: 120rpx; height: 120rpx;}

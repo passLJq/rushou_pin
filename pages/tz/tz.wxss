@@ -1,0 +1,225 @@
+/* pages/tz/tz.wxss */
+@import "../../common/iconfont.wxss";
+
+page {
+	background-color: #fff;
+	padding-bottom: 20rpx;
+}
+
+view, text {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.my_tou {
+  height: 280rpx;
+  display: flex;
+  align-items: center;
+  padding: 38rpx 52rpx;
+  background:linear-gradient(180deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+}
+
+.my_tou image {
+  width: 144rpx;
+  height: 144rpx;
+  border-radius: 50%;
+  margin-right: 21rpx;
+}
+
+.my_tou .usMsg {
+	height: 120rpx;
+}
+.my_tou .usMsg > text {
+	font-size: 28rpx;
+	font-weight: 400;
+	color: #fff;
+	margin-top: 25rpx;
+}
+
+.my_tou .usMsg .tuanz {
+	font-size: 20rpx;
+	color: #fff;
+	background:rgba(195,26,46,1);
+	border-radius:16rpx;
+	padding: 4rpx 28rpx;
+	border:2rpx solid rgba(255,134,149,1);
+display: flex;
+align-items: center;
+}
+.my_tou .usMsg .tuanz i{
+  font-size: 20rpx;
+  margin-right: 6rpx
+}
+.my_tou .usMsg .tuanz::before {
+	margin-right: 6rpx;
+	/* font-size: 24rpx; */
+}
+
+.my_tou .usn {
+  color: #fff;
+  font-size: 36rpx;
+	font-weight: 600;
+	margin-right: 22rpx;
+	overflow: hidden;text-overflow:ellipsis;white-space: nowrap;
+	max-width: 440rpx;
+}
+
+.s1 {
+	width: 100%;
+	padding: 0 30rpx;
+}
+.s1 > view {
+	width: 100%;
+	height:340rpx;
+	border-radius:10rpx;
+	background-color: #ccc;
+	margin-top: -40rpx;
+}
+
+.myTeam {
+	width: 100%;
+	padding: 0 30rpx;
+	/* margin-top: 20rpx; */
+}
+
+.myTeam .team {
+	width: 100%;
+	padding: 0 30rpx;
+	box-shadow:0rpx 2rpx 20rpx 0rpx rgba(153,153,153,0.15);
+	border-radius:16rpx;
+	margin-top: -40rpx;
+	background-color: #fff;
+}
+
+.myTeam .team .teamTit {
+	width: 100%;
+	padding: 26rpx 0 26rpx;
+	font-size: 34rpx;
+	color: #333;
+	display: flex;
+	align-items: center;
+	font-weight: 600;
+}
+.myTeam .team .teamTit text {
+	font-size: 24rpx;
+	margin-left: 36rpx;
+	color: #999;
+	font-weight: 400;
+}
+
+.myTeam .content {
+	width: 100%;
+	border-top: 2rpx solid #f6f6fa;
+	padding: 20rpx 0;
+}
+.myTeam .content .contit {
+	width: 100%;
+	font-size: 28rpx;
+	color: #333;
+	display: flex;
+	align-items: center;
+}
+.myTeam .content .contit > view {
+	width:8rpx;
+	height:24rpx;
+	background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+	border-radius:6rpx;
+	margin-right: 6rpx;
+}
+
+.teamNum {
+	font-size: 36rpx;font-weight: 600;
+	margin: 20rpx 0 0;
+}
+.myTeam .bottom {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.myTeam .bottom > text {
+	font-size: 24rpx;
+	color: #999;
+}
+
+.myTeam .bottom > text > text {
+ 	font-size: 24rpx;
+	color: #FF5541;
+}
+
+.myTeam .bottom > .btn {
+	font-size:28rpx;
+	font-weight:600;
+	color:#DE9A6B;
+	line-height: 60rpx;
+	padding: 0 40rpx;
+	border-radius:35rpx;
+	border:2rpx solid #DE9A6B;
+}
+
+.pic {
+	width: 100%;
+	margin: 30rpx 0 10rpx;
+	padding: 0 30rpx;
+	box-sizing: border-box;
+}
+.pic > view {
+	width: 100%;
+}
+.pic > view > image {
+	width: 100%;
+	height: 156rpx;
+}
+.navigator-hover {
+	background-color: #fff;
+	opacity: 1;
+}
+.priv {
+	width: 100%;
+	padding: 22rpx 30rpx;
+}
+
+.priv .tit {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.priv .tit view {
+	background:linear-gradient(270deg,rgba(254,51,75,1) 0%,rgba(255,114,130,1) 100%);
+	border-radius: 50%;
+	margin-left: 14rpx;
+}
+
+.priv .tit .d1 {
+	width: 4rpx;
+	height: 4rpx;
+}
+.priv .tit .d2 {
+	width: 8rpx;
+	height: 8rpx;
+}
+.priv .tit .d3 {
+	width: 12rpx;
+	height: 12rpx;
+}
+
+.priv .tit text {
+	margin-left: 14rpx;
+	color: #FE334B;
+	font-weight: 600;
+}
+
+.img {
+	width: 690rpx;
+	margin: 0 auto; 
+	border-radius: 16rpx;
+	box-shadow:0rpx 2rpx 20rpx 0rpx rgba(153,153,153,0.15);
+}
+
+.flexEnd {
+	justify-content: flex-end !important;
+}

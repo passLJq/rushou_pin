@@ -1,0 +1,11 @@
+{
+	"navigationBarBackgroundColor": "#FE334B",
+	"navigationBarTextStyle": "white",
+	"navigationBarTitleText": "入手拼",
+	"backgroundColor": "#fd4c61",
+	"backgroundTextStyle": "light",
+	"usingComponents": {
+		"foot-nav": "/Component/foot-nav/foot-nav"
+	},
+	"enablePullDownRefresh": true
+}

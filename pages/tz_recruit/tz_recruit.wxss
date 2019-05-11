@@ -1,0 +1,75 @@
+/* pages/tz_recruit/tz_recruit.wxss */
+page {
+	background-color: #FF495A;
+}
+page > image {
+	width: 100%;
+}
+view, text {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.priv {
+	width: 100%;
+	padding: 22rpx 30rpx;
+}
+
+.priv .tit {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.priv .tit view {
+	background:#fff;
+	border-radius: 50%;
+	margin-left: 14rpx;
+}
+
+.priv .tit .d1 {
+	width: 4rpx;
+	height: 4rpx;
+}
+.priv .tit .d2 {
+	width: 8rpx;
+	height: 8rpx;
+}
+.priv .tit .d3 {
+	width: 12rpx;
+	height: 12rpx;
+}
+
+.priv .tit text {
+	margin-left: 14rpx;
+	color: #fff;
+	font-weight: 600;
+}
+
+.p {
+	width: 690rpx;
+	margin: 0 auto;
+	border-radius: 16rpx;
+	background:rgba(255,255,255,1);
+}
+
+.baom {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20rpx 0 65rpx 0;
+}
+
+.baom image{
+	width:360rpx;
+	height:360rpx;
+}
+
+.baom text {
+	font-size:28rpx;
+	color:rgba(255,255,255,1);
+	margin: 20rpx 0;
+}

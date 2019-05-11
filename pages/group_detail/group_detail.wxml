@@ -1,0 +1,193 @@
+<!--pages/group_detail/group_detail.wxml-->
+<import src="../../Component/sharebox/sharebox.wxml" />
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+
+<view class="g_box">
+  <view class="g_main">
+    <view class="g_xinqbox">
+      <view class="box_main items">
+        <image src="{{msgdata.proimage}}"></image>
+        <view class="pro_right">
+          <view class="pro_xian">
+            <view class="p1">
+              <text style="margin-right: 15rpx;{{msgdata.buyonegetone || msgdata.headfree ? '' : 'padding: 0'}}" class="allhave"><text style="{{msgdata.buyonegetone || msgdata.headfree ? 'margin-right: 10rpx;' : 'margin: 0;'}}" class="allhaveping gradient">{{msgdata.count > msgdata.gbnum ? msgdata.count : msgdata.gbnum}}人团</text>{{msgdata.headfree ? '团长免单 ' : ''}}{{msgdata.buyonegetone ? '拼一送一' : ''}}</text>{{msgdata.proname}}</view>
+          </view>
+          <view>
+            <view class="p3" style="font-weight: 600;">
+              <text class="p4">¥ </text>{{msgdata.gbprice}}
+              <text class="p5" style="font-weight: 400;">原价{{msgdata.productprice}}</text>
+            </view>
+            <view class="pintishi">如未拼团成功，将全额返还原账户</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 录音 -->
+    <view class="items lubox" wx:if="{{src||ishead}}">
+      <image src='{{msgdata.imgphoto}}' class="toum"></image>
+            <view class='addtou'>
+        <button class='luyin' open-type="openSetting" wx:if="{{status==2}}" bindopensetting="checkluying">请开启录音授权</button>
+        <button class='luyin' bindtap='openvied' wx:if='{{(video==1||video==2)&&status==1}}'>我要开始录音</button>
+        <view class='itemse' wx:if='{{video==3}}'>
+          <view class='vidioimg'>
+            <image src='{{bosrc}}' mode='aspectFit' bindtap='playRecord'></image>
+            <text class='vitime'>{{videotime}}''</text>
+          </view>
+          <text class='lu' bindtap='ales' data-del='1' wx:if='{{ishead}}'>重新录制</text>
+        </view>
+      </view>
+    </view>
+    <view class="gpbox">
+      <view class="gp1" style="font-weight: 600;">{{commit}}</view>
+      <view class="gp2" wx:if="{{msgdata.gbstate==1&&!overtime}}">
+        <text>还差<text style="color:#FF5541">{{msgdata.num}}</text>人 距离结束</text>
+        <text style="color:#FF5541;margin-left:16rpx;">{{days<=0?'':day+'天'}}{{hours}}:{{minutes}}:{{seconds}}</text>
+      </view>
+       <view class="gp2" wx:if="{{msgdata.gbstate>=3&&!options.ruid}}">
+        <text>本次未成团，退款已原路退回</text>
+      </view>
+      <view class="items xiabox" style="{{allping.length>=5?'width:80%;flex-wrap:wrap':''}}">
+        <view class="canyu">
+          <image src='{{msgdata.imgphoto}}'></image>
+          <view class="or_name">{{msgdata.realname ? filters.hideName(msgdata.realname) : ' '}}</view>
+          <view class="tuanzhang">
+            <view class="gradient">团长</view>
+          </view>
+        </view>
+        <view class="canyu" wx:for="{{allping}}">
+          <image src="{{msgdata.groupbuylist[index].head?msgdata.groupbuylist[index].head:(msgdata.groupbuylist[index].head==''?'../../image/man.jpg':'../../image/hui.png')}}"></image>
+          <view class="or_name">{{msgdata.groupbuylist[index].name?filters.hideName(msgdata.groupbuylist[index].name):(msgdata.gbstate>=3?'':'待邀请')}}</view>
+        </view>
+      </view>
+    </view>
+		<view class='rule'>
+  <view class="rule1">玩法说明</view>
+  <view style="position:relative">
+    <view class="rule2">
+      <image src="../../image/wanfashuoming@3x.png" mode="widthFix"></image>
+    </view>
+    <view class="rule3 rule4">
+      <view>选择商品</view>
+      <view>发起拼团</view>
+    </view>
+    <view class="rule3 rule5">
+      <view>直购支付</view>
+      <view>0元开通</view>
+    </view>
+    <view class="rule3 rule6">
+      <view>邀请拼团</view>
+      <view>参团支付</view>
+    </view>
+    <view class="rule3 rule7">
+      <view>人满成团</view>
+      <view>佣金到账</view>
+    </view>
+  </view>
+</view>
+  </view>
+</view>
+
+<!-- <view class='rule'>
+  <view class="rule1">玩法说明</view>
+  <view style="position:relative">
+    <view class="rule2">
+      <image src="../../image/wanfashuoming@3x.png" mode="widthFix"></image>
+    </view>
+    <view class="rule3 rule4">
+      <view>选择商品</view>
+      <view>参加活动</view>
+    </view>
+    <view class="rule3 rule5">
+      <view>支付开团</view>
+      <view>或拼团</view>
+    </view>
+    <view class="rule3 rule6">
+      <view>邀请好友</view>
+      <view>参团支付</view>
+    </view>
+    <view class="rule3 rule7">
+      <view>人满成功</view>
+      <view>失败退款</view>
+    </view>
+  </view>
+</view> -->
+
+<view class="btnzu">
+  <!-- <view class="othbtn" bindtap='goindex'>其他拼团</view> -->
+  <navigator class='btnorder' hover-class="none" open-type="navigate" url="/pages/orderdetail/orderdetail?orderid={{options.orderid}}" wx:if="{{msgdata.gbstate==2&&!options.ruid}}">{{btnmessg}}</navigator>
+  <view class='wxbtn gradient' bindtap='gobuy' wx:else>{{btnmessg}}</view>
+</view>
+<!-- 分享弹窗 -->
+<template is="sharebox" data="{{showshare, zuan: zuan,haibao:haibao}}" />
+
+
+  <view class='zhezao' wx:if='{{openvideo}}' catchtouchmove="nomove" bindtap='openvied'></view>
+
+  <view class='bbox' style="{{openvideo?'display:block':'display:none'}}">
+    <view class="circle-box">
+      <canvas class="circle" style="width:70px; height:70px;" canvas-id="canvasCircle">
+      </canvas>
+      <canvas class="circle" style="z-index:99999;width:70px; height:70px;" canvas-id="canvasArcCir">
+      </canvas>
+      <view class='bo' wx:if='{{video==1}}'>
+        <i bindtap='drawCircle' class='iconfont icon-bofang'></i>
+      </view>
+      <view class='bo' style='bottom:45px' wx:elif='{{video==2}}'>
+        <i bindtap='stopcircle' class='iconfont icon-zanting' style='font-size:42px'></i>
+      </view>
+      <view class='bo' style='bottom:45px' wx:elif='{{video==3}}'>
+        <i class='iconfont icon-yuan' style='font-size:42px'></i>
+      </view>
+      <text class='statlu' wx:if='{{video==1}}'>开始录制</text>
+      <text class='statlu' wx:elif='{{video==2}}'>录制中</text>
+
+      <block wx:if='{{video==3}}'>
+        <view class='queren' bindtap='openvied' data-que='1'>
+          <i class='iconfont icon-queren'></i>
+          <view>确认</view>
+        </view>
+        <view class='del' bindtap='delevied'>
+          <i class='iconfont icon-Close'></i>
+          <view>删除</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+<!-- 规格弹窗 -->
+    <!-- <view class="sku_prompt_container" hidden="{{!skuBoxBottom}}" bindtap="showSku"></view>
+  <view class="sku_prompt_content transition_ease_in_out" style="padding-bottom: {{isIphoneX? '48rpx;': '0;'}}bottom: {{skuBoxBottom ? '0' : '-100%'}}" data-id="box_container">
+    <view class="flex sku_prompt_top overflow_boxsizing">
+      <view class="box_proimg_container">
+        <image src="{{msgdata.proimage?msgdata.proimage:'/image/bkg_cover.jpg'}}"></image>
+      </view>
+      <view class="flex_1 flex flex_v flex_pack_justify_between sku_top_right">
+        <view class="color_333 font_14 line_over_2" style="line-height: 40rpx;">
+          <text>{{msgdata.proname}}</text>
+        </view>
+        <view class="flex flex_align_center">
+          <view class="new_price_container">￥
+            <text class="new_price">{{filters.toFix(buyPrice,2)}}</text>
+          </view>
+          <view class="old_price">
+            <text class="font_14 color_999">￥{{filters.toFix(msgdata.productprice,2)}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:for="{{spec}}">
+      <view class="product_imgs_title padding16 font_14">{{item.specname}}</view>
+      <view class="padding16">
+        <block wx:for="{{filters.toJson(item.spectext)}}" wx:for-index="idx" wx:for-item="texts" >
+          <text class="btn_sku {{filters.isHasMsg(specval, index, texts.valueid)?'actived_btn_sku': ''}}" data-valueid="{{texts.valueid}}" data-len="{{index}}" bindtap="changSku">{{texts.ctmtext}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="flex flex_pack_center flex_align_center font_14 overflow_boxsizing" style="height: 110rpx; padding: 20rpx 32rpx;">
+      <view class="btn_buy gradient" bindtap="realgbuy">
+        <text>拼团购</text>
+      </view>
+    </view>
+  </view> -->
+
+	<specpop skuBoxBottom="{{skuBoxBottom}}" isBuyGroup="{{true}}" ptDetailData="{{ptDetailData}}" bind:close="showSku" msg="{{msg}}" specData="{{specData}}" groupBuyList="{{msgdata}}"></specpop>

@@ -1,0 +1,53 @@
+/* pages/search/search.wxss */
+/* pages/search/search.wxss */
+@import "../wxSearch/wxSearch.wxss";
+@import "../../common/iconfont.wxss";
+page{background: #fff}
+.search-anniu{
+  font-size: 13px !important;
+  color: #000
+}
+.item{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.histryzi{
+  border-radius: 30px;
+  background: #fff;
+  color: #999999;
+  padding:3px 15px;
+  margin: 5px 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid #D8D8D8
+}
+.search-title{
+  margin: 10px 10px;
+  font-size: 28rpx;
+  color: #333;
+}
+.hstrybox{
+  margin-top: 10px;
+  position: relative;
+  font-size: 24rpx;
+  color: #CDA86E
+}
+.clears{
+  position: absolute;
+  right: 3%;
+  top:1px
+}
+.icon-sousuo{color: #999999}
+.itemsec{display: flex;align-items: center;flex:8;background-color:#F6F6FA;border-radius:8px; padding-left: 10rpx}
+.wxSearch-input{
+  flex: 8; 
+  background-color:#F6F6FA;
+  padding: 5px 10px;
+  border-radius: 0px;
+  font-size: 24rpx;
+  padding-left: 10rpx
+}
+.qie{flex: 1;}
+.qie image{width: 48rpx;height: 48rpx}

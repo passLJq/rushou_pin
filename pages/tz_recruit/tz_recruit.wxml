@@ -1,0 +1,47 @@
+<image mode="widthFix" src="https://images.rushouvip.cn/IMG/zm_head.png"></image>
+
+<view class="priv">
+  <view class="tit">
+	  <view class="d1"></view>
+	  <view class="d2"></view>
+	  <view class="d3"></view>
+		<text>店主特权</text>
+	  <view class="d3"></view>
+	  <view class="d2"></view>
+	  <view class="d1"></view>
+	</view>
+</view>
+
+<image class="p" mode="widthFix" src="https://images.rushouvip.cn/IMG/tztq.png"></image>
+
+<view class="priv">
+  <view class="tit">
+	  <view class="d1"></view>
+	  <view class="d2"></view>
+	  <view class="d3"></view>
+		<text>关于入手拼</text>
+	  <view class="d3"></view>
+	  <view class="d2"></view>
+	  <view class="d1"></view>
+	</view>
+</view>
+
+<image class="p" mode="widthFix" src="https://images.rushouvip.cn/IMG/gyrsp.png"></image>
+<image mode="widthFix" src="https://images.rushouvip.cn/IMG/ftlc.png"></image>
+
+<view class="priv">
+  <view class="tit">
+	  <view class="d1"></view>
+	  <view class="d2"></view>
+	  <view class="d3"></view>
+		<text>团长报名流程</text>
+	  <view class="d3"></view>
+	  <view class="d2"></view>
+	  <view class="d1"></view>
+	</view>
+</view>
+
+<view class="baom">
+  <image src="https://images.rushouvip.cn/IMG/rspewm.jpg"></image>
+	<text>扫码加金牌团长咨询参团</text>
+</view>
